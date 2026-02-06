@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="CharacterStats" format=3 uid="uid://d08htghglqwb2"]
+
+[ext_resource type="Script" uid="uid://b2w56uor8br3r" path="res://objects/characters/character_stats.gd" id="1_ojbem"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_ojbem")

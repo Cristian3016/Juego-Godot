@@ -1,0 +1,170 @@
+[gd_scene format=3 uid="uid://d4m40u0l0q5ve"]
+
+[ext_resource type="Script" uid="uid://c5pehudfy0muc" path="res://objects/characters/platformer_character_2d.gd" id="1_2ud1i"]
+[ext_resource type="Script" uid="uid://c0kb6pot0hglm" path="res://objects/health.gd" id="2_2nu1q"]
+[ext_resource type="Script" uid="uid://cgpvxwvk8u1eu" path="res://objects/characters/facing.gd" id="2_soqyn"]
+[ext_resource type="Texture2D" uid="uid://bjb2a70cv7o8a" path="res://art/kenny_1_bit_platformer/monochrome_tilemap_transparent_packed.png" id="3_wtn5y"]
+[ext_resource type="Script" uid="uid://dxh1ousm2ins3" path="res://objects/object_sprite_2d.gd" id="4_2oxkc"]
+[ext_resource type="Script" uid="uid://d3jj68hf2kmap" path="res://objects/hutbox_2d.gd" id="4_dpkh5"]
+[ext_resource type="Resource" uid="uid://d08htghglqwb2" path="res://objects/characters/enemies/invader_stats.tres" id="5_a6y7p"]
+[ext_resource type="Resource" uid="uid://baucdutvpsqdq" path="res://data/animation_names.tres" id="6_bmt0v"]
+[ext_resource type="Script" uid="uid://bb0t2ovl7wifo" path="res://addons/beehave/nodes/beehave_tree.gd" id="8_11kla"]
+[ext_resource type="Script" uid="uid://8hn4kne15ac5" path="res://addons/beehave/nodes/composites/selector.gd" id="9_d26pn"]
+[ext_resource type="Script" uid="uid://dme5f24l0edsf" path="res://addons/beehave/blackboard.gd" id="9_vxhmp"]
+[ext_resource type="Script" uid="uid://cg016dbe7gs1x" path="res://addons/beehave/nodes/composites/sequence.gd" id="10_d3um0"]
+[ext_resource type="Script" uid="uid://r5dnrxsy3gn6" path="res://objects/object_blackboard_setter.gd" id="10_wcl47"]
+[ext_resource type="Resource" uid="uid://4ob6ln4exl5q" path="res://data/blackboard_keys.tres" id="12_26wfx"]
+[ext_resource type="Script" uid="uid://uvcqfgbhkuk7" path="res://objects/is_dead_condition.gd" id="15_2nu1q"]
+[ext_resource type="Script" uid="uid://d00ivkl8v52uu" path="res://objects/play_death_action.gd" id="16_gdtuv"]
+[ext_resource type="Script" uid="uid://cp6cfg5cfe7g3" path="res://objects/is_hit_condition.gd" id="17_gdtuv"]
+[ext_resource type="Script" uid="uid://t0x143xp64hx" path="res://objects/play_hit_action.gd" id="18_lt0ww"]
+[ext_resource type="Script" uid="uid://b2uvnro6wxuv2" path="res://objects/characters/wander_action.gd" id="19_lt0ww"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yptfx"]
+atlas = ExtResource("3_wtn5y")
+region = Rect2(64, 256, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0vg47"]
+atlas = ExtResource("3_wtn5y")
+region = Rect2(48, 256, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c1q50"]
+atlas = ExtResource("3_wtn5y")
+region = Rect2(0, 256, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4li2v"]
+atlas = ExtResource("3_wtn5y")
+region = Rect2(16, 256, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4e81u"]
+atlas = ExtResource("3_wtn5y")
+region = Rect2(32, 256, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c0sno"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yptfx")
+}],
+"loop": false,
+"name": &"death",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0vg47")
+}],
+"loop": false,
+"name": &"hit",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c1q50")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4li2v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4e81u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0vg47")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6ma5j"]
+radius = 5.0
+height = 12.0
+
+[node name="Invader" type="CharacterBody2D" unique_id=59411685]
+script = ExtResource("1_2ud1i")
+stats = ExtResource("5_a6y7p")
+
+[node name="Health" type="Node" parent="." unique_id=1890214490]
+script = ExtResource("2_2nu1q")
+stats = ExtResource("5_a6y7p")
+
+[node name="Facing" type="Node2D" parent="." unique_id=93698457 node_paths=PackedStringArray("character")]
+script = ExtResource("2_soqyn")
+character = NodePath("..")
+
+[node name="CharacterSprite2D" type="AnimatedSprite2D" parent="Facing" unique_id=2088237634]
+position = Vector2(0, -8)
+sprite_frames = SubResource("SpriteFrames_c0sno")
+animation = &"hit"
+autoplay = "walk"
+script = ExtResource("4_2oxkc")
+stats = ExtResource("5_a6y7p")
+animation_names = ExtResource("6_bmt0v")
+
+[node name="Hurtbox2D" type="Area2D" parent="Facing" unique_id=1076972257 node_paths=PackedStringArray("health")]
+script = ExtResource("4_dpkh5")
+health = NodePath("../../Health")
+
+[node name="HurtboxShape" type="CollisionShape2D" parent="Facing/Hurtbox2D" unique_id=313982383]
+position = Vector2(0, -5)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_6ma5j")
+
+[node name="PhysicsShape" type="CollisionShape2D" parent="." unique_id=1756874423]
+position = Vector2(0, -5)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_6ma5j")
+
+[node name="Blackboard" type="Node" parent="." unique_id=945157792]
+script = ExtResource("9_vxhmp")
+
+[node name="ObjectBlackboardSetter" type="Node" parent="Blackboard" unique_id=1801166351 node_paths=PackedStringArray("blackboard", "health", "hurtbox")]
+script = ExtResource("10_wcl47")
+blackboard = NodePath("..")
+keys = ExtResource("12_26wfx")
+health = NodePath("../../Health")
+hurtbox = NodePath("../../Facing/Hurtbox2D")
+
+[node name="InvaderBeehaveTree" type="Node" parent="." unique_id=942126564 node_paths=PackedStringArray("blackboard", "actor")]
+script = ExtResource("8_11kla")
+blackboard = NodePath("../Blackboard")
+actor = NodePath("..")
+
+[node name="SelectorComposite" type="Node" parent="InvaderBeehaveTree" unique_id=1906661680]
+script = ExtResource("9_d26pn")
+
+[node name="DeathSequence" type="Node" parent="InvaderBeehaveTree/SelectorComposite" unique_id=133347092]
+script = ExtResource("10_d3um0")
+
+[node name="IsDeadCondition" type="Node" parent="InvaderBeehaveTree/SelectorComposite/DeathSequence" unique_id=167709732]
+script = ExtResource("15_2nu1q")
+keys = ExtResource("12_26wfx")
+metadata/_custom_type_script = "uid://cbnbvj8prv63i"
+
+[node name="PlayDeathAction" type="Node" parent="InvaderBeehaveTree/SelectorComposite/DeathSequence" unique_id=547335368 node_paths=PackedStringArray("sprite")]
+script = ExtResource("16_gdtuv")
+sprite = NodePath("../../../../Facing/CharacterSprite2D")
+animation_names = ExtResource("6_bmt0v")
+metadata/_custom_type_script = "uid://cv74jjdrwevpr"
+
+[node name="HitSequence" type="Node" parent="InvaderBeehaveTree/SelectorComposite" unique_id=1190909997]
+script = ExtResource("10_d3um0")
+
+[node name="IsHitCondition" type="Node" parent="InvaderBeehaveTree/SelectorComposite/HitSequence" unique_id=1914453745]
+script = ExtResource("17_gdtuv")
+keys = ExtResource("12_26wfx")
+metadata/_custom_type_script = "uid://cbnbvj8prv63i"
+
+[node name="PlayHitAction" type="Node" parent="InvaderBeehaveTree/SelectorComposite/HitSequence" unique_id=840686865 node_paths=PackedStringArray("sprite")]
+script = ExtResource("18_lt0ww")
+sprite = NodePath("../../../../Facing/CharacterSprite2D")
+animation_names = ExtResource("6_bmt0v")
+blackboard_keys = ExtResource("12_26wfx")
+metadata/_custom_type_script = "uid://cv74jjdrwevpr"
+
+[node name="WanderAction" type="Node" parent="InvaderBeehaveTree/SelectorComposite" unique_id=1859306458 node_paths=PackedStringArray("timer")]
+script = ExtResource("19_lt0ww")
+timer = NodePath("WanderDelayTimer")
+
+[node name="WanderDelayTimer" type="Timer" parent="InvaderBeehaveTree/SelectorComposite/WanderAction" unique_id=441853960]
+wait_time = 0.5

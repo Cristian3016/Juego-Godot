@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="BlackboardKeys" load_steps=2 format=3 uid="uid://4ob6ln4exl5q"]
+
+[ext_resource type="Script" path="res://data/blackboard_keys.gd" id="1_cvvgk"]
+
+[resource]
+script = ExtResource("1_cvvgk")
+death_key = &"death"

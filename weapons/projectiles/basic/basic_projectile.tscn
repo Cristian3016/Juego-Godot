@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://dw7ts4s1usvlf"]
+
+[ext_resource type="Script" uid="uid://ckntf7hu8kly7" path="res://weapons/projectiles/projectile.gd" id="1_jbei8"]
+[ext_resource type="Texture2D" uid="uid://bjb2a70cv7o8a" path="res://art/kenny_1_bit_platformer/monochrome_tilemap_transparent_packed.png" id="2_bj16t"]
+[ext_resource type="Script" uid="uid://btcracfj60qyr" path="res://weapons/hitbox_2d.gd" id="3_ooudm"]
+[ext_resource type="Resource" uid="uid://bslyjdnvau5og" path="res://weapons/projectiles/basic/weapon_stats_basic.tres" id="4_5l7qs"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1apwn"]
+atlas = ExtResource("2_bj16t")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g3kg6"]
+atlas = ExtResource("2_bj16t")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7mixb"]
+atlas = ExtResource("2_bj16t")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gc7bq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1apwn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g3kg6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7mixb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ao55n"]
+radius = 3.2
+
+[node name="BasicProjectile" type="RigidBody2D" unique_id=2012931409 node_paths=PackedStringArray("hitbox")]
+collision_layer = 64
+collision_mask = 33
+gravity_scale = 0.2
+script = ExtResource("1_jbei8")
+initial_velocity = 198.0
+hitbox = NodePath("Hitbox2D")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=908313443]
+scale = Vector2(1.125, 1.0625)
+sprite_frames = SubResource("SpriteFrames_gc7bq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1644336808]
+shape = SubResource("CircleShape2D_ao55n")
+
+[node name="Hitbox2D" type="Area2D" parent="." unique_id=1743828681]
+collision_layer = 64
+script = ExtResource("3_ooudm")
+weapon_stats = ExtResource("4_5l7qs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox2D" unique_id=2055403280]
+shape = SubResource("CircleShape2D_ao55n")

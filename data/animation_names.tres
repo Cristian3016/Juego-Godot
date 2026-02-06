@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="AnimationNames" load_steps=2 format=3 uid="uid://baucdutvpsqdq"]
+
+[ext_resource type="Script" path="res://data/animation_names.gd" id="1_x330s"]
+
+[resource]
+script = ExtResource("1_x330s")
+death = &"death"

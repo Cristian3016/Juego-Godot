@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cnyhn6o2kfpox"]
+
+[ext_resource type="PackedScene" uid="uid://cc813mmhwp878" path="res://levels/Level1.tscn" id="1_ycqm7"]
+
+[node name="World" type="Node2D"]
+
+[node name="Level1" parent="." instance=ExtResource("1_ycqm7")]
+position = Vector2(5, -21)
+
+[node name="Projectiles" type="Node2D" parent="." groups=["projectiles_parent"]]

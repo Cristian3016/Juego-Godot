@@ -1,0 +1,65 @@
+[gd_scene load_steps=13 format=3 uid="uid://ctojfddxmstdw"]
+
+[ext_resource type="Script" path="res://objects/characters/player/player.gd" id="1_citmr"]
+[ext_resource type="SpriteFrames" uid="uid://b2572p4gn6fkj" path="res://objects/characters/player/player_sprite_frames.tres" id="1_qkbe2"]
+[ext_resource type="Resource" uid="uid://km57rjtnhtke" path="res://objects/characters/player/player_input_actions.tres" id="2_ldhcf"]
+[ext_resource type="Script" path="res://objects/characters/facing.gd" id="3_3ctrg"]
+[ext_resource type="Script" path="res://objects/characters/player/player_input.gd" id="5_7q20q"]
+[ext_resource type="Script" path="res://objects/characters/shooter.gd" id="6_5gsk5"]
+[ext_resource type="Script" path="res://objects/characters/player/hand_anchor.gd" id="6_qkjrm"]
+[ext_resource type="Resource" uid="uid://ccbgm8ehpi6u8" path="res://weapons/projectiles/basic/fireable_basic.tres" id="7_e7001"]
+[ext_resource type="Resource" uid="uid://conblu3i5hqh3" path="res://data/group_names.tres" id="8_gigha"]
+[ext_resource type="Texture2D" uid="uid://bjb2a70cv7o8a" path="res://art/kenny_1_bit_platformer/monochrome_tilemap_transparent_packed.png" id="9_3kmxk"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_podps"]
+radius = 5.0
+height = 10.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7j5tp"]
+atlas = ExtResource("9_3kmxk")
+region = Rect2(128, 192, 16, 14)
+
+[node name="Player" type="CharacterBody2D"]
+scale = Vector2(-1, 1)
+collision_layer = 2
+script = ExtResource("1_citmr")
+move_speed = 340.0
+jump_force = 500.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -5)
+shape = SubResource("CapsuleShape2D_podps")
+
+[node name="Facing" type="Node2D" parent="." node_paths=PackedStringArray("character")]
+script = ExtResource("3_3ctrg")
+character = NodePath("..")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Facing"]
+position = Vector2(0, -8)
+scale = Vector2(-1, 1)
+sprite_frames = ExtResource("1_qkbe2")
+animation = &"run"
+
+[node name="PlayerInput" type="Node2D" parent="." node_paths=PackedStringArray("player", "shooter")]
+script = ExtResource("5_7q20q")
+player = NodePath("..")
+shooter = NodePath("../HandAnchor/Shooter")
+actions = ExtResource("2_ldhcf")
+
+[node name="HandAnchor" type="Node2D" parent="."]
+position = Vector2(0, -3)
+script = ExtResource("6_qkjrm")
+
+[node name="Shooter" type="RayCast2D" parent="HandAnchor"]
+position = Vector2(-21, 0)
+target_position = Vector2(0, 0)
+hit_from_inside = true
+script = ExtResource("6_5gsk5")
+fireable = ExtResource("7_e7001")
+group_names = ExtResource("8_gigha")
+
+[node name="Sprite2D" type="Sprite2D" parent="HandAnchor/Shooter"]
+position = Vector2(7, 0)
+rotation = 1.5708
+texture = SubResource("AtlasTexture_7j5tp")
+flip_v = true
