@@ -4,14 +4,13 @@ extends RayCast2D
 ##Launches projectiles when try_shoot is called successfully.
 
 @export var fireable : Fireable
-@export var group_names : GroupNames
 
 @export var default_direction := Vector2.RIGHT
 
 var projectiles_parent : Node
 
 func _ready() -> void:
-	projectiles_parent = get_tree().get_first_node_in_group(group_names.projectiles_parent_group)
+	projectiles_parent = get_tree().get_first_node_in_group(GlobalNames.gruops.projectiles_parent_group)
 	assert(projectiles_parent != null, "Projectiles node is required for this script to work.")
 	
 func try_shoot() -> bool:

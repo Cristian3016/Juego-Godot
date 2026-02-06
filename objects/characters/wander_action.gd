@@ -3,8 +3,6 @@ extends ActionLeaf
 ## Randoly move character left and right after as set timer
 @export var timer      : Timer
 @export var sprite     : AnimatedSprite2D
-@export var animations : AnimationNames
-@export var keys       : BlackboardKeys
 
 @onready var random_gen = RandomNumberGenerator.new()
 var character : PlatformerCharacter2D
@@ -17,14 +15,14 @@ func after_run(actor: Node, blackboard: Blackboard) -> void:
 
 func before_run(p_actor: Node, blackboard: Blackboard) -> void:
 	character= p_actor as PlatformerCharacter2D
-	sprite.play(animations.walk)
+	sprite.play(GlobalNames.animations.walk)
 	timer.timeout.connect(_on_timer_timeout)
 	timer.start()
 	randomizer_wandering()
 
 func tick(p_actor: Node, p_blackboard: Blackboard) -> int:
-	var is_alive = p_blackboard.get_value(keys.is_alive)
-	var is_hit = p_blackboard.get_value(keys.is_hit)
+	var is_alive = p_blackboard.get_value(GlobalNames.keys.is_alive)
+	var is_hit = p_blackboard.get_value(GlobalNames.keys.is_hit)
 	
 	if is_alive == false || is_hit == true :
 		return FAILURE

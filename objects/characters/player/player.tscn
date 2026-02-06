@@ -9,7 +9,6 @@
 [ext_resource type="Script" uid="uid://dg8uokegvd76i" path="res://objects/characters/shooter.gd" id="6_5gsk5"]
 [ext_resource type="Script" uid="uid://dvn8chcrxdvbl" path="res://objects/characters/player/hand_anchor.gd" id="6_qkjrm"]
 [ext_resource type="Resource" uid="uid://ccbgm8ehpi6u8" path="res://weapons/projectiles/basic/fireable_basic.tres" id="7_e7001"]
-[ext_resource type="Resource" uid="uid://conblu3i5hqh3" path="res://data/group_names.tres" id="8_gigha"]
 [ext_resource type="Texture2D" uid="uid://bjb2a70cv7o8a" path="res://art/kenny_1_bit_platformer/monochrome_tilemap_transparent_packed.png" id="9_3kmxk"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_podps"]
@@ -56,7 +55,6 @@ target_position = Vector2(0, 0)
 hit_from_inside = true
 script = ExtResource("6_5gsk5")
 fireable = ExtResource("7_e7001")
-group_names = ExtResource("8_gigha")
 
 [node name="Sprite2D" type="Sprite2D" parent="HandAnchor/Shooter" unique_id=1066648030]
 position = Vector2(7, 0)

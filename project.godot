@@ -23,6 +23,7 @@ config/icon="res://icon.svg"
 
 BeehaveGlobalMetrics="*uid://c3ktl6ontsdt7"
 BeehaveGlobalDebugger="*uid://bl3ma400hpvsh"
+GlobalNames="*uid://bvtfntsyh1sqx"
 
 [editor_plugins]
 

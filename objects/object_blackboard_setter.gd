@@ -1,7 +1,6 @@
 extends Node
 
 @export var blackboard : Blackboard
-@export var keys       : BlackboardKeys
 @export var health     : Health :
 	set(value):
 		if is_instance_valid(health):
@@ -23,8 +22,8 @@ extends Node
 			hurtbox.was_hit.connect(_on_was_hit)
 						
 func _on_is_alive_changed(p_value : bool):
-	blackboard.set_value(keys.is_alive, p_value)
+	blackboard.set_value(GlobalNames.keys.is_alive, p_value)
 	
 func _on_was_hit(_p_damage_dealt : int):
-	blackboard.set_value(keys.is_hit, true)
+	blackboard.set_value(GlobalNames.keys.is_hit, true)
 	
