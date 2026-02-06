@@ -13,6 +13,7 @@ var is_wandering = false
 func after_run(actor: Node, blackboard: Blackboard) -> void:
 	is_wandering = false
 	timer.timeout.disconnect(_on_timer_timeout)
+	character.velocity = Vector2.ZERO
 
 func before_run(p_actor: Node, blackboard: Blackboard) -> void:
 	character= p_actor as PlatformerCharacter2D
