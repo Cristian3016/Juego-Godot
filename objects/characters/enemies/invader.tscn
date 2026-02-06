@@ -95,7 +95,7 @@ character = NodePath("..")
 [node name="CharacterSprite2D" type="AnimatedSprite2D" parent="Facing" unique_id=2088237634]
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_c0sno")
-animation = &"hit"
+animation = &"death"
 autoplay = "walk"
 script = ExtResource("4_2oxkc")
 stats = ExtResource("5_a6y7p")
@@ -162,9 +162,12 @@ animation_names = ExtResource("6_bmt0v")
 blackboard_keys = ExtResource("12_26wfx")
 metadata/_custom_type_script = "uid://cv74jjdrwevpr"
 
-[node name="WanderAction" type="Node" parent="InvaderBeehaveTree/SelectorComposite" unique_id=1859306458 node_paths=PackedStringArray("timer")]
+[node name="WanderAction" type="Node" parent="InvaderBeehaveTree/SelectorComposite" unique_id=1859306458 node_paths=PackedStringArray("timer", "sprite")]
 script = ExtResource("19_lt0ww")
 timer = NodePath("WanderDelayTimer")
+sprite = NodePath("../../../Facing/CharacterSprite2D")
+animations = ExtResource("6_bmt0v")
+keys = ExtResource("12_26wfx")
 
 [node name="WanderDelayTimer" type="Timer" parent="InvaderBeehaveTree/SelectorComposite/WanderAction" unique_id=441853960]
 wait_time = 0.5
