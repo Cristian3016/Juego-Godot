@@ -4,9 +4,9 @@ extends ConditionLeaf
 @export var keys : BlackboardKeys
 
 func tick(p_actor: Node, p_blackboard: Blackboard):
-	var is_hit = p_blackboard.get_value(GlobalNames.keys.is_hit, false)
+	var hit_data = p_blackboard.get_value(GlobalNames.keys.hit_data) 
 	
-	if is_hit:
+	if hit_data:
 		return SUCCESS
 	else:
 		return FAILURE

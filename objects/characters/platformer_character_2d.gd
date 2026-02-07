@@ -18,7 +18,6 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 ## Intenta hacer que el personaje salte si está en el suelo
-## Tries to make the character jump if it's on the ground
 func try_jump() -> bool:	 
 	if stats.can_ground_jump and is_on_floor():
 		_jump()
@@ -26,12 +25,10 @@ func try_jump() -> bool:
 	return false
 
 ## Aplica el salto al personaje
-## Applies the jump to the character
 func _jump():
 	velocity.y = -stats.jump_force  
 
-## Aplica la gravedad correctamente
-## Applies gravity correctly
+## Aplica la gravedad
 func _apply_gravity(delta : float):
 	var gravity = ProjectSettings.get("physics/2d/default_gravity")
 	if not is_on_floor():

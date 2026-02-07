@@ -1,6 +1,6 @@
 class_name ObjectStats
 extends Resource
-## Statistics about an object
+## Estadísticas sobre un objeto
 
 @warning_ignore("unused_signal")
 signal death

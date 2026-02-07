@@ -1,6 +1,7 @@
 class_name WanterAction
 extends ActionLeaf
-## Randoly move character left and right after as set timer
+## Mueve el personaje aleatoriamente hacia la izquierda 
+## y la derecha según el temporizador establecido
 @export var timer      : Timer
 @export var sprite     : AnimatedSprite2D
 
@@ -22,9 +23,9 @@ func before_run(p_actor: Node, blackboard: Blackboard) -> void:
 
 func tick(p_actor: Node, p_blackboard: Blackboard) -> int:
 	var is_alive = p_blackboard.get_value(GlobalNames.keys.is_alive)
-	var is_hit = p_blackboard.get_value(GlobalNames.keys.is_hit)
+	var hit_data : HitData = p_blackboard.get_value(GlobalNames.keys.hit_data)
 	
-	if is_alive == false || is_hit == true :
+	if is_alive == false || is_instance_valid(hit_data) :
 		return FAILURE
 		
 	if is_wandering:

@@ -1,7 +1,6 @@
 class_name Projectile
 extends RigidBody2D
-## Moving object launched from some source that can collide with other objects  
-## within the scene
+## Objeto en movimiento lanzado desde alguna fuente que puede colisionar con otros objetos dentro de la escena
 @export var remove_on_hit : bool = true
 @export_range(0, 300, .2, "or_greater") var initial_velocity : float = 300.0
 @export var hitbox : Hitbox2D :

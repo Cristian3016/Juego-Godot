@@ -1,12 +1,12 @@
 class_name PlayDeathAction
 extends ActionLeaf
-## Plays a death animation and returns success when it is finished
+## Reproduce una animación de muerte y devuelve el éxito cuando termina.
 
 @export var sprite : AnimatedSprite2D
 
 var actor : Node 
 
-func before_run(p_actor: Node, blackboard: Blackboard) -> void:
+func before_run(p_actor: Node, _p_blackboard: Blackboard) -> void:
 	actor = p_actor
 	sprite.play(GlobalNames.animations.death)
 	sprite.animation_finished.connect(_on_animation_finished)

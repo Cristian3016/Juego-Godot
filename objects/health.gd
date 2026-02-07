@@ -20,7 +20,6 @@ var _current_health : int = 0
 	get:
 		return _current_health
 		
-
 var is_alive = true :
 	set(value):
 		if value == is_alive:
@@ -29,11 +28,9 @@ var is_alive = true :
 		is_alive = value
 		is_alive_changed.emit(is_alive)
 			
-
 func _ready():
 	current_health = stats.max_health
 	health_changed.connect(_on_health_changed)
 	
-
-func _on_health_changed(_p_new : int, p_amount : int):
+func _on_health_changed(_p_new : int, _p_amount : int):
 	is_alive = current_health > 0

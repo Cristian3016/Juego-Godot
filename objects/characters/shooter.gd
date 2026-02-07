@@ -1,7 +1,6 @@
 class_name Shooter 
 extends RayCast2D
 ##Lanza proyectiles cuando try_shoot es llamado exitosamente.
-##Launches projectiles when try_shoot is called successfully.
 
 @export var fireable : Fireable
 
@@ -26,9 +25,10 @@ func _shoot():
 	projectile.name = fireable.display_name
 	projectile.global_position = global_position
 	
-	# Take the default facing direction off the shooter and rotate the direction
-	# vector to the same direction the mouse cursor is pointed in so
-	# the projectile launches in the direction of the cursor
+	# Quita la dirección predeterminada del tirador y gira la dirección del
+	# vector a la misma dirección en la que apunta el cursor del ratón, de modo que
+	# el proyectil se lanza en la dirección del cursor.
+	
 	var launch_direction = -default_direction.rotated(global_rotation)
 	projectile.launch(launch_direction)
 

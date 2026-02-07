@@ -2,7 +2,7 @@ class_name Hitbox2D
 extends Area2D
 ## Area where on enter, can do damage to a hurtbox 
 
-signal hit(target : Hurtbox2D, health_change : int)
+signal hit(hit_data : HitData)
 
 @export var weapon_stats : WeaponStats
 
@@ -15,8 +15,9 @@ func _on_area_entered(p_area : Area2D) -> void:
 	if not hurtbox || not hurtbox.get_hittable():
 		return
 		
-	var dealt = hurtbox.hit(weapon_stats.damage)
-	hit.emit(hurtbox, dealt)
+	var hit_data = HitData.new(self, hurtbox, weapon_stats.damage)
+	var dealt = hurtbox.hit(hit_data)
+	hit.emit(hit_data)
 
 
 	

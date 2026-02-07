@@ -1,22 +1,37 @@
 class_name PlayHitAction
 extends ActionLeaf
 
-@export var sprite          : AnimatedSprite2D
+@export var sprite : AnimatedSprite2D
 
-var is_playing = false 
+@onready var hit_timer: Timer = Timer.new()
 
-func before_run(p_actor: Node, blackboard: Blackboard) -> void:
-	sprite.play(GlobalNames.animations.hit)
-	sprite.animation_finished.connect(_on_animation_finished)
-	is_playing = true 
+func _ready():
+	add_child(hit_timer)
+	hit_timer.timeout.connect(_on_timeout)
 
-func tick(p_actor: Node, blackboard: Blackboard) -> int:
+var is_playing = false
+var hit_data : HitData
+
+func before_run(p_actor: Node, p_blackboard: Blackboard) -> void:
+	hit_data = p_blackboard.get_value(GlobalNames.keys.hit_data)
+	assert(is_instance_valid(hit_data), "Hit data must be set for the play hit action to run")
+	
+	if hit_data.knockback_duration > 0.0:
+		sprite.play(GlobalNames.animations.hit)
+		hit_timer.start(hit_data.knockback_duration)
+		is_playing = true
+	else:
+		is_playing = false	
+
+func after_run(p_actor: Node, p_blackboard: Blackboard) -> void:
+	hit_timer.stop()
+	p_blackboard.set_value(GlobalNames.keys.hit_data, null)
+
+func tick(_p_actor: Node, _p_blackboard: Blackboard) -> int:
 	if is_playing:
 		return RUNNING
 	else:
-		blackboard.set_value(GlobalNames.keys.is_hit, false)
 		return SUCCESS
-	
-func _on_animation_finished():
-	is_playing = false 
-	sprite.animation_finished.disconnect(_on_animation_finished)
+		
+func _on_timeout() -> void:
+	is_playing = false

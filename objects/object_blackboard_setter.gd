@@ -24,6 +24,7 @@ extends Node
 func _on_is_alive_changed(p_value : bool):
 	blackboard.set_value(GlobalNames.keys.is_alive, p_value)
 	
-func _on_was_hit(_p_damage_dealt : int):
-	blackboard.set_value(GlobalNames.keys.is_hit, true)
+func _on_was_hit(p_hit_data : HitData):
+	blackboard.set_value(GlobalNames.keys.hit_data, p_hit_data)
+	
 	
