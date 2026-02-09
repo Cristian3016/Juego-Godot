@@ -15,7 +15,7 @@ func _on_area_entered(p_area : Area2D) -> void:
 	if not hurtbox || not hurtbox.get_hittable():
 		return
 		
-	var hit_data = HitData.new(self, hurtbox, weapon_stats.damage, weapon_stats.knockback)
+	var hit_data = HitData.new(self, hurtbox, weapon_stats)
 	var dealt = hurtbox.hit(hit_data)
 	hit.emit(hit_data)
 

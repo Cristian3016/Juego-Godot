@@ -11,9 +11,8 @@
 [ext_resource type="Script" uid="uid://dme5f24l0edsf" path="res://addons/beehave/blackboard.gd" id="9_vxhmp"]
 [ext_resource type="Script" uid="uid://cg016dbe7gs1x" path="res://addons/beehave/nodes/composites/sequence.gd" id="10_d3um0"]
 [ext_resource type="Script" uid="uid://r5dnrxsy3gn6" path="res://objects/object_blackboard_setter.gd" id="10_wcl47"]
+[ext_resource type="Script" uid="uid://cp6cfg5cfe7g3" path="res://objects/is_hit_condition.gd" id="14_2nu1q"]
 [ext_resource type="Script" uid="uid://uvcqfgbhkuk7" path="res://objects/is_dead_condition.gd" id="15_2nu1q"]
-[ext_resource type="Resource" uid="uid://4ob6ln4exl5q" path="res://data/blackboard_keys.tres" id="15_gdtuv"]
-[ext_resource type="Script" uid="uid://bfn3xa5flj8ss" path="res://objects/hit_has_knockback_condition.gd" id="15_wcl47"]
 [ext_resource type="Script" uid="uid://d00ivkl8v52uu" path="res://objects/play_death_action.gd" id="16_gdtuv"]
 [ext_resource type="Script" uid="uid://t0x143xp64hx" path="res://objects/play_hit_action.gd" id="18_lt0ww"]
 [ext_resource type="Script" uid="uid://b2uvnro6wxuv2" path="res://objects/characters/wander_action.gd" id="19_lt0ww"]
@@ -142,14 +141,14 @@ metadata/_custom_type_script = "uid://cv74jjdrwevpr"
 [node name="HitSequence" type="Node" parent="InvaderBeehaveTree/SelectorComposite" unique_id=1190909997]
 script = ExtResource("10_d3um0")
 
-[node name="HitHasKnockbackCondition" type="Node" parent="InvaderBeehaveTree/SelectorComposite/HitSequence" unique_id=234626193]
-script = ExtResource("15_wcl47")
-keys = ExtResource("15_gdtuv")
-metadata/_custom_type_script = "uid://cbnbvj8prv63i"
+[node name="IsHitCondition" type="Node" parent="InvaderBeehaveTree/SelectorComposite/HitSequence" unique_id=962564532]
+script = ExtResource("14_2nu1q")
+metadata/_custom_type_script = "uid://cp6cfg5cfe7g3"
 
 [node name="PlayHitAction" type="Node" parent="InvaderBeehaveTree/SelectorComposite/HitSequence" unique_id=840686865 node_paths=PackedStringArray("sprite")]
 script = ExtResource("18_lt0ww")
 sprite = NodePath("../../../../Facing/CharacterSprite2D")
+object_stats = ExtResource("5_a6y7p")
 metadata/_custom_type_script = "uid://cv74jjdrwevpr"
 
 [node name="WanderAction" type="Node" parent="InvaderBeehaveTree/SelectorComposite" unique_id=1859306458 node_paths=PackedStringArray("timer", "sprite")]

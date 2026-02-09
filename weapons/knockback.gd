@@ -1,5 +1,13 @@
-class_name KnockbackStats
-extends Resource
+class_name Knockback
+extends Object
 
-@export var force      : float = 100.0
-@export var duration   : float = 0.1
+var direction : Vector2
+var stats : KnockbackStats
+
+func _init(p_direction : Vector2, p_knockback_stats : KnockbackStats) -> void:
+	direction = p_direction
+	stats = p_knockback_stats
+
+func get_force_vector() -> Vector2:
+	var force_vector = direction * stats.force
+	return force_vector
