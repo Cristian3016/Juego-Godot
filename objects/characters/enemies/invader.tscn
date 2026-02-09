@@ -78,6 +78,7 @@ radius = 5.0
 height = 12.0
 
 [node name="Invader" type="CharacterBody2D" unique_id=59411685]
+collision_layer = 8
 script = ExtResource("1_2ud1i")
 stats = ExtResource("5_a6y7p")
 
