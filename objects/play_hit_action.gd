@@ -27,7 +27,7 @@ func before_run(p_actor: Node, p_blackboard: Blackboard) -> void:
 		sprite.play(GlobalNames.animations.hit)
 		hit_timer.start(hit_data.knockback.stats.duration)
 		is_playing = true
-		character.velocity = hit_data.knockback.get_force_vector() * object_stats.knockback_multiplier
+		character.velocity = hit_data.knockback.force_vector * object_stats.knockback_multiplier
 		print(character.velocity)
 	else:
 		is_playing = false	

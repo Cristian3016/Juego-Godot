@@ -6,6 +6,7 @@ signal was_hit(hit_data : HitData)
 
 ## Estadísticas del objeto activo al que se le puede infligir daño al impactar 
 @export var health : Health
+@export var body : CharacterBody2D
 
 func get_hittable() -> bool:
 	return health.current_health > 0
