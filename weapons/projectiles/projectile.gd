@@ -16,5 +16,5 @@ extends RigidBody2D
 func launch(p_move_direction : Vector2) :
 	linear_velocity = initial_velocity * p_move_direction
 	
-func _on_hit(_p_tanget : Hurtbox2D, _p_health_change: int):
+func _on_hit(_p_hit_data : HitData):
 	queue_free()

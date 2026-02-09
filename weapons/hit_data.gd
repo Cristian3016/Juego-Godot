@@ -1,31 +1,25 @@
 class_name HitData
 extends Object
-## Data properties concerning when a hurtbox is hit by a hibox move, attack, or action 
+## Propiedades de datos relacionadas con cuando una hurtbox es golpeada por un movimiento, ataque o acción de una hitbox
 
-## The hitbox which hit the hurtbox with a move or attack
+## La hitbox que golpeó a la hurtbox con un movimiento o ataque
 var hitbox             : Hitbox2D
 
-## The receiving hurtbox of the move or attack
+## La hurtbox que recibe el movimiento o ataque
 var hurtbox            : Hurtbox2D
 
-## The amount of health change expected on the target
+## La cantidad de cambio de vida esperada en el objetivo
 var amount             : int
 
-## The actual amount of health change that resulted on the target
+## La cantidad real de cambio de vida que resultó en el objetivo
 var actual_change      : int 
 
-## The expected movement direction and magnitude of the knockback 
-var knockback_force    : Vector2
+## La fuerza y ​​duración de un retroceso esperado en el personaje de la caja de daño  
+var knockback : KnockbackStats
 
-## The length of knockback duration
-var knockback_duration : float
- 
-func _init(p_hitbox : Hitbox2D, p_hurtbox : Hurtbox2D, p_amount : int, 
-p_knockback_force : Vector2 = Vector2.ZERO, p_knockback_duration : float= 0.0 ) -> void:
+func _init(p_hitbox : Hitbox2D, p_hurtbox : Hurtbox2D, p_amount : int, p_knockback : KnockbackStats = null) -> void:
   hitbox = p_hitbox
   hurtbox = p_hurtbox
   amount = p_amount
-  knockback_force = p_knockback_force
-  knockback_duration = p_knockback_duration
-
+  knockback = p_knockback
    
