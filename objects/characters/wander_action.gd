@@ -12,7 +12,6 @@ var is_wandering = false
 func after_run(actor: Node, blackboard: Blackboard) -> void:
 	is_wandering = false
 	timer.timeout.disconnect(_on_timer_timeout)
-	character.velocity = Vector2.ZERO
 
 func before_run(p_actor: Node, blackboard: Blackboard) -> void:
 	character= p_actor as PlatformerCharacter2D
@@ -24,10 +23,10 @@ func before_run(p_actor: Node, blackboard: Blackboard) -> void:
 func tick(p_actor: Node, p_blackboard: Blackboard) -> int:
 	var is_alive = p_blackboard.get_value(GlobalNames.keys.is_alive)
 	var hit_data : HitData = p_blackboard.get_value(GlobalNames.keys.hit_data)
-	
-	if is_alive == false || is_instance_valid(hit_data) :
-		return FAILURE
 		
+	if is_alive || false && is_instance_valid(hit_data):
+		return FAILURE
+	
 	if is_wandering:
 		return RUNNING
 	

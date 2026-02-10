@@ -30,6 +30,7 @@ func before_run(p_actor: Node, p_blackboard: Blackboard) -> void:
 		character.velocity = hit_data.knockback.force_vector * object_stats.knockback_multiplier
 		print(character.velocity)
 	else:
+		interrupt(p_actor, p_blackboard)
 		is_playing = false	
 
 func after_run(p_actor: Node, p_blackboard: Blackboard) -> void:
@@ -42,6 +43,9 @@ func tick(_p_actor: Node, _p_blackboard: Blackboard) -> int:
 		return RUNNING
 	else:
 		return SUCCESS
+
+func interrupt(p_actor: Node, p_blackboard: Blackboard):
+	return SUCCESS
 		
 func _on_timeout() -> void:
 	is_playing = false

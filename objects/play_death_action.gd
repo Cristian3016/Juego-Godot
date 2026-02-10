@@ -8,6 +8,7 @@ var actor : Node
 
 func before_run(p_actor: Node, _p_blackboard: Blackboard) -> void:
 	actor = p_actor
+	actor.velocity = Vector2.ZERO
 	sprite.play(GlobalNames.animations.death)
 	sprite.animation_finished.connect(_on_animation_finished)
 
