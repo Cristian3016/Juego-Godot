@@ -16,8 +16,10 @@ func _on_area_entered(p_area : Area2D) -> void:
 		return
 		
 	var hit_data = HitData.new(self, hurtbox, weapon_stats)
-	var dealt = hurtbox.hit(hit_data)
+	hurtbox.hit(hit_data)
 	hit.emit(hit_data)
+
+
 
 
 	

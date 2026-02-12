@@ -23,8 +23,6 @@ func calculate_force_vector() -> Vector2:
 		elif sign_x == -1:
 			adjusted_direction = Vector2.LEFT
 			
-	var force_vector = adjusted_direction * stats.force
-	
-	
+	force_vector = adjusted_direction * stats.force
 	
 	return force_vector

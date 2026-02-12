@@ -5,11 +5,22 @@
 [ext_resource type="Resource" uid="uid://km57rjtnhtke" path="res://objects/characters/player/player_input_actions.tres" id="2_ldhcf"]
 [ext_resource type="Resource" uid="uid://rjd7pl4d6iof" path="res://objects/characters/player/player_stats.tres" id="2_t5cke"]
 [ext_resource type="Script" uid="uid://cgpvxwvk8u1eu" path="res://objects/characters/facing.gd" id="3_3ctrg"]
-[ext_resource type="Script" uid="uid://c1vlvycgig5e5" path="res://objects/characters/player/player_input.gd" id="5_7q20q"]
 [ext_resource type="Script" uid="uid://dg8uokegvd76i" path="res://objects/characters/shooter.gd" id="6_5gsk5"]
 [ext_resource type="Script" uid="uid://dvn8chcrxdvbl" path="res://objects/characters/player/hand_anchor.gd" id="6_qkjrm"]
 [ext_resource type="Resource" uid="uid://ccbgm8ehpi6u8" path="res://weapons/projectiles/basic/fireable_basic.tres" id="7_e7001"]
 [ext_resource type="Texture2D" uid="uid://bjb2a70cv7o8a" path="res://art/kenny_1_bit_platformer/monochrome_tilemap_transparent_packed.png" id="9_3kmxk"]
+[ext_resource type="Script" uid="uid://bb0t2ovl7wifo" path="res://addons/beehave/nodes/beehave_tree.gd" id="11_3pjl8"]
+[ext_resource type="Script" uid="uid://8hn4kne15ac5" path="res://addons/beehave/nodes/composites/selector.gd" id="12_7i16l"]
+[ext_resource type="Script" uid="uid://dme5f24l0edsf" path="res://addons/beehave/blackboard.gd" id="12_e1ug1"]
+[ext_resource type="Script" uid="uid://cg016dbe7gs1x" path="res://addons/beehave/nodes/composites/sequence.gd" id="13_lk4q4"]
+[ext_resource type="Script" uid="uid://uvcqfgbhkuk7" path="res://objects/is_dead_condition.gd" id="14_ash3l"]
+[ext_resource type="Script" uid="uid://d00ivkl8v52uu" path="res://objects/play_death_action.gd" id="15_e08v7"]
+[ext_resource type="Script" uid="uid://cp6cfg5cfe7g3" path="res://objects/is_hit_condition.gd" id="16_6ev7y"]
+[ext_resource type="Script" uid="uid://d2gdodr0q08qn" path="res://objects/set_shader_action.gd" id="17_53lie"]
+[ext_resource type="Shader" uid="uid://bprse5lu31q6e" path="res://shaders/hit..gdshader" id="18_b0kju"]
+[ext_resource type="Script" uid="uid://t0x143xp64hx" path="res://objects/play_hit_action.gd" id="19_fuajr"]
+[ext_resource type="Script" uid="uid://b2w56uor8br3r" path="res://objects/characters/character_stats.gd" id="20_7q73q"]
+[ext_resource type="Script" uid="uid://b5issxxj7cssy" path="res://objects/characters/player/ground_input_action.gd" id="22_phi4c"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_podps"]
 radius = 5.0
@@ -18,6 +29,15 @@ height = 10.0
 [sub_resource type="AtlasTexture" id="AtlasTexture_7j5tp"]
 atlas = ExtResource("9_3kmxk")
 region = Rect2(128, 192, 16, 14)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ixgwe"]
+shader = ExtResource("18_b0kju")
+shader_parameter/time_scale = 20.0
+shader_parameter/gb_ceil = 0.8
+
+[sub_resource type="Resource" id="Resource_75yfa"]
+resource_local_to_scene = true
+script = ExtResource("20_7q73q")
 
 [node name="Player" type="CharacterBody2D" unique_id=295926166]
 scale = Vector2(-1, 1)
@@ -39,12 +59,6 @@ scale = Vector2(-1, 1)
 sprite_frames = ExtResource("1_qkbe2")
 animation = &"run"
 
-[node name="PlayerInput" type="Node2D" parent="." unique_id=466433555 node_paths=PackedStringArray("player", "shooter")]
-script = ExtResource("5_7q20q")
-player = NodePath("..")
-shooter = NodePath("../HandAnchor/Shooter")
-actions = ExtResource("2_ldhcf")
-
 [node name="HandAnchor" type="Node2D" parent="." unique_id=248805969]
 position = Vector2(0, -3)
 script = ExtResource("6_qkjrm")
@@ -61,3 +75,54 @@ position = Vector2(7, 0)
 rotation = 1.5708
 texture = SubResource("AtlasTexture_7j5tp")
 flip_v = true
+
+[node name="BeehaveTree" type="Node" parent="." unique_id=579081574 node_paths=PackedStringArray("blackboard", "actor")]
+script = ExtResource("11_3pjl8")
+blackboard = NodePath("../Blackboard")
+actor = NodePath("..")
+metadata/_custom_type_script = "uid://bb0t2ovl7wifo"
+
+[node name="SelectorComposite" type="Node" parent="BeehaveTree" unique_id=1233573619]
+script = ExtResource("12_7i16l")
+
+[node name="DeathSequence" type="Node" parent="BeehaveTree/SelectorComposite" unique_id=1498027540]
+script = ExtResource("13_lk4q4")
+
+[node name="IsDeadCondition" type="Node" parent="BeehaveTree/SelectorComposite/DeathSequence" unique_id=1469176618]
+script = ExtResource("14_ash3l")
+metadata/_custom_type_script = "uid://cbnbvj8prv63i"
+
+[node name="PlayDeathAction" type="Node" parent="BeehaveTree/SelectorComposite/DeathSequence" unique_id=1958299966]
+script = ExtResource("15_e08v7")
+metadata/_custom_type_script = "uid://cv74jjdrwevpr"
+
+[node name="HitSequence" type="Node" parent="BeehaveTree/SelectorComposite" unique_id=2128409596]
+script = ExtResource("13_lk4q4")
+
+[node name="IsHitCondition" type="Node" parent="BeehaveTree/SelectorComposite/HitSequence" unique_id=535226470]
+script = ExtResource("16_6ev7y")
+metadata/_custom_type_script = "uid://cp6cfg5cfe7g3"
+
+[node name="SetShaderAction" type="Node" parent="BeehaveTree/SelectorComposite/HitSequence" unique_id=1590450401]
+script = ExtResource("17_53lie")
+material = SubResource("ShaderMaterial_ixgwe")
+metadata/_custom_type_script = "uid://cv74jjdrwevpr"
+
+[node name="PlayHitAction" type="Node" parent="BeehaveTree/SelectorComposite/HitSequence" unique_id=195520923]
+script = ExtResource("19_fuajr")
+object_stats = SubResource("Resource_75yfa")
+metadata/_custom_type_script = "uid://cv74jjdrwevpr"
+
+[node name="RemoveSetShader" type="Node" parent="BeehaveTree/SelectorComposite/HitSequence" unique_id=1857133448]
+script = ExtResource("17_53lie")
+metadata/_custom_type_script = "uid://cv74jjdrwevpr"
+
+[node name="GroundInputAction" type="Node" parent="BeehaveTree/SelectorComposite" unique_id=1499016136 node_paths=PackedStringArray("shooter")]
+script = ExtResource("22_phi4c")
+shooter = NodePath("../../../HandAnchor/Shooter")
+actions = ExtResource("2_ldhcf")
+metadata/_custom_type_script = "uid://cv74jjdrwevpr"
+
+[node name="Blackboard" type="Node" parent="." unique_id=177842327]
+script = ExtResource("12_e1ug1")
+metadata/_custom_type_script = "uid://dme5f24l0edsf"

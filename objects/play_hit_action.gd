@@ -1,3 +1,4 @@
+@tool
 class_name PlayHitAction
 extends ActionLeaf
 
@@ -33,7 +34,7 @@ func before_run(p_actor: Node, p_blackboard: Blackboard) -> void:
 		interrupt(p_actor, p_blackboard)
 		is_playing = false	
 
-func after_run(p_actor: Node, p_blackboard: Blackboard) -> void:
+func after_run(_p_actor: Node, p_blackboard: Blackboard) -> void:
 	hit_timer.stop()
 	p_blackboard.set_value(GlobalNames.keys.hit_data, null)
 	character.velocity = Vector2.ZERO
@@ -44,8 +45,8 @@ func tick(_p_actor: Node, _p_blackboard: Blackboard) -> int:
 	else:
 		return SUCCESS
 
-func interrupt(p_actor: Node, p_blackboard: Blackboard):
-	return SUCCESS
+func interrupt(_p_actor: Node, _p_blackboard: Blackboard) -> void:
+	return
 		
 func _on_timeout() -> void:
 	is_playing = false

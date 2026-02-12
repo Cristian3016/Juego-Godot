@@ -1,3 +1,4 @@
+@tool
 class_name PlayDeathAction
 extends ActionLeaf
 ## Reproduce una animación de muerte y devuelve el éxito cuando termina.
@@ -12,7 +13,7 @@ func before_run(p_actor: Node, _p_blackboard: Blackboard) -> void:
 	sprite.play(GlobalNames.animations.death)
 	sprite.animation_finished.connect(_on_animation_finished)
 
-func tick(p_actor: Node, blackboard: Blackboard) -> int:
+func tick(_p_actor: Node, _blackboard: Blackboard) -> int:
 	return RUNNING 
 	
 func _on_animation_finished():
