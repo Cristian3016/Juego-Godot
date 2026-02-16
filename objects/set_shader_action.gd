@@ -2,9 +2,8 @@
 class_name SetShaderAction
 extends ActionLeaf
 
-@export var canvas_item : CanvasItem
-@export var material : Material
+@export var material : ShaderMaterial
 
-func before_run(_actor: Node, _blackboard: Blackboard) -> void:
-	canvas_item.material = material
+func before_run(actor: Node, _blackboard: Blackboard) -> void:
+	actor.sprite.material = material
 	 

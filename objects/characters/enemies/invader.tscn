@@ -164,9 +164,8 @@ script = ExtResource("10_d3um0")
 script = ExtResource("15_2nu1q")
 metadata/_custom_type_script = "uid://cbnbvj8prv63i"
 
-[node name="PlayDeathAction" type="Node" parent="InvaderBeehaveTree/SelectorComposite/DeathSequence" unique_id=547335368 node_paths=PackedStringArray("sprite")]
+[node name="PlayDeathAction" type="Node" parent="InvaderBeehaveTree/SelectorComposite/DeathSequence" unique_id=547335368]
 script = ExtResource("16_gdtuv")
-sprite = NodePath("../../../../Facing/CharacterSprite2D")
 metadata/_custom_type_script = "uid://cv74jjdrwevpr"
 
 [node name="HitSequence" type="Node" parent="InvaderBeehaveTree/SelectorComposite" unique_id=1190909997]
@@ -176,21 +175,18 @@ script = ExtResource("10_d3um0")
 script = ExtResource("14_2nu1q")
 metadata/_custom_type_script = "uid://cp6cfg5cfe7g3"
 
-[node name="SetShaderAction" type="Node" parent="InvaderBeehaveTree/SelectorComposite/HitSequence" unique_id=524054416 node_paths=PackedStringArray("canvas_item")]
+[node name="SetShaderAction" type="Node" parent="InvaderBeehaveTree/SelectorComposite/HitSequence" unique_id=524054416]
 script = ExtResource("15_wcl47")
-canvas_item = NodePath("../../../../Facing/CharacterSprite2D")
 material = SubResource("ShaderMaterial_gdtuv")
 metadata/_custom_type_script = "uid://cv74jjdrwevpr"
 
-[node name="PlayHitAction" type="Node" parent="InvaderBeehaveTree/SelectorComposite/HitSequence" unique_id=840686865 node_paths=PackedStringArray("sprite")]
+[node name="PlayHitAction" type="Node" parent="InvaderBeehaveTree/SelectorComposite/HitSequence" unique_id=840686865]
 script = ExtResource("18_lt0ww")
-sprite = NodePath("../../../../Facing/CharacterSprite2D")
 object_stats = ExtResource("5_a6y7p")
 metadata/_custom_type_script = "uid://cv74jjdrwevpr"
 
-[node name="RemoveSetShader" type="Node" parent="InvaderBeehaveTree/SelectorComposite/HitSequence" unique_id=414727660 node_paths=PackedStringArray("canvas_item")]
+[node name="RemoveSetShader" type="Node" parent="InvaderBeehaveTree/SelectorComposite/HitSequence" unique_id=414727660]
 script = ExtResource("15_wcl47")
-canvas_item = NodePath("../../../../Facing/CharacterSprite2D")
 metadata/_custom_type_script = "uid://cv74jjdrwevpr"
 
 [node name="WanderAction" type="Node" parent="InvaderBeehaveTree/SelectorComposite" unique_id=1859306458 node_paths=PackedStringArray("timer", "sprite")]

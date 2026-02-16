@@ -5,3 +5,5 @@
 [resource]
 resource_local_to_scene = true
 script = ExtResource("1_ojbem")
+walk_speed = 30.0
+run_speed = 100.0

@@ -2,7 +2,6 @@
 class_name PlayHitAction
 extends ActionLeaf
 
-@export var sprite : AnimatedSprite2D
 @export var object_stats : ObjectStats
 
 @onready var hit_timer: Timer = Timer.new() 
@@ -25,7 +24,7 @@ func before_run(p_actor: Node, p_blackboard: Blackboard) -> void:
 	assert(is_instance_valid(hit_data), "Hit data must be set for the play hit action to run")
 	
 	if hit_data.knockback:
-		sprite.play(GlobalNames.animations.hit)
+		p_actor.sprite.play(GlobalNames.animations.hit)
 		hit_timer.start(hit_data.knockback.stats.duration)
 		is_playing = true
 		character.velocity = hit_data.knockback.force_vector * object_stats.knockback_multiplier

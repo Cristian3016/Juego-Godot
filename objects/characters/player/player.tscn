@@ -44,11 +44,12 @@ shader_parameter/gb_ceil = 0.8
 radius = 4.0
 height = 8.0
 
-[node name="Player" type="CharacterBody2D" unique_id=295926166]
+[node name="Player" type="CharacterBody2D" unique_id=295926166 node_paths=PackedStringArray("sprite")]
 scale = Vector2(-1, 1)
 collision_layer = 2
 script = ExtResource("1_bari4")
 stats = ExtResource("2_t5cke")
+sprite = NodePath("Facing/AnimatedSprite2D")
 
 [node name="Health" type="Node" parent="." unique_id=1898638284]
 script = ExtResource("3_pmh1o")
@@ -67,6 +68,7 @@ position = Vector2(0, -8)
 scale = Vector2(-1, 1)
 sprite_frames = ExtResource("1_qkbe2")
 animation = &"run"
+autoplay = "run"
 
 [node name="HandAnchor" type="Node2D" parent="." unique_id=248805969]
 position = Vector2(0, -3)
@@ -111,9 +113,8 @@ script = ExtResource("13_lk4q4")
 script = ExtResource("14_ash3l")
 metadata/_custom_type_script = "uid://cbnbvj8prv63i"
 
-[node name="PlayDeathAction" type="Node" parent="BeehaveTree/SelectorComposite/DeathSequence" unique_id=1958299966 node_paths=PackedStringArray("sprite")]
+[node name="PlayDeathAction" type="Node" parent="BeehaveTree/SelectorComposite/DeathSequence" unique_id=1958299966]
 script = ExtResource("15_e08v7")
-sprite = NodePath("../../../../Facing/AnimatedSprite2D")
 metadata/_custom_type_script = "uid://cv74jjdrwevpr"
 
 [node name="HitSequence" type="Node" parent="BeehaveTree/SelectorComposite" unique_id=2128409596]
@@ -123,21 +124,18 @@ script = ExtResource("13_lk4q4")
 script = ExtResource("16_6ev7y")
 metadata/_custom_type_script = "uid://cp6cfg5cfe7g3"
 
-[node name="SetShaderAction" type="Node" parent="BeehaveTree/SelectorComposite/HitSequence" unique_id=1590450401 node_paths=PackedStringArray("canvas_item")]
+[node name="SetShaderAction" type="Node" parent="BeehaveTree/SelectorComposite/HitSequence" unique_id=1590450401]
 script = ExtResource("17_53lie")
-canvas_item = NodePath("../../../../Facing/AnimatedSprite2D")
 material = SubResource("ShaderMaterial_ixgwe")
 metadata/_custom_type_script = "uid://cv74jjdrwevpr"
 
-[node name="PlayHitAction" type="Node" parent="BeehaveTree/SelectorComposite/HitSequence" unique_id=195520923 node_paths=PackedStringArray("sprite")]
+[node name="PlayHitAction" type="Node" parent="BeehaveTree/SelectorComposite/HitSequence" unique_id=195520923]
 script = ExtResource("19_fuajr")
-sprite = NodePath("../../../../Facing/AnimatedSprite2D")
 object_stats = ExtResource("21_e08v7")
 metadata/_custom_type_script = "uid://cv74jjdrwevpr"
 
-[node name="RemoveSetShader" type="Node" parent="BeehaveTree/SelectorComposite/HitSequence" unique_id=1857133448 node_paths=PackedStringArray("canvas_item")]
+[node name="RemoveSetShader" type="Node" parent="BeehaveTree/SelectorComposite/HitSequence" unique_id=1857133448]
 script = ExtResource("17_53lie")
-canvas_item = NodePath("../../../../Facing/AnimatedSprite2D")
 metadata/_custom_type_script = "uid://cv74jjdrwevpr"
 
 [node name="SimpleParallelComposite" type="Node" parent="BeehaveTree/SelectorComposite" unique_id=307487068]

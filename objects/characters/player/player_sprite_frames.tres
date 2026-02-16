@@ -31,10 +31,24 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_jpy1b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jpy1b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jpy1b")
+}],
+"loop": false,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6h4ks")
 }],
 "loop": true,
-"name": &"dead",
-"speed": 5.0
+"name": &"hit",
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,

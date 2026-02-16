@@ -7,16 +7,13 @@ extends ActionLeaf
 var actor : Node
 var blackboard : Blackboard
 
-func before_run(p_actor: Node, p_blackboard: Blackboard) -> void:
+func _ready() -> void:
 	for hurtbox in hurtboxes:
 		hurtbox.was_hit.connect(_on_was_hit)
-		
+
+func before_run(p_actor: Node, p_blackboard: Blackboard) -> void:	
 	actor = p_actor
 	blackboard = p_blackboard
-		
-func after_run(_p_actor: Node, _p_blackboard: Blackboard) -> void:
-	for hurtbox in hurtboxes:
-		hurtbox.was_hit.disconnect(_on_was_hit)
 		
 func tick(p_actor: Node, p_blackboard: Blackboard) -> int:
 	return RUNNING 

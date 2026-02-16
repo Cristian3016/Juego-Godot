@@ -3,7 +3,8 @@ extends CharacterBody2D
 
 signal direction_changed(direction : Vector2)
 
-@export var stats : CharacterStats	 
+@export var stats : CharacterStats
+@export var sprite : CanvasItem
 
 var direction : Vector2: 
 	set(value):
