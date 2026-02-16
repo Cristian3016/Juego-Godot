@@ -94,10 +94,11 @@ shader = ExtResource("16_lt0ww")
 shader_parameter/time_scale = 20.0
 shader_parameter/gb_ceil = 0.8
 
-[node name="Invader" type="CharacterBody2D" unique_id=59411685]
+[node name="Invader" type="CharacterBody2D" unique_id=59411685 node_paths=PackedStringArray("sprite")]
 collision_layer = 8
 script = ExtResource("1_2ud1i")
 stats = ExtResource("5_a6y7p")
+sprite = NodePath("Facing/CharacterSprite2D")
 
 [node name="Health" type="Node" parent="." unique_id=1890214490]
 script = ExtResource("2_2nu1q")

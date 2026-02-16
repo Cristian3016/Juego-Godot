@@ -1,3 +1,4 @@
+@tool
 class_name InterruptOnHitAction
 extends ActionLeaf
 
@@ -15,10 +16,10 @@ func before_run(p_actor: Node, p_blackboard: Blackboard) -> void:
 	actor = p_actor
 	blackboard = p_blackboard
 		
-func tick(p_actor: Node, p_blackboard: Blackboard) -> int:
+func tick(_p_actor: Node, _p_blackboard: Blackboard) -> int:
 	return RUNNING 
 		
-func _on_was_hit(p_hit_data : HitData):
+func _on_was_hit(_p_hit_data : HitData):
 	target_action.interrupt(actor, blackboard)
 	
 		

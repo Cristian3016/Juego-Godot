@@ -21,7 +21,6 @@
 [ext_resource type="Script" uid="uid://d2gdodr0q08qn" path="res://objects/set_shader_action.gd" id="17_53lie"]
 [ext_resource type="Shader" uid="uid://bprse5lu31q6e" path="res://shaders/hit..gdshader" id="18_b0kju"]
 [ext_resource type="Script" uid="uid://t0x143xp64hx" path="res://objects/play_hit_action.gd" id="19_fuajr"]
-[ext_resource type="Resource" uid="uid://d08htghglqwb2" path="res://objects/characters/enemies/invader_stats.tres" id="21_e08v7"]
 [ext_resource type="Script" uid="uid://bkr7qj44253ue" path="res://addons/beehave/nodes/composites/simple_parallel.gd" id="22_e08v7"]
 [ext_resource type="Script" uid="uid://b5issxxj7cssy" path="res://objects/characters/player/ground_input_action.gd" id="22_phi4c"]
 [ext_resource type="Script" uid="uid://d3jj68hf2kmap" path="res://objects/hutbox_2d.gd" id="24_ash3l"]
@@ -131,7 +130,7 @@ metadata/_custom_type_script = "uid://cv74jjdrwevpr"
 
 [node name="PlayHitAction" type="Node" parent="BeehaveTree/SelectorComposite/HitSequence" unique_id=195520923]
 script = ExtResource("19_fuajr")
-object_stats = ExtResource("21_e08v7")
+object_stats = ExtResource("2_t5cke")
 metadata/_custom_type_script = "uid://cv74jjdrwevpr"
 
 [node name="RemoveSetShader" type="Node" parent="BeehaveTree/SelectorComposite/HitSequence" unique_id=1857133448]
