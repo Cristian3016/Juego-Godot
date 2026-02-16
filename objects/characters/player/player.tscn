@@ -5,11 +5,13 @@
 [ext_resource type="Resource" uid="uid://km57rjtnhtke" path="res://objects/characters/player/player_input_actions.tres" id="2_ldhcf"]
 [ext_resource type="Resource" uid="uid://rjd7pl4d6iof" path="res://objects/characters/player/player_stats.tres" id="2_t5cke"]
 [ext_resource type="Script" uid="uid://cgpvxwvk8u1eu" path="res://objects/characters/facing.gd" id="3_3ctrg"]
+[ext_resource type="Script" uid="uid://c0kb6pot0hglm" path="res://objects/health.gd" id="3_pmh1o"]
 [ext_resource type="Script" uid="uid://dg8uokegvd76i" path="res://objects/characters/shooter.gd" id="6_5gsk5"]
 [ext_resource type="Script" uid="uid://dvn8chcrxdvbl" path="res://objects/characters/player/hand_anchor.gd" id="6_qkjrm"]
 [ext_resource type="Resource" uid="uid://ccbgm8ehpi6u8" path="res://weapons/projectiles/basic/fireable_basic.tres" id="7_e7001"]
 [ext_resource type="Texture2D" uid="uid://bjb2a70cv7o8a" path="res://art/kenny_1_bit_platformer/monochrome_tilemap_transparent_packed.png" id="9_3kmxk"]
 [ext_resource type="Script" uid="uid://bb0t2ovl7wifo" path="res://addons/beehave/nodes/beehave_tree.gd" id="11_3pjl8"]
+[ext_resource type="Script" uid="uid://r5dnrxsy3gn6" path="res://objects/object_blackboard_setter.gd" id="11_lk4q4"]
 [ext_resource type="Script" uid="uid://8hn4kne15ac5" path="res://addons/beehave/nodes/composites/selector.gd" id="12_7i16l"]
 [ext_resource type="Script" uid="uid://dme5f24l0edsf" path="res://addons/beehave/blackboard.gd" id="12_e1ug1"]
 [ext_resource type="Script" uid="uid://cg016dbe7gs1x" path="res://addons/beehave/nodes/composites/sequence.gd" id="13_lk4q4"]
@@ -19,8 +21,11 @@
 [ext_resource type="Script" uid="uid://d2gdodr0q08qn" path="res://objects/set_shader_action.gd" id="17_53lie"]
 [ext_resource type="Shader" uid="uid://bprse5lu31q6e" path="res://shaders/hit..gdshader" id="18_b0kju"]
 [ext_resource type="Script" uid="uid://t0x143xp64hx" path="res://objects/play_hit_action.gd" id="19_fuajr"]
-[ext_resource type="Script" uid="uid://b2w56uor8br3r" path="res://objects/characters/character_stats.gd" id="20_7q73q"]
+[ext_resource type="Resource" uid="uid://d08htghglqwb2" path="res://objects/characters/enemies/invader_stats.tres" id="21_e08v7"]
+[ext_resource type="Script" uid="uid://bkr7qj44253ue" path="res://addons/beehave/nodes/composites/simple_parallel.gd" id="22_e08v7"]
 [ext_resource type="Script" uid="uid://b5issxxj7cssy" path="res://objects/characters/player/ground_input_action.gd" id="22_phi4c"]
+[ext_resource type="Script" uid="uid://d3jj68hf2kmap" path="res://objects/hutbox_2d.gd" id="24_ash3l"]
+[ext_resource type="Script" uid="uid://c14t7rynjl1hn" path="res://objects/interupt_on_hit_action.gd" id="25_6ev7y"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_podps"]
 radius = 5.0
@@ -35,14 +40,18 @@ shader = ExtResource("18_b0kju")
 shader_parameter/time_scale = 20.0
 shader_parameter/gb_ceil = 0.8
 
-[sub_resource type="Resource" id="Resource_75yfa"]
-resource_local_to_scene = true
-script = ExtResource("20_7q73q")
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e08v7"]
+radius = 4.0
+height = 8.0
 
 [node name="Player" type="CharacterBody2D" unique_id=295926166]
 scale = Vector2(-1, 1)
 collision_layer = 2
 script = ExtResource("1_bari4")
+stats = ExtResource("2_t5cke")
+
+[node name="Health" type="Node" parent="." unique_id=1898638284]
+script = ExtResource("3_pmh1o")
 stats = ExtResource("2_t5cke")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=204429101]
@@ -76,6 +85,16 @@ rotation = 1.5708
 texture = SubResource("AtlasTexture_7j5tp")
 flip_v = true
 
+[node name="Blackboard" type="Node" parent="." unique_id=177842327]
+script = ExtResource("12_e1ug1")
+metadata/_custom_type_script = "uid://dme5f24l0edsf"
+
+[node name="ObjectBlackboardSetter" type="Node" parent="Blackboard" unique_id=201612090 node_paths=PackedStringArray("blackboard", "health", "hurtbox")]
+script = ExtResource("11_lk4q4")
+blackboard = NodePath("..")
+health = NodePath("../../Health")
+hurtbox = NodePath("../../Hurtbox2D")
+
 [node name="BeehaveTree" type="Node" parent="." unique_id=579081574 node_paths=PackedStringArray("blackboard", "actor")]
 script = ExtResource("11_3pjl8")
 blackboard = NodePath("../Blackboard")
@@ -92,8 +111,9 @@ script = ExtResource("13_lk4q4")
 script = ExtResource("14_ash3l")
 metadata/_custom_type_script = "uid://cbnbvj8prv63i"
 
-[node name="PlayDeathAction" type="Node" parent="BeehaveTree/SelectorComposite/DeathSequence" unique_id=1958299966]
+[node name="PlayDeathAction" type="Node" parent="BeehaveTree/SelectorComposite/DeathSequence" unique_id=1958299966 node_paths=PackedStringArray("sprite")]
 script = ExtResource("15_e08v7")
+sprite = NodePath("../../../../Facing/AnimatedSprite2D")
 metadata/_custom_type_script = "uid://cv74jjdrwevpr"
 
 [node name="HitSequence" type="Node" parent="BeehaveTree/SelectorComposite" unique_id=2128409596]
@@ -103,26 +123,48 @@ script = ExtResource("13_lk4q4")
 script = ExtResource("16_6ev7y")
 metadata/_custom_type_script = "uid://cp6cfg5cfe7g3"
 
-[node name="SetShaderAction" type="Node" parent="BeehaveTree/SelectorComposite/HitSequence" unique_id=1590450401]
+[node name="SetShaderAction" type="Node" parent="BeehaveTree/SelectorComposite/HitSequence" unique_id=1590450401 node_paths=PackedStringArray("canvas_item")]
 script = ExtResource("17_53lie")
+canvas_item = NodePath("../../../../Facing/AnimatedSprite2D")
 material = SubResource("ShaderMaterial_ixgwe")
 metadata/_custom_type_script = "uid://cv74jjdrwevpr"
 
-[node name="PlayHitAction" type="Node" parent="BeehaveTree/SelectorComposite/HitSequence" unique_id=195520923]
+[node name="PlayHitAction" type="Node" parent="BeehaveTree/SelectorComposite/HitSequence" unique_id=195520923 node_paths=PackedStringArray("sprite")]
 script = ExtResource("19_fuajr")
-object_stats = SubResource("Resource_75yfa")
+sprite = NodePath("../../../../Facing/AnimatedSprite2D")
+object_stats = ExtResource("21_e08v7")
 metadata/_custom_type_script = "uid://cv74jjdrwevpr"
 
-[node name="RemoveSetShader" type="Node" parent="BeehaveTree/SelectorComposite/HitSequence" unique_id=1857133448]
+[node name="RemoveSetShader" type="Node" parent="BeehaveTree/SelectorComposite/HitSequence" unique_id=1857133448 node_paths=PackedStringArray("canvas_item")]
 script = ExtResource("17_53lie")
+canvas_item = NodePath("../../../../Facing/AnimatedSprite2D")
 metadata/_custom_type_script = "uid://cv74jjdrwevpr"
 
-[node name="GroundInputAction" type="Node" parent="BeehaveTree/SelectorComposite" unique_id=1499016136 node_paths=PackedStringArray("shooter")]
+[node name="SimpleParallelComposite" type="Node" parent="BeehaveTree/SelectorComposite" unique_id=307487068]
+script = ExtResource("22_e08v7")
+metadata/_custom_type_script = "uid://bkr7qj44253ue"
+
+[node name="GroundInputAction" type="Node" parent="BeehaveTree/SelectorComposite/SimpleParallelComposite" unique_id=1499016136 node_paths=PackedStringArray("shooter")]
 script = ExtResource("22_phi4c")
-shooter = NodePath("../../../HandAnchor/Shooter")
+shooter = NodePath("../../../../HandAnchor/Shooter")
 actions = ExtResource("2_ldhcf")
 metadata/_custom_type_script = "uid://cv74jjdrwevpr"
 
-[node name="Blackboard" type="Node" parent="." unique_id=177842327]
-script = ExtResource("12_e1ug1")
-metadata/_custom_type_script = "uid://dme5f24l0edsf"
+[node name="InteruptOnHitAction" type="Node" parent="BeehaveTree/SelectorComposite/SimpleParallelComposite" unique_id=1636904835 node_paths=PackedStringArray("hurtboxes", "target_action")]
+script = ExtResource("25_6ev7y")
+hurtboxes = [NodePath("../../../../Hurtbox2D")]
+target_action = NodePath("../GroundInputAction")
+metadata/_custom_type_script = "uid://cv74jjdrwevpr"
+
+[node name="Hurtbox2D" type="Area2D" parent="." unique_id=1158063167 node_paths=PackedStringArray("health", "body")]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("24_ash3l")
+health = NodePath("../Health")
+body = NodePath("..")
+metadata/_custom_type_script = "uid://d3jj68hf2kmap"
+
+[node name="HurtShape2D" type="CollisionShape2D" parent="Hurtbox2D" unique_id=124050983]
+position = Vector2(0, -5)
+rotation = -4.712389
+shape = SubResource("CapsuleShape2D_e08v7")

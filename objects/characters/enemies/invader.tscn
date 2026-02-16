@@ -6,7 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://bjb2a70cv7o8a" path="res://art/kenny_1_bit_platformer/monochrome_tilemap_transparent_packed.png" id="3_wtn5y"]
 [ext_resource type="Script" uid="uid://d3jj68hf2kmap" path="res://objects/hutbox_2d.gd" id="4_dpkh5"]
 [ext_resource type="Resource" uid="uid://d08htghglqwb2" path="res://objects/characters/enemies/invader_stats.tres" id="5_a6y7p"]
+[ext_resource type="Script" uid="uid://btcracfj60qyr" path="res://weapons/hitbox_2d.gd" id="7_wn0a1"]
 [ext_resource type="Script" uid="uid://bb0t2ovl7wifo" path="res://addons/beehave/nodes/beehave_tree.gd" id="8_11kla"]
+[ext_resource type="Resource" uid="uid://cox3q156evtty" path="res://objects/characters/enemies/invader_collision_stats.tres" id="8_dn80i"]
 [ext_resource type="Script" uid="uid://8hn4kne15ac5" path="res://addons/beehave/nodes/composites/selector.gd" id="9_d26pn"]
 [ext_resource type="Script" uid="uid://dme5f24l0edsf" path="res://addons/beehave/blackboard.gd" id="9_vxhmp"]
 [ext_resource type="Script" uid="uid://cg016dbe7gs1x" path="res://addons/beehave/nodes/composites/sequence.gd" id="10_d3um0"]
@@ -75,9 +77,17 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6ma5j"]
-radius = 5.5
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6k6h0"]
+radius = 6.0
 height = 14.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wn0a1"]
+radius = 2.0
+height = 8.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6ma5j"]
+radius = 5.0
+height = 12.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gdtuv"]
 shader = ExtResource("16_lt0ww")
@@ -109,9 +119,21 @@ health = NodePath("../../Health")
 body = NodePath("../..")
 
 [node name="HurtboxShape" type="CollisionShape2D" parent="Facing/Hurtbox2D" unique_id=313982383]
-position = Vector2(0, -5)
+position = Vector2(0, -6)
 rotation = 1.5708
-shape = SubResource("CapsuleShape2D_6ma5j")
+shape = SubResource("CapsuleShape2D_6k6h0")
+
+[node name="Hitbox2D" type="Area2D" parent="Facing" unique_id=784266630]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+script = ExtResource("7_wn0a1")
+weapon_stats = ExtResource("8_dn80i")
+metadata/_custom_type_script = "uid://btcracfj60qyr"
+
+[node name="CollisionHitboxShape2D" type="CollisionShape2D" parent="Facing/Hitbox2D" unique_id=1770875456]
+position = Vector2(3, -6)
+shape = SubResource("CapsuleShape2D_wn0a1")
 
 [node name="PhysicsShape" type="CollisionShape2D" parent="." unique_id=1756874423]
 position = Vector2(0, -5)

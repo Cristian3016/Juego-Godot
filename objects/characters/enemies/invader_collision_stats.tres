@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="WeaponStats" format=3 uid="uid://cox3q156evtty"]
+
+[ext_resource type="Script" uid="uid://dr1qiex0pv45x" path="res://weapons/weapon_stats.gd" id="1_2xrxv"]
+[ext_resource type="Script" uid="uid://c06xa0c5jmadj" path="res://weapons/knockback_stats.gd" id="1_mbp0o"]
+
+[sub_resource type="Resource" id="Resource_mbp0o"]
+script = ExtResource("1_mbp0o")
+force = 50.0
+metadata/_custom_type_script = "uid://c06xa0c5jmadj"
+
+[resource]
+script = ExtResource("1_2xrxv")
+knockback_stats = SubResource("Resource_mbp0o")
+metadata/_custom_type_script = "uid://dr1qiex0pv45x"

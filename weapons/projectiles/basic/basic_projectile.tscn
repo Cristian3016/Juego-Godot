@@ -42,7 +42,6 @@ collision_layer = 64
 collision_mask = 33
 gravity_scale = 0.3
 script = ExtResource("1_jbei8")
-initial_velocity = 198.0
 hitbox = NodePath("Hitbox2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=908313443]

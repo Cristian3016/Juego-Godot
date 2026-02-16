@@ -6,22 +6,26 @@ extends ActionLeaf
 @export var shooter : Shooter
 @export var actions : PlayerInputActions
 
-var active = false 
-var player = Player 
+var active = false
+var player : Player
 
 func before_run(p_actor: Node, _p_blackboard: Blackboard) -> void:
-
 	active = true
 	player = p_actor as Player
-	
+
 func after_run(_p_actor: Node, _p_blackboard: Blackboard) -> void:
-	active = false
+	pass
 
 func tick(_p_actor: Node, _p_blackboard: Blackboard) -> int:
-	player.direction = Input.get_vector(actions.left, actions.right, actions.up, actions.down)
+	if not active:
+		return FAILURE
 	
+	player.direction = Input.get_vector(actions.left, actions.right, actions.up, actions.down)
 	return RUNNING
 	
+func interrupt(_p_actor: Node, _p_blackboard: Blackboard) -> void:
+	active = false
+		
 func _unhandled_input(event: InputEvent) -> void:
 	if not active:
 		return
