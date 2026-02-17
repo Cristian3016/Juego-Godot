@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cnyhn6o2kfpox" path="res://world.tscn" id="1_n4psk"]
 [ext_resource type="Resource" uid="uid://jex2cbbjwllf" path="res://state/combat_state.tres" id="2_xuee5"]
 [ext_resource type="PackedScene" uid="uid://sl3ak50krk7e" path="res://ui/health_changed_label.tscn" id="3_smepj"]
+[ext_resource type="Theme" uid="uid://4r4e3ams87xn" path="res://ui/ui_theme.tres" id="5_smepj"]
 
 [node name="Gameplay" type="Node" unique_id=487838948]
 
@@ -22,3 +23,4 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+theme = ExtResource("5_smepj")

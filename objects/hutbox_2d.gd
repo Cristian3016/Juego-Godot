@@ -7,9 +7,10 @@ signal was_hit(hit_data : HitData)
 ## Estadísticas del objeto activo al que se le puede infligir daño al impactar 
 @export var health : Health
 @export var body : CharacterBody2D
+@export var invincible : bool
 
 func get_hittable() -> bool:
-	return health.current_health > 0
+	return health.current_health > 0 && not invincible
 	
 ## Cambia el valor de salud en el componente Salud, y
 ## agrega el valor de salud real a p_hit_data, a la cual

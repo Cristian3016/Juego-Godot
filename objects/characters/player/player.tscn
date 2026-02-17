@@ -22,6 +22,7 @@
 [ext_resource type="Script" uid="uid://d2gdodr0q08qn" path="res://objects/set_shader_action.gd" id="17_53lie"]
 [ext_resource type="Shader" uid="uid://bprse5lu31q6e" path="res://shaders/hit..gdshader" id="18_b0kju"]
 [ext_resource type="Script" uid="uid://t0x143xp64hx" path="res://objects/play_hit_action.gd" id="19_fuajr"]
+[ext_resource type="Script" uid="uid://dgie8jyxbu6a4" path="res://objects/set_hurtbox_invincibility.gd" id="22_6ev7y"]
 [ext_resource type="Script" uid="uid://bkr7qj44253ue" path="res://addons/beehave/nodes/composites/simple_parallel.gd" id="22_e08v7"]
 [ext_resource type="Script" uid="uid://b5issxxj7cssy" path="res://objects/characters/player/ground_input_action.gd" id="22_phi4c"]
 [ext_resource type="Script" uid="uid://d3jj68hf2kmap" path="res://objects/hutbox_2d.gd" id="24_ash3l"]
@@ -68,8 +69,9 @@ character = NodePath("..")
 position = Vector2(0, -8)
 scale = Vector2(-1, 1)
 sprite_frames = ExtResource("1_qkbe2")
-animation = &"run"
+animation = &"hit"
 autoplay = "run"
+frame_progress = 0.88895357
 
 [node name="HandAnchor" type="Node2D" parent="." unique_id=248805969]
 position = Vector2(0, -3)
@@ -130,6 +132,12 @@ script = ExtResource("17_53lie")
 material = SubResource("ShaderMaterial_ixgwe")
 metadata/_custom_type_script = "uid://cv74jjdrwevpr"
 
+[node name="SetHurtboxInvincibility" type="Node" parent="BeehaveTree/SelectorComposite/HitSequence" unique_id=1537959188 node_paths=PackedStringArray("hurtboxes")]
+script = ExtResource("22_6ev7y")
+hurtboxes = [NodePath("../../../../Hurtbox2D")]
+invincible = true
+metadata/_custom_type_script = "uid://cv74jjdrwevpr"
+
 [node name="PlayHitAction" type="Node" parent="BeehaveTree/SelectorComposite/HitSequence" unique_id=195520923]
 script = ExtResource("19_fuajr")
 object_stats = ExtResource("2_t5cke")
@@ -137,6 +145,11 @@ metadata/_custom_type_script = "uid://cv74jjdrwevpr"
 
 [node name="RemoveSetShader" type="Node" parent="BeehaveTree/SelectorComposite/HitSequence" unique_id=1857133448]
 script = ExtResource("17_53lie")
+metadata/_custom_type_script = "uid://cv74jjdrwevpr"
+
+[node name="SetHurtboxNotInvincible" type="Node" parent="BeehaveTree/SelectorComposite/HitSequence" unique_id=672838928 node_paths=PackedStringArray("hurtboxes")]
+script = ExtResource("22_6ev7y")
+hurtboxes = [NodePath("../../../../Hurtbox2D")]
 metadata/_custom_type_script = "uid://cv74jjdrwevpr"
 
 [node name="SimpleParallelComposite" type="Node" parent="BeehaveTree/SelectorComposite" unique_id=307487068]

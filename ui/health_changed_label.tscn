@@ -3,16 +3,19 @@
 [ext_resource type="Script" uid="uid://c7jhsmnv2cmy6" path="res://ui/health_changed_label.gd" id="1_ajrkh"]
 [ext_resource type="Resource" uid="uid://41duf56bnt7v" path="res://data/game_colors.tres" id="2_syah4"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_vdexm"]
-font_size = 36
-
-[node name="HealthChangedLabel" type="Label" unique_id=197460718]
+[node name="HealthChangedLabel" type="Label" unique_id=197460718 node_paths=PackedStringArray("timer")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "100"
-label_settings = SubResource("LabelSettings_vdexm")
 script = ExtResource("1_ajrkh")
+timer = NodePath("Timer")
+move_speed = Vector2(0, -50)
 game_colors = ExtResource("2_syah4")
+
+[node name="Timer" type="Timer" parent="." unique_id=1392918077]
+wait_time = 0.5
+one_shot = true
+autostart = true

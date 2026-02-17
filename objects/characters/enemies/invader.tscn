@@ -79,7 +79,7 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6k6h0"]
-radius = 6.0
+radius = 5.0
 height = 14.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wn0a1"]
@@ -111,7 +111,7 @@ script = ExtResource("2_soqyn")
 character = NodePath("..")
 
 [node name="CharacterSprite2D" type="AnimatedSprite2D" parent="Facing" unique_id=2088237634]
-position = Vector2(0, -8)
+position = Vector2(0, -7)
 sprite_frames = SubResource("SpriteFrames_c0sno")
 animation = &"hit"
 autoplay = "walk"
@@ -122,7 +122,7 @@ health = NodePath("../../Health")
 body = NodePath("../..")
 
 [node name="HurtboxShape" type="CollisionShape2D" parent="Facing/Hurtbox2D" unique_id=313982383]
-position = Vector2(0, -6)
+position = Vector2(0, -5)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_6k6h0")
 
@@ -135,7 +135,7 @@ weapon_stats = ExtResource("8_dn80i")
 metadata/_custom_type_script = "uid://btcracfj60qyr"
 
 [node name="CollisionHitboxShape2D" type="CollisionShape2D" parent="Facing/Hitbox2D" unique_id=1770875456]
-position = Vector2(3, -6)
+position = Vector2(3, -5)
 shape = SubResource("CapsuleShape2D_wn0a1")
 
 [node name="PhysicsShape" type="CollisionShape2D" parent="." unique_id=1756874423]
