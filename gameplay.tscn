@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bu7lexd5hdaa0"]
+
+[ext_resource type="Script" uid="uid://b2mngwruqhx4o" path="res://systems/combat_text_system.gd" id="1_ej4tk"]
+[ext_resource type="PackedScene" uid="uid://cnyhn6o2kfpox" path="res://world.tscn" id="1_n4psk"]
+[ext_resource type="Resource" uid="uid://jex2cbbjwllf" path="res://state/combat_state.tres" id="2_xuee5"]
+[ext_resource type="PackedScene" uid="uid://sl3ak50krk7e" path="res://ui/health_changed_label.tscn" id="3_smepj"]
+
+[node name="Gameplay" type="Node" unique_id=487838948]
+
+[node name="Systems" type="Node" parent="." unique_id=1637872970]
+
+[node name="CombatTextSystem" type="Node" parent="Systems" unique_id=347239022 node_paths=PackedStringArray("ui_parent")]
+script = ExtResource("1_ej4tk")
+combat_state = ExtResource("2_xuee5")
+text_templace = ExtResource("3_smepj")
+ui_parent = NodePath("../../UI")
+
+[node name="World" parent="." unique_id=1331691039 instance=ExtResource("1_n4psk")]
+
+[node name="UI" type="Control" parent="." unique_id=1082122561]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0

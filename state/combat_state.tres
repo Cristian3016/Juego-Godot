@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="CombatState" format=3 uid="uid://jex2cbbjwllf"]
+
+[ext_resource type="Script" uid="uid://cr3oy86fdkix8" path="res://state/combat_state.gd" id="1_p62c1"]
+
+[resource]
+script = ExtResource("1_p62c1")
+metadata/_custom_type_script = "uid://cr3oy86fdkix8"

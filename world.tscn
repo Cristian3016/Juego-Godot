@@ -2,9 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://cc813mmhwp878" path="res://levels/level_1.tscn" id="1_ycqm7"]
 
-[node name="World" type="Node2D"]
+[node name="World" type="Node2D" unique_id=1331691039]
 
-[node name="Level1" parent="." instance=ExtResource("1_ycqm7")]
+[node name="Level1" parent="." unique_id=948384570 instance=ExtResource("1_ycqm7")]
 position = Vector2(5, -21)
 
-[node name="Projectiles" type="Node2D" parent="." groups=["projectiles_parent"]]
+[node name="Projectiles" type="Node2D" parent="." unique_id=2057895683 groups=["projectiles_parent"]]

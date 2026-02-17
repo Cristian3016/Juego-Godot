@@ -6,6 +6,7 @@
 [ext_resource type="Resource" uid="uid://rjd7pl4d6iof" path="res://objects/characters/player/player_stats.tres" id="2_t5cke"]
 [ext_resource type="Script" uid="uid://cgpvxwvk8u1eu" path="res://objects/characters/facing.gd" id="3_3ctrg"]
 [ext_resource type="Script" uid="uid://c0kb6pot0hglm" path="res://objects/health.gd" id="3_pmh1o"]
+[ext_resource type="Resource" uid="uid://jex2cbbjwllf" path="res://state/combat_state.tres" id="4_e08v7"]
 [ext_resource type="Script" uid="uid://dg8uokegvd76i" path="res://objects/characters/shooter.gd" id="6_5gsk5"]
 [ext_resource type="Script" uid="uid://dvn8chcrxdvbl" path="res://objects/characters/player/hand_anchor.gd" id="6_qkjrm"]
 [ext_resource type="Resource" uid="uid://ccbgm8ehpi6u8" path="res://weapons/projectiles/basic/fireable_basic.tres" id="7_e7001"]
@@ -50,9 +51,10 @@ script = ExtResource("1_bari4")
 stats = ExtResource("2_t5cke")
 sprite = NodePath("Facing/AnimatedSprite2D")
 
-[node name="Health" type="Node" parent="." unique_id=1898638284]
+[node name="Health" type="Node2D" parent="." unique_id=285824278]
 script = ExtResource("3_pmh1o")
 stats = ExtResource("2_t5cke")
+combat_state = ExtResource("4_e08v7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=204429101]
 position = Vector2(0, -5)
