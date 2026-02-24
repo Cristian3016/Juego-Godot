@@ -30,9 +30,9 @@ func tick(_p_actor: Node, p_blackboard: Blackboard) -> int:
 	return RUNNING
 						
 func randomizer_wandering():
-	var random_value = random_gen.randi()
+	var random_int = random_gen.randi()
 	
-	if random_value % 2 == 1:
+	if random_int % 2 == 1:
 		character.direction = Vector2.LEFT
 	else:
 		character.direction = Vector2.RIGHT

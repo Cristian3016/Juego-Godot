@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="WeaponStats" format=3 uid="uid://cox3q156evtty"]
+
+[ext_resource type="Script" uid="uid://c06xa0c5jmadj" path="res://weapons/knockback_stats.gd" id="1_eywlr"]
+[ext_resource type="Script" uid="uid://dr1qiex0pv45x" path="res://weapons/weapon_stats.gd" id="2_0p8on"]
+
+[sub_resource type="Curve" id="Curve_mbp0o"]
+_data = [Vector2(0.004010696, 0.99661815), 0.0, -0.22996773, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Resource" id="Resource_mbp0o"]
+script = ExtResource("1_eywlr")
+force = 200.0
+duration = 0.15
+curve = SubResource("Curve_mbp0o")
+metadata/_custom_type_script = "uid://c06xa0c5jmadj"
+
+[resource]
+script = ExtResource("2_0p8on")
+knockback_stats = SubResource("Resource_mbp0o")
+metadata/_custom_type_script = "uid://dr1qiex0pv45x"

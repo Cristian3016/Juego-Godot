@@ -15,7 +15,7 @@ extends Node
 @export var text_templace : PackedScene
 @export var ui_parent : Control
 			
-func _on_health_changed(p_health : Health, p_new : int, p_amount : int):
+func _on_health_changed(p_health : Health, _p_new : int, p_amount : int):
 	var text_instance : HealthChangedLabel = text_templace.instantiate()
 	
 	if not is_instance_valid(text_instance):
@@ -24,7 +24,6 @@ func _on_health_changed(p_health : Health, p_new : int, p_amount : int):
 		return
 		
 	ui_parent.add_child(text_instance)
-	var spawn_position = p_health.global_position
 	text_instance.global_position = p_health.global_position
 	text_instance.set_health_text(p_amount)
 	

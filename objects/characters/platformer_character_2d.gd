@@ -15,7 +15,6 @@ var direction : Vector2:
 
 func _physics_process(delta: float) -> void:
 	_apply_gravity(delta)
-	call_deferred(move_and_slide.get_method())
 	move_and_slide()
 
 ## Intenta hacer que el personaje salte si está en el suelo

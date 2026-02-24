@@ -27,6 +27,8 @@ func tick(_p_actor: Node, _p_blackboard: Blackboard) -> int:
 		player.sprite.play(GlobalNames.animations.run)
 		
 	player.direction = Input.get_vector(actions.left, actions.right, actions.up, actions.down)
+	player.walk()
+	
 	return RUNNING
 	
 func interrupt(_p_actor: Node, _p_blackboard: Blackboard) -> void:
