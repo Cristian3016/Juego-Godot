@@ -1,7 +1,10 @@
 [gd_resource type="Resource" script_class="CharacterStats" format=3 uid="uid://d08htghglqwb2"]
 
 [ext_resource type="Script" uid="uid://b2w56uor8br3r" path="res://objects/characters/character_stats.gd" id="1_ojbem"]
+[ext_resource type="Script" uid="uid://cv8u1t7tcm6td" path="res://data/game object types/game_object_type.gd" id="2_swmj8"]
+[ext_resource type="Resource" uid="uid://dxkvllytmyeua" path="res://data/game object types/game_object_enemy.tres" id="3_v37c8"]
 
 [resource]
 resource_local_to_scene = true
 script = ExtResource("1_ojbem")
+types = Array[ExtResource("2_swmj8")]([ExtResource("3_v37c8")])

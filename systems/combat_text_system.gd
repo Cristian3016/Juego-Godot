@@ -13,7 +13,7 @@ extends Node
 			combat_state.health_changed.connect(_on_health_changed)
 			
 @export var text_templace : PackedScene
-@export var ui_parent : Control
+@export var parent : Node2D
 			
 func _on_health_changed(p_health : Health, _p_new : int, p_amount : int):
 	var text_instance : HealthChangedLabel = text_templace.instantiate()
@@ -23,7 +23,7 @@ func _on_health_changed(p_health : Health, _p_new : int, p_amount : int):
 		text_instance.free()
 		return
 		
-	ui_parent.add_child(text_instance)
+	parent.add_child(text_instance)
 	text_instance.global_position = p_health.global_position
 	text_instance.set_health_text(p_amount)
 	

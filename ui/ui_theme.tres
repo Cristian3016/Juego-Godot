@@ -4,4 +4,5 @@
 
 [resource]
 default_font = ExtResource("1_udl1o")
-default_font_size = 16
+default_font_size = 48
+Label/colors/font_color = Color(1, 1, 1, 1)

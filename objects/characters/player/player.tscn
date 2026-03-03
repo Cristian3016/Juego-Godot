@@ -46,12 +46,14 @@ shader_parameter/gb_ceil = 0.8
 radius = 4.0
 height = 8.0
 
-[node name="Player" type="CharacterBody2D" unique_id=295926166 node_paths=PackedStringArray("sprite")]
+[node name="Player" type="CharacterBody2D" unique_id=295926166 node_paths=PackedStringArray("sprite", "health")]
 scale = Vector2(-1, 1)
 collision_layer = 2
 script = ExtResource("1_bari4")
 stats = ExtResource("2_t5cke")
 sprite = NodePath("Facing/AnimatedSprite2D")
+health = NodePath("Health")
+combat_state = ExtResource("4_e08v7")
 
 [node name="Health" type="Node2D" parent="." unique_id=285824278]
 script = ExtResource("3_pmh1o")

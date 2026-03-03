@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://cf47moqc1j20e"]
+
+[ext_resource type="Script" uid="uid://dy5yqw8unv6gm" path="res://data/game object types/global_game_object_types.gd" id="1_oqoo4"]
+[ext_resource type="Resource" uid="uid://dxkvllytmyeua" path="res://data/game object types/game_object_enemy.tres" id="2_0tbej"]
+[ext_resource type="Resource" uid="uid://en8xwd3usndi" path="res://data/game object types/game_object_player.tres" id="3_dh6nq"]
+[ext_resource type="Resource" uid="uid://b1oe0bwn0r1xp" path="res://data/game object types/game_object_npc.tres" id="4_q5dh3"]
+[ext_resource type="Resource" uid="uid://bil1ra4l5sqx6" path="res://data/game object types/game_object_inanimate.tres" id="5_nbjwn"]
+
+[node name="GameObjectTypes" type="Node2D" unique_id=1565312763]
+script = ExtResource("1_oqoo4")
+enemy = ExtResource("2_0tbej")
+player = ExtResource("3_dh6nq")
+npc = ExtResource("4_q5dh3")
+inanimate = ExtResource("5_nbjwn")

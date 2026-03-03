@@ -1,10 +1,13 @@
 [gd_resource type="Resource" script_class="CharacterStats" format=3 uid="uid://rjd7pl4d6iof"]
 
 [ext_resource type="Script" uid="uid://b2w56uor8br3r" path="res://objects/characters/character_stats.gd" id="1_h81a7"]
+[ext_resource type="Script" uid="uid://cv8u1t7tcm6td" path="res://data/game object types/game_object_type.gd" id="2_enwys"]
+[ext_resource type="Resource" uid="uid://en8xwd3usndi" path="res://data/game object types/game_object_player.tres" id="3_8khnf"]
 
 [resource]
 resource_local_to_scene = true
 script = ExtResource("1_h81a7")
 walk_speed = 120.0
 run_speed = 200.0
+types = Array[ExtResource("2_enwys")]([ExtResource("3_8khnf")])
 metadata/_custom_type_script = "uid://b2w56uor8br3r"

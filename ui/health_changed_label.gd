@@ -9,7 +9,7 @@ func _ready() -> void:
 	timer.timeout.connect(_on_timeout)
  		
 func _process(delta: float) -> void:
-	global_position += move_speed * delta
+	position += move_speed * delta
 	
 func set_health_text(p_health_change : int):
 	text = str(p_health_change)
@@ -17,7 +17,7 @@ func set_health_text(p_health_change : int):
 	if p_health_change < 0:
 		self.modulate = game_colors.negative_health
 	else:
-		self_modulate = game_colors.positive_health
+		self.modulate = game_colors.positive_health
 		
 func _on_timeout():
 	queue_free()

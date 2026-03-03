@@ -1,15 +1,18 @@
 [gd_scene format=3 uid="uid://sl3ak50krk7e"]
 
+[ext_resource type="FontFile" uid="uid://csvjd5q1ta86m" path="res://art/fonts/m5x7.ttf" id="1_1jjqn"]
 [ext_resource type="Script" uid="uid://c7jhsmnv2cmy6" path="res://ui/health_changed_label.gd" id="1_ajrkh"]
 [ext_resource type="Resource" uid="uid://41duf56bnt7v" path="res://data/game_colors.tres" id="2_syah4"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_e5kgf"]
+font = ExtResource("1_1jjqn")
+
 [node name="HealthChangedLabel" type="Label" unique_id=197460718 node_paths=PackedStringArray("timer")]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_right = 28.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 16
 text = "100"
+label_settings = SubResource("LabelSettings_e5kgf")
 script = ExtResource("1_ajrkh")
 timer = NodePath("Timer")
 move_speed = Vector2(0, -50)

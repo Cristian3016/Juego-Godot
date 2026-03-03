@@ -5,6 +5,17 @@ signal direction_changed(direction : Vector2)
 
 @export var stats : CharacterStats
 @export var sprite : CanvasItem
+@export var health : Health :
+	set(value):
+		if is_instance_valid(health):
+			health.is_alive_changed.disconnect(_on_is_alive_changed)
+			
+		health = value
+		
+		if is_instance_valid(health):
+			health.is_alive_changed.connect(_on_is_alive_changed)
+			
+@export var combat_state : CombatState
 
 var direction : Vector2: 
 	set(value):
@@ -12,6 +23,10 @@ var direction : Vector2:
 			return
 		direction = value
 		direction_changed.emit(direction)
+		
+func _ready() -> void:
+	if stats.types.is_empty():
+		push_warning("No game object type assigned to %s stats." % name)
 
 func _physics_process(delta: float) -> void:
 	_apply_gravity(delta)
@@ -33,4 +48,11 @@ func _apply_gravity(delta : float):
 	var gravity = ProjectSettings.get("physics/2d/default_gravity")
 	if not is_on_floor():
 		velocity.y += gravity * delta
+
+func _on_is_alive_changed(p_is_alive : bool):
+	if not p_is_alive:
+		combat_state.report_death(self)
 		
+		
+		
+	

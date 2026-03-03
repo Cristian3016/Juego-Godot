@@ -4,18 +4,14 @@
 [ext_resource type="PackedScene" uid="uid://ctojfddxmstdw" path="res://objects/characters/player/player.tscn" id="2_61w3m"]
 [ext_resource type="PackedScene" uid="uid://d4m40u0l0q5ve" path="res://objects/characters/enemies/invader.tscn" id="3_pdpul"]
 [ext_resource type="Script" uid="uid://b2w56uor8br3r" path="res://objects/characters/character_stats.gd" id="4_8hd6v"]
-
-[sub_resource type="Resource" id="Resource_kx6l7"]
-resource_local_to_scene = true
-script = ExtResource("4_8hd6v")
-
-[sub_resource type="Resource" id="Resource_n46q3"]
-resource_local_to_scene = true
-script = ExtResource("4_8hd6v")
+[ext_resource type="Script" uid="uid://cv8u1t7tcm6td" path="res://data/game object types/game_object_type.gd" id="4_n46q3"]
 
 [sub_resource type="Resource" id="Resource_btoec"]
 resource_local_to_scene = true
 script = ExtResource("4_8hd6v")
+walk_speed = 120.0
+run_speed = 200.0
+metadata/_custom_type_script = "uid://b2w56uor8br3r"
 
 [sub_resource type="Resource" id="Resource_gwceb"]
 resource_local_to_scene = true
@@ -41,6 +37,18 @@ script = ExtResource("4_8hd6v")
 resource_local_to_scene = true
 script = ExtResource("4_8hd6v")
 
+[sub_resource type="Resource" id="Resource_nmsli"]
+resource_local_to_scene = true
+script = ExtResource("4_8hd6v")
+
+[sub_resource type="Resource" id="Resource_betor"]
+resource_local_to_scene = true
+script = ExtResource("4_8hd6v")
+
+[sub_resource type="Resource" id="Resource_vjtdm"]
+resource_local_to_scene = true
+script = ExtResource("4_8hd6v")
+
 [node name="level_1" type="Node2D" unique_id=407410919]
 
 [node name="GroundLayer" type="TileMapLayer" parent="." unique_id=615711468]
@@ -53,6 +61,7 @@ tile_set = ExtResource("1_ua5ty")
 
 [node name="Player" parent="." unique_id=349564007 instance=ExtResource("2_61w3m")]
 position = Vector2(-283, -16)
+stats = SubResource("Resource_btoec")
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player" unique_id=453597412]
 remote_path = NodePath("../../Camera2D")
@@ -61,40 +70,40 @@ remote_path = NodePath("../../Camera2D")
 position = Vector2(-283, -16)
 rotation = 3.1415927
 scale = Vector2(1, -1)
-zoom = Vector2(3, 3)
+zoom = Vector2(2.5, 2.5)
 
 [node name="Invader" parent="." unique_id=327016499 instance=ExtResource("3_pdpul")]
 position = Vector2(-139, -15)
-stats = SubResource("Resource_kx6l7")
+stats = SubResource("Resource_gwceb")
 
 [node name="Invader2" parent="." unique_id=1231583129 instance=ExtResource("3_pdpul")]
 position = Vector2(28, -231)
-stats = SubResource("Resource_n46q3")
+stats = SubResource("Resource_l53as")
 
 [node name="Invader3" parent="." unique_id=1670377777 instance=ExtResource("3_pdpul")]
 position = Vector2(-476, -15)
-stats = SubResource("Resource_btoec")
+stats = SubResource("Resource_3sk1a")
 
 [node name="Invader4" parent="." unique_id=1325665525 instance=ExtResource("3_pdpul")]
 position = Vector2(-400, -215)
-stats = SubResource("Resource_gwceb")
+stats = SubResource("Resource_08mmt")
 
 [node name="Invader5" parent="." unique_id=59411685 instance=ExtResource("3_pdpul")]
 position = Vector2(817, -246)
-stats = SubResource("Resource_l53as")
+stats = SubResource("Resource_5ot28")
 
 [node name="Invader6" parent="." unique_id=1560662284 instance=ExtResource("3_pdpul")]
 position = Vector2(491, -45)
-stats = SubResource("Resource_3sk1a")
+stats = SubResource("Resource_aerfg")
 
 [node name="Invader7" parent="." unique_id=756082382 instance=ExtResource("3_pdpul")]
 position = Vector2(794, -42)
-stats = SubResource("Resource_08mmt")
+stats = SubResource("Resource_nmsli")
 
 [node name="Invader8" parent="." unique_id=1057256723 instance=ExtResource("3_pdpul")]
 position = Vector2(325, -237)
-stats = SubResource("Resource_5ot28")
+stats = SubResource("Resource_betor")
 
 [node name="Invader9" parent="." unique_id=1024472801 instance=ExtResource("3_pdpul")]
 position = Vector2(693, -15)
-stats = SubResource("Resource_aerfg")
+stats = SubResource("Resource_vjtdm")

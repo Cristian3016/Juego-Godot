@@ -24,6 +24,12 @@ config/icon="res://icon.svg"
 BeehaveGlobalMetrics="*uid://c3ktl6ontsdt7"
 BeehaveGlobalDebugger="*uid://bl3ma400hpvsh"
 GlobalNames="*uid://bvtfntsyh1sqx"
+GlobalObjectTypes="*uid://cf47moqc1j20e"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 
 [editor_plugins]
 
