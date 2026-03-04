@@ -3,9 +3,10 @@ extends Resource
 
 @warning_ignore("unused_signal")
 signal health_changed(health : Health, new : int, amount : int)
-
 signal player_deaths_changed(count : int)
 signal enemies_died_changed(count  : int)
+signal game_over 
+
 
 @export var player_deaths : int = 0 :
 	set(value):
@@ -35,6 +36,7 @@ func report_death(p_node : Node):
 	if types.has(GlobalObjectTypes.player):
 		player_deaths += 1
 		handled = true	
+		game_over.emit()
 		
 	if not handled:
 		push_warning("Tried to report death on node %s but no matching type was found" % p_node.name)
