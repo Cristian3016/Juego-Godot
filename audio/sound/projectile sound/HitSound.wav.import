@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bvsk3s47ebscs"
+path="res://.godot/imported/HitSound.wav-fea702daac375d86451f81ec68aea316.sample"
+
+[deps]
+
+source_file="res://audio/sound/projectile sound/HitSound.wav"
+dest_files=["res://.godot/imported/HitSound.wav-fea702daac375d86451f81ec68aea316.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

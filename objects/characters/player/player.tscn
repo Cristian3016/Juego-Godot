@@ -12,6 +12,7 @@
 [ext_resource type="Resource" uid="uid://ccbgm8ehpi6u8" path="res://weapons/projectiles/basic/fireable_basic.tres" id="7_e7001"]
 [ext_resource type="Texture2D" uid="uid://bjb2a70cv7o8a" path="res://art/kenny_1_bit_platformer/monochrome_tilemap_transparent_packed.png" id="9_3kmxk"]
 [ext_resource type="Script" uid="uid://bb0t2ovl7wifo" path="res://addons/beehave/nodes/beehave_tree.gd" id="11_3pjl8"]
+[ext_resource type="AudioStream" uid="uid://dlcxutf0ghcwx" path="res://audio/sound/projectile sound/SoundProjectileGun.wav" id="11_fuajr"]
 [ext_resource type="Script" uid="uid://r5dnrxsy3gn6" path="res://objects/object_blackboard_setter.gd" id="11_lk4q4"]
 [ext_resource type="Script" uid="uid://8hn4kne15ac5" path="res://addons/beehave/nodes/composites/selector.gd" id="12_7i16l"]
 [ext_resource type="Script" uid="uid://dme5f24l0edsf" path="res://addons/beehave/blackboard.gd" id="12_e1ug1"]
@@ -28,7 +29,7 @@
 [ext_resource type="Script" uid="uid://d3jj68hf2kmap" path="res://objects/hutbox_2d.gd" id="24_ash3l"]
 [ext_resource type="Script" uid="uid://c14t7rynjl1hn" path="res://objects/interupt_on_hit_action.gd" id="25_6ev7y"]
 [ext_resource type="Script" uid="uid://dorri1tul8gfx" path="res://addons/beehave/nodes/decorators/delayer.gd" id="27_53lie"]
-[ext_resource type="AudioStream" uid="uid://bvsk3s47ebscs" path="res://audio/sfx/Bump.wav" id="29_b0kju"]
+[ext_resource type="AudioStream" uid="uid://bvsk3s47ebscs" path="res://audio/sound/projectile sound/HitSound.wav" id="29_b0kju"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_podps"]
 radius = 5.0
@@ -87,6 +88,7 @@ hit_from_inside = true
 script = ExtResource("6_5gsk5")
 fireable = ExtResource("7_e7001")
 audio_player = NodePath("ShootAudioStreamPlayer2D")
+default_direction = null
 
 [node name="Sprite2D" type="Sprite2D" parent="HandAnchor/Shooter" unique_id=1066648030]
 position = Vector2(7, 0)
@@ -94,8 +96,8 @@ rotation = 1.5708
 texture = SubResource("AtlasTexture_7j5tp")
 flip_v = true
 
-[node name="ShootAudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="HandAnchor/Shooter" unique_id=1094142135]
-position = Vector2(21, 3)
+[node name="ShootAudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="HandAnchor/Shooter" unique_id=1660946277]
+stream = ExtResource("11_fuajr")
 
 [node name="Blackboard" type="Node" parent="." unique_id=177842327]
 script = ExtResource("12_e1ug1")

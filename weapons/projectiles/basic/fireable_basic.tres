@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://dtu5ag2fq25e4" path="res://weapons/projectiles/fireable.gd" id="2_oxud6"]
 [ext_resource type="Script" uid="uid://dr1qiex0pv45x" path="res://weapons/weapon_stats.gd" id="4_6avq1"]
 [ext_resource type="Script" uid="uid://c06xa0c5jmadj" path="res://weapons/knockback_stats.gd" id="4_dlvy7"]
-[ext_resource type="AudioStream" uid="uid://dlcxutf0ghcwx" path="res://audio/sfx/Laser_Gun.wav" id="6_qxfq1"]
+[ext_resource type="AudioStream" uid="uid://dlcxutf0ghcwx" path="res://audio/sound/projectile sound/SoundProjectileGun.wav" id="6_qxfq1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hogpv"]
 atlas = ExtResource("1_0vyip")

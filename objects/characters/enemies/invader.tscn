@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://d3jj68hf2kmap" path="res://objects/hutbox_2d.gd" id="4_dpkh5"]
 [ext_resource type="Resource" uid="uid://d08htghglqwb2" path="res://objects/characters/enemies/invader_stats.tres" id="5_a6y7p"]
 [ext_resource type="Script" uid="uid://btcracfj60qyr" path="res://weapons/hitbox_2d.gd" id="7_wn0a1"]
-[ext_resource type="AudioStream" uid="uid://bvsk3s47ebscs" path="res://audio/sfx/Bump.wav" id="8_6k6h0"]
+[ext_resource type="AudioStream" uid="uid://bvsk3s47ebscs" path="res://audio/sound/projectile sound/HitSound.wav" id="8_6k6h0"]
 [ext_resource type="Script" uid="uid://bb0t2ovl7wifo" path="res://addons/beehave/nodes/beehave_tree.gd" id="8_11kla"]
 [ext_resource type="Resource" uid="uid://cox3q156evtty" path="res://objects/characters/enemies/invader_collision_weapon_stats.tres" id="8_dn80i"]
 [ext_resource type="Script" uid="uid://8hn4kne15ac5" path="res://addons/beehave/nodes/composites/selector.gd" id="9_d26pn"]
