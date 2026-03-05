@@ -3,6 +3,7 @@ extends RayCast2D
 ##Lanza proyectiles cuando try_shoot es llamado exitosamente.
 
 @export var fireable : Fireable
+@export var audio_player : AudioStreamPlayer2D
 
 @export var default_direction := Vector2.RIGHT
 
@@ -31,5 +32,7 @@ func _shoot():
 	
 	var launch_direction = -default_direction.rotated(global_rotation)
 	projectile.launch(launch_direction)
-
 	
+	if fireable.stats.sound:
+		audio_player.stream = fireable.stats.sound
+		audio_player.play()

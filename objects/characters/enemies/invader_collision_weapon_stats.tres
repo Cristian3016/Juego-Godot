@@ -15,6 +15,6 @@ metadata/_custom_type_script = "uid://c06xa0c5jmadj"
 
 [resource]
 script = ExtResource("2_0p8on")
-damage = 50
+damage = 20
 knockback_stats = SubResource("Resource_mbp0o")
 metadata/_custom_type_script = "uid://dr1qiex0pv45x"

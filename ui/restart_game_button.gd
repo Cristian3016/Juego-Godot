@@ -6,6 +6,8 @@ extends Button
 			return
 			
 		restart_scene = value
+		
+@export var audio_player : AudioStreamPlayer
 
 func _ready() -> void:
 	pressed.connect(_on_pressed)
@@ -14,4 +16,6 @@ func _ready() -> void:
 		push_error("No restart scene set on loading [RestartGameButton]")
 	
 func _on_pressed():
+	if audio_player:
+		audio_player.play()
 	get_tree().change_scene_to_file(restart_scene)

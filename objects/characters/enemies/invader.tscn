@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://d3jj68hf2kmap" path="res://objects/hutbox_2d.gd" id="4_dpkh5"]
 [ext_resource type="Resource" uid="uid://d08htghglqwb2" path="res://objects/characters/enemies/invader_stats.tres" id="5_a6y7p"]
 [ext_resource type="Script" uid="uid://btcracfj60qyr" path="res://weapons/hitbox_2d.gd" id="7_wn0a1"]
+[ext_resource type="AudioStream" uid="uid://bvsk3s47ebscs" path="res://audio/sfx/Bump.wav" id="8_6k6h0"]
 [ext_resource type="Script" uid="uid://bb0t2ovl7wifo" path="res://addons/beehave/nodes/beehave_tree.gd" id="8_11kla"]
 [ext_resource type="Resource" uid="uid://cox3q156evtty" path="res://objects/characters/enemies/invader_collision_weapon_stats.tres" id="8_dn80i"]
 [ext_resource type="Script" uid="uid://8hn4kne15ac5" path="res://addons/beehave/nodes/composites/selector.gd" id="9_d26pn"]
@@ -118,15 +119,19 @@ sprite_frames = SubResource("SpriteFrames_c0sno")
 animation = &"hit"
 autoplay = "walk"
 
-[node name="Hurtbox2D" type="Area2D" parent="Facing" unique_id=1076972257 node_paths=PackedStringArray("health", "body")]
+[node name="Hurtbox2D" type="Area2D" parent="Facing" unique_id=1076972257 node_paths=PackedStringArray("health", "body", "hit_player")]
 script = ExtResource("4_dpkh5")
 health = NodePath("../../Health")
 body = NodePath("../..")
+hit_player = NodePath("AudioStreamPlayer2D")
 
 [node name="HurtboxShape" type="CollisionShape2D" parent="Facing/Hurtbox2D" unique_id=313982383]
 position = Vector2(0, -5)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_6k6h0")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Facing/Hurtbox2D" unique_id=1077015885]
+stream = ExtResource("8_6k6h0")
 
 [node name="Hitbox2D" type="Area2D" parent="Facing" unique_id=784266630]
 collision_layer = 0

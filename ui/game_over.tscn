@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cxfa334st7lm1" path="res://ui/game_over.gd" id="1_oo8kp"]
 [ext_resource type="Resource" uid="uid://jex2cbbjwllf" path="res://state/combat_state.tres" id="2_5eixk"]
 [ext_resource type="Script" uid="uid://8v26qp2w1ut6" path="res://ui/restart_game_button.gd" id="3_j1fe5"]
+[ext_resource type="AudioStream" uid="uid://cgqlk6c33ko4l" path="res://audio/sfx/Confirm.wav" id="4_xjda6"]
 
 [sub_resource type="Theme" id="Theme_5eixk"]
 default_font_size = 96
@@ -94,7 +95,7 @@ bbcode_enabled = true
 text = "[center][rainbow freq=1.0 sat=0.8 val=0.8][wave amp=50.0 freq=5.0 connected=1]GAME OVER[/wave][/rainbow][/center]"
 custom_effects = [SubResource("RichTextEffect_5eixk")]
 
-[node name="RestartGameButton" type="Button" parent="Panel" unique_id=1875596493]
+[node name="RestartGameButton" type="Button" parent="Panel" unique_id=1875596493 node_paths=PackedStringArray("audio_player")]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -110,3 +111,7 @@ grow_vertical = 2
 text = "RESTART"
 script = ExtResource("3_j1fe5")
 restart_scene = "uid://bu7lexd5hdaa0"
+audio_player = NodePath("AudioStreamPlayer")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Panel/RestartGameButton" unique_id=1722787979]
+stream = ExtResource("4_xjda6")
