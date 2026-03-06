@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://eqjc7cu4yvwx"
+path="res://.godot/imported/DivingIntoSpring(Level1Sound).ogg-a225d46146d8eba5692e75d620d52a86.sample"
+
+[deps]
+
+source_file="res://audio/sound/sound main menu and levels/DivingIntoSpring(Level1Sound).ogg"
+dest_files=["res://.godot/imported/DivingIntoSpring(Level1Sound).ogg-a225d46146d8eba5692e75d620d52a86.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

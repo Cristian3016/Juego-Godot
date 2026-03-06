@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cxfa334st7lm1" path="res://ui/game_over.gd" id="1_oo8kp"]
 [ext_resource type="Resource" uid="uid://jex2cbbjwllf" path="res://state/combat_state.tres" id="2_5eixk"]
 [ext_resource type="Script" uid="uid://8v26qp2w1ut6" path="res://ui/restart_game_button.gd" id="3_j1fe5"]
-[ext_resource type="AudioStream" uid="uid://cgqlk6c33ko4l" path="res://audio/sound/buttons/ButtonConfirm.wav" id="4_xjda6"]
+[ext_resource type="AudioStream" uid="uid://cgqlk6c33ko4l" path="res://audio/sound/buttons/ButtonConfirm.ogg" id="4_xjda6"]
 
 [sub_resource type="Theme" id="Theme_5eixk"]
 default_font_size = 96
