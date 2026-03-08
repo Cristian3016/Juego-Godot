@@ -11,7 +11,7 @@ Label/colors/font_color = Color(1, 0, 0, 1)
 [sub_resource type="Theme" id="Theme_m1my8"]
 Label/colors/font_color = Color(1, 0, 0, 1)
 
-[node name="GameStats" type="Panel" unique_id=1174606796 node_paths=PackedStringArray("enemies_slain_label", "player_deaths_label", "lives_label", "continues_label")]
+[node name="GameStats" type="Panel" unique_id=1174606796 node_paths=PackedStringArray("enemies_slain_label", "player_deaths_label")]
 offset_right = 300.0
 offset_bottom = 125.0
 size_flags_horizontal = 3
@@ -21,8 +21,6 @@ script = ExtResource("1_womsj")
 combat_state = ExtResource("2_m1my8")
 enemies_slain_label = NodePath("MarginContainer/VBoxContainer/EnemiesSlainLabel")
 player_deaths_label = NodePath("MarginContainer/VBoxContainer/PlayerDeathsLabel")
-lives_label = NodePath("MarginContainer/VBoxContainer/LivesLabel")
-continues_label = NodePath("MarginContainer/VBoxContainer/ContinuesLabel")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=949083010]
 layout_mode = 0
@@ -45,9 +43,6 @@ text = "UNSET"
 layout_mode = 2
 text = "UNSET"
 
-[node name="LivesLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=372912349]
+[node name="PlayerContinues" type="Label" parent="MarginContainer/VBoxContainer" unique_id=372912349]
 layout_mode = 2
 text = "UNSET"
-
-[node name="ContinuesLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1145778060]
-layout_mode = 2
