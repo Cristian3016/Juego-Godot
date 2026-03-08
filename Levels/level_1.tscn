@@ -70,7 +70,7 @@ remote_path = NodePath("../../Camera2D")
 position = Vector2(-283, -16)
 rotation = 3.1415927
 scale = Vector2(1, -1)
-zoom = Vector2(2.5, 2.5)
+zoom = Vector2(2, 2)
 
 [node name="Invader" parent="." unique_id=327016499 instance=ExtResource("3_pdpul")]
 position = Vector2(-139, -15)

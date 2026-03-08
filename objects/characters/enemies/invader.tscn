@@ -116,7 +116,7 @@ character = NodePath("..")
 [node name="CharacterSprite2D" type="AnimatedSprite2D" parent="Facing" unique_id=2088237634]
 position = Vector2(0, -7)
 sprite_frames = SubResource("SpriteFrames_c0sno")
-animation = &"hit"
+animation = &"walk"
 autoplay = "walk"
 
 [node name="Hurtbox2D" type="Area2D" parent="Facing" unique_id=1076972257 node_paths=PackedStringArray("health", "body", "hit_player")]

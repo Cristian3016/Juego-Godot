@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://dg5wy75ldxwoq"]
 
+[ext_resource type="FontFile" uid="uid://csvjd5q1ta86m" path="res://art/fonts/m5x7.ttf" id="1_b7p5t"]
 [ext_resource type="Script" uid="uid://b21augggwwi7s" path="res://ui/game_stats.gd" id="1_womsj"]
 [ext_resource type="Resource" uid="uid://jex2cbbjwllf" path="res://state/combat_state.tres" id="2_m1my8"]
 
 [sub_resource type="Theme" id="Theme_b7p5t"]
+default_font = ExtResource("1_b7p5t")
 Label/colors/font_color = Color(1, 0, 0, 1)
 
 [sub_resource type="Theme" id="Theme_m1my8"]

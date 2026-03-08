@@ -4,6 +4,8 @@
 [ext_resource type="Resource" uid="uid://jex2cbbjwllf" path="res://state/combat_state.tres" id="2_5eixk"]
 [ext_resource type="Script" uid="uid://8v26qp2w1ut6" path="res://ui/restart_game_button.gd" id="3_j1fe5"]
 [ext_resource type="AudioStream" uid="uid://cgqlk6c33ko4l" path="res://audio/sound/buttons/ButtonConfirm.ogg" id="4_xjda6"]
+[ext_resource type="AudioStream" uid="uid://dbjpgvc383wkv" path="res://audio/sound/sound main menu and levels/DeathSound.ogg" id="5_akjlf"]
+[ext_resource type="Script" uid="uid://duw7mtxpj4pde" path="res://ui/exit_game_button.gd" id="5_k8651"]
 
 [sub_resource type="Theme" id="Theme_5eixk"]
 default_font_size = 96
@@ -47,9 +49,17 @@ _data = {
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j1fe5"]
 bg_color = Color(0, 0, 0, 1)
 
+[sub_resource type="Theme" id="Theme_k8651"]
+
 [sub_resource type="RichTextEffect" id="RichTextEffect_5eixk"]
 
-[node name="GameOverUI" type="Control" unique_id=1976970915 node_paths=PackedStringArray("visible_ui", "animation_player")]
+[sub_resource type="Theme" id="Theme_55k1u"]
+default_font_size = 60
+
+[sub_resource type="Theme" id="Theme_tb368"]
+default_font_size = 55
+
+[node name="GameOverUI" type="Control" unique_id=1976970915 node_paths=PackedStringArray("visible_ui", "animation_player", "death_sound")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -61,6 +71,7 @@ theme = SubResource("Theme_5eixk")
 script = ExtResource("1_oo8kp")
 visible_ui = NodePath("Panel")
 animation_player = NodePath("AnimationPlayer")
+death_sound = NodePath("GameOverSound")
 combat_state = ExtResource("2_5eixk")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=289304688]
@@ -85,33 +96,45 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -335.0
 offset_top = -174.5
-offset_right = 335.0
-offset_bottom = 174.5
+offset_right = 332.0
+offset_bottom = 145.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
 mouse_filter = 1
+theme = SubResource("Theme_k8651")
 bbcode_enabled = true
-text = "[center][rainbow freq=1.0 sat=0.8 val=0.8][wave amp=50.0 freq=5.0 connected=1]GAME OVER[/wave][/rainbow][/center]"
+text = "[center][font_size=110][rainbow freq=1.0 sat=0.8 val=0.8][wave amp=50.0 freq=5.0 connected=1]GAME OVER[/wave][/rainbow][/font_size][/center]"
 custom_effects = [SubResource("RichTextEffect_5eixk")]
 
-[node name="RestartGameButton" type="Button" parent="Panel" unique_id=1875596493 node_paths=PackedStringArray("audio_player")]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -335.0
-offset_top = -70.0
-offset_right = 335.0
-offset_bottom = 70.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="RestartGameButton" type="Button" parent="Panel/RichTextLabel" unique_id=1875596493 node_paths=PackedStringArray("audio_player")]
+layout_mode = 0
+offset_left = 199.0
+offset_top = 146.5
+offset_right = 458.0
+offset_bottom = 237.5
+theme = SubResource("Theme_55k1u")
 text = "RESTART"
 script = ExtResource("3_j1fe5")
 restart_scene = "uid://bu7lexd5hdaa0"
-audio_player = NodePath("AudioStreamPlayer")
+audio_player = NodePath("ConfirmationSound")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Panel/RestartGameButton" unique_id=1722787979]
+[node name="ConfirmationSound" type="AudioStreamPlayer" parent="Panel/RichTextLabel/RestartGameButton" unique_id=1722787979]
 stream = ExtResource("4_xjda6")
+
+[node name="ExitGameButton" type="Button" parent="Panel/RichTextLabel" unique_id=2043990106 node_paths=PackedStringArray("audio_player")]
+layout_mode = 0
+offset_left = 243.0
+offset_top = 246.5
+offset_right = 399.0
+offset_bottom = 330.5
+theme = SubResource("Theme_tb368")
+text = "SALIR
+"
+script = ExtResource("5_k8651")
+menu_scene = "uid://cj2l2yey0rckg"
+audio_player = NodePath("../RestartGameButton/ConfirmationSound")
+
+[node name="GameOverSound" type="AudioStreamPlayer" parent="." unique_id=1046115115]
+stream = ExtResource("5_akjlf")
+volume_db = -8.0
