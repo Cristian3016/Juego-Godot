@@ -1,9 +1,16 @@
 extends Node
 
+signal score_changed(new_score)
+
 var lives := 3
 var max_lives := 3
 var continues := 2
+var score := 0
 
+func add_score(point : int):
+	score 	+= point
+	score_changed.emit(score)
+	
 func lose_life():
 	lives -= 1
 	print("Lives left: ", lives)

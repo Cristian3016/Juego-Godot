@@ -31,6 +31,7 @@ func report_death(p_node : Node):
 	
 	if types.has(GlobalObjectTypes.enemy):
 		enemies_died += 1
+		ArcadeManager.add_score(100)
 		handled = true
 		
 	if types.has(GlobalObjectTypes.player):
