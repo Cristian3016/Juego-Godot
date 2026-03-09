@@ -74,7 +74,7 @@ character = NodePath("..")
 position = Vector2(0, -8)
 scale = Vector2(-1, 1)
 sprite_frames = ExtResource("1_qkbe2")
-animation = &"hit"
+animation = &"run"
 autoplay = "run"
 
 [node name="HandAnchor" type="Node2D" parent="." unique_id=248805969]
