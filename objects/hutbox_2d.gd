@@ -25,7 +25,5 @@ func hit(p_hit_data : HitData) -> int:
 	
 	if hit_player:
 		hit_player.play()
-	
-	
 	return actual_change 
 	

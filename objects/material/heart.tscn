@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://rltcr5m8ygq3"]
 
-[ext_resource type="Script" uid="uid://b3tpis55c74ss" path="res://heart/heart.gd" id="1_6ne8m"]
+[ext_resource type="Script" uid="uid://b3tpis55c74ss" path="res://objects/material/heart.gd" id="1_6ne8m"]
 [ext_resource type="Texture2D" uid="uid://bjb2a70cv7o8a" path="res://art/kenny_1_bit_platformer/monochrome_tilemap_transparent_packed.png" id="1_21vk0"]
 [ext_resource type="AudioStream" uid="uid://cgyiwcbgide3j" path="res://audio/sound/heart/SoundHeart.ogg" id="3_ob3co"]
 

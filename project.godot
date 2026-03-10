@@ -81,6 +81,7 @@ shoot={
 2d_physics/layer_6="Hurtbox"
 2d_physics/layer_7="Projectile"
 2d_physics/layer_8="Heart"
+2d_physics/layer_9="Coin"
 
 [rendering]
 

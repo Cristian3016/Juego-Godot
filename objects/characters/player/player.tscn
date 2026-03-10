@@ -51,6 +51,7 @@ height = 8.0
 [node name="Player" type="CharacterBody2D" unique_id=295926166 node_paths=PackedStringArray("sprite", "health") groups=["player"]]
 scale = Vector2(-1, 1)
 collision_layer = 2
+collision_mask = 385
 script = ExtResource("1_bari4")
 stats = ExtResource("2_t5cke")
 sprite = NodePath("Facing/AnimatedSprite2D")
