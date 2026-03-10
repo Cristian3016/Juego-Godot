@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://rltcr5m8ygq3"]
+
+[ext_resource type="Script" uid="uid://b3tpis55c74ss" path="res://heart/heart.gd" id="1_6ne8m"]
+[ext_resource type="Texture2D" uid="uid://bjb2a70cv7o8a" path="res://art/kenny_1_bit_platformer/monochrome_tilemap_transparent_packed.png" id="1_21vk0"]
+[ext_resource type="AudioStream" uid="uid://cgyiwcbgide3j" path="res://audio/sound/heart/SoundHeart.ogg" id="3_ob3co"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_21vk0"]
+atlas = ExtResource("1_21vk0")
+region = Rect2(32, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ne8m"]
+atlas = ExtResource("1_21vk0")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ob3co"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_21vk0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ne8m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_21vk0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ne8m")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 6.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_21vk0"]
+radius = 11.0
+height = 22.0
+
+[node name="Heart2D" type="Area2D" unique_id=540889441]
+collision_layer = 128
+collision_mask = 2
+script = ExtResource("1_6ne8m")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=276898864]
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_ob3co")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1873155466]
+shape = SubResource("CapsuleShape2D_21vk0")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=17409513]
+stream = ExtResource("3_ob3co")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

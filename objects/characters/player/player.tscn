@@ -48,7 +48,7 @@ shader_parameter/gb_ceil = 0.8
 radius = 4.0
 height = 8.0
 
-[node name="Player" type="CharacterBody2D" unique_id=295926166 node_paths=PackedStringArray("sprite", "health")]
+[node name="Player" type="CharacterBody2D" unique_id=295926166 node_paths=PackedStringArray("sprite", "health") groups=["player"]]
 scale = Vector2(-1, 1)
 collision_layer = 2
 script = ExtResource("1_bari4")

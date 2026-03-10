@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://d4m40u0l0q5ve"]
+[gd_scene format=3 uid="uid://deb2dhh6qqq30"]
 
 [ext_resource type="Script" uid="uid://c5pehudfy0muc" path="res://objects/characters/platformer_character_2d.gd" id="1_2ud1i"]
 [ext_resource type="Script" uid="uid://c0kb6pot0hglm" path="res://objects/health.gd" id="2_2nu1q"]

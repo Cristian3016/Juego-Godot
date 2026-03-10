@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cxfa334st7lm1" path="res://ui/game_over.gd" id="1_oo8kp"]
 [ext_resource type="Resource" uid="uid://jex2cbbjwllf" path="res://state/combat_state.tres" id="2_5eixk"]
+[ext_resource type="FontFile" uid="uid://csvjd5q1ta86m" path="res://art/fonts/m5x7.ttf" id="3_55k1u"]
 [ext_resource type="Script" uid="uid://8v26qp2w1ut6" path="res://ui/restart_game_button.gd" id="3_j1fe5"]
 [ext_resource type="AudioStream" uid="uid://cgqlk6c33ko4l" path="res://audio/sound/buttons/ButtonConfirm.ogg" id="4_xjda6"]
 [ext_resource type="AudioStream" uid="uid://dbjpgvc383wkv" path="res://audio/sound/sound main menu and levels/DeathSound.ogg" id="5_akjlf"]
@@ -54,9 +55,11 @@ bg_color = Color(0, 0, 0, 1)
 [sub_resource type="RichTextEffect" id="RichTextEffect_5eixk"]
 
 [sub_resource type="Theme" id="Theme_55k1u"]
+default_font = ExtResource("3_55k1u")
 default_font_size = 60
 
 [sub_resource type="Theme" id="Theme_tb368"]
+default_font = ExtResource("3_55k1u")
 default_font_size = 55
 
 [node name="GameOverUI" type="Control" unique_id=1976970915 node_paths=PackedStringArray("visible_ui", "animation_player", "death_sound")]
@@ -109,10 +112,10 @@ custom_effects = [SubResource("RichTextEffect_5eixk")]
 
 [node name="RestartGameButton" type="Button" parent="Panel/RichTextLabel" unique_id=1875596493 node_paths=PackedStringArray("audio_player")]
 layout_mode = 0
-offset_left = 199.0
-offset_top = 146.5
-offset_right = 458.0
-offset_bottom = 237.5
+offset_left = 188.0
+offset_top = 152.5
+offset_right = 447.0
+offset_bottom = 214.5
 theme = SubResource("Theme_55k1u")
 text = "RESTART"
 script = ExtResource("3_j1fe5")
@@ -124,10 +127,10 @@ stream = ExtResource("4_xjda6")
 
 [node name="ExitGameButton" type="Button" parent="Panel/RichTextLabel" unique_id=2043990106 node_paths=PackedStringArray("audio_player")]
 layout_mode = 0
-offset_left = 243.0
-offset_top = 246.5
-offset_right = 399.0
-offset_bottom = 330.5
+offset_left = 242.0
+offset_top = 231.5
+offset_right = 398.0
+offset_bottom = 289.5
 theme = SubResource("Theme_tb368")
 text = "SALIR
 "

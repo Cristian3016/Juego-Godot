@@ -22,11 +22,14 @@ extends Panel
 func _ready():
 	set_enemies_slain_label(combat_state.enemies_died)
 	set_player_deaths_label(combat_state.player_deaths)
+
 	update_lives(ArcadeManager.lives)
+
 	set_continues_label(ArcadeManager.continues)
 	set_score()
 
 	ArcadeManager.score_changed.connect(_on_score_changed)
+	ArcadeManager.lives_changed.connect(update_lives) # conexión que faltaba
 
 func set_enemies_slain_label(p_new_count : int):
 	enemies_slain_label.text = "Enemies Slain: %d" % p_new_count
@@ -44,7 +47,8 @@ func update_lives(p_lives:int):
 
 	for child in lives_container.get_children():
 		child.queue_free()
-	for i in p_lives:
+
+	for i in range(p_lives):
 		var heart = TextureRect.new()
 		heart.texture = texture_2d
 		heart.custom_minimum_size = Vector2(32,32)

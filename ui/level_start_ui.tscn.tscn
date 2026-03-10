@@ -8,6 +8,7 @@ default_font = ExtResource("2_1gbwn")
 default_font_size = 50
 
 [sub_resource type="Theme" id="Theme_h48ol"]
+default_font = ExtResource("2_1gbwn")
 default_font_size = 25
 
 [sub_resource type="OggPacketSequence" id="OggPacketSequence_fynef"]
@@ -52,10 +53,10 @@ scroll_active = false
 
 [node name="StartButton" type="Button" parent="." unique_id=1797784915]
 layout_mode = 0
-offset_left = 733.0
-offset_top = 310.0
-offset_right = 880.0
-offset_bottom = 353.0
+offset_left = 729.0
+offset_top = 273.0
+offset_right = 876.0
+offset_bottom = 316.0
 theme = SubResource("Theme_h48ol")
 text = "COMENZAR"
 
