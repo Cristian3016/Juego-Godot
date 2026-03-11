@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://ciil00nppwb7q"]
+
+[ext_resource type="Script" uid="uid://cbcfc3ny6dr0c" path="res://objects/material/mini_heart.gd" id="1_p27th"]
+[ext_resource type="Texture2D" uid="uid://bjb2a70cv7o8a" path="res://art/kenny_1_bit_platformer/monochrome_tilemap_transparent_packed.png" id="1_tvrtm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p27th"]
+atlas = ExtResource("1_tvrtm")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p407t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p27th")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p27th")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p27th")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tvrtm"]
+radius = 6.0
+height = 12.0
+
+[node name="MiniHeart" type="Area2D" unique_id=591315807]
+collision_layer = 512
+collision_mask = 2
+script = ExtResource("1_p27th")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1112700341]
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_p407t")
+autoplay = "default"
+frame = 2
+frame_progress = 0.88948643
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1699122078]
+position = Vector2(0, -1)
+shape = SubResource("CapsuleShape2D_tvrtm")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=315106643]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

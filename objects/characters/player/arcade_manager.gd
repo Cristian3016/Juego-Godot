@@ -1,5 +1,7 @@
 extends Node
 
+const HEALTH_LABEL_SCENE = preload("res://ui/health_changed_label.tscn")
+
 signal score_changed(new_score)
 signal lives_changed(new_lives)
 
@@ -22,13 +24,12 @@ func add_score(point : int):
 func add_life():
 	if lives < max_lives:
 		lives += 1
-		print("Nueva vida:", lives)
 		lives_changed.emit(lives)
+		show_1up()
 
 func lose_life():
 	lives -= 1
 	lives_changed.emit(lives)
-	print("Lives left: ", lives)
 
 func can_restart():
 	return lives > 0 or continues > 0
@@ -41,6 +42,17 @@ func use_continue():
 		continues -= 1		
 		lives = 3
 		lives_changed.emit(lives)
+
 		score = 0
 		next_life_score = 5000
 		score_changed.emit(score)
+
+func show_1up():
+	var label = HEALTH_LABEL_SCENE.instantiate()
+	label.set_health_text(1)
+
+	var player = get_tree().get_first_node_in_group("player")
+
+	if player:
+		label.global_position = player.global_position + Vector2(0, -20)
+		get_tree().current_scene.add_child(label)

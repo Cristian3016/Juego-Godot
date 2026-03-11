@@ -12,11 +12,18 @@ func _process(delta: float) -> void:
 	position += move_speed * delta
 	
 func set_health_text(p_health_change : int):
-	text = str(p_health_change)
-	
-	if p_health_change < 0:
-		self.modulate = game_colors.negative_health
+
+	if p_health_change == 1:
+		text = "1UP!"
+		self.modulate = game_colors.extra_life	
+	elif p_health_change == 50:
+		text = "+50"
+		self.modulate = game_colors.coin_color	
+	elif p_health_change < 0:
+		text = str(p_health_change)
+		self.modulate = game_colors.negative_health	
 	else:
+		text = "+" + str(p_health_change)
 		self.modulate = game_colors.positive_health
 		
 func _on_timeout():

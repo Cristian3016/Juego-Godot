@@ -6,16 +6,9 @@
 [ext_resource type="Script" uid="uid://b2w56uor8br3r" path="res://objects/characters/character_stats.gd" id="4_8hd6v"]
 [ext_resource type="Script" uid="uid://cv8u1t7tcm6td" path="res://data/game object types/game_object_type.gd" id="4_n46q3"]
 [ext_resource type="Resource" uid="uid://en8xwd3usndi" path="res://data/game object types/game_object_player.tres" id="5_btoec"]
+[ext_resource type="PackedScene" uid="uid://ciil00nppwb7q" path="res://objects/material/mini_heart.tscn" id="6_3sk1a"]
 [ext_resource type="PackedScene" uid="uid://rltcr5m8ygq3" path="res://objects/material/heart.tscn" id="6_gwceb"]
 [ext_resource type="PackedScene" uid="uid://dnsdoy8r1re2w" path="res://objects/material/coin.tscn" id="8_l53as"]
-
-[sub_resource type="Resource" id="Resource_l53as"]
-resource_local_to_scene = true
-script = ExtResource("4_8hd6v")
-
-[sub_resource type="Resource" id="Resource_3sk1a"]
-resource_local_to_scene = true
-script = ExtResource("4_8hd6v")
 
 [sub_resource type="Resource" id="Resource_08mmt"]
 resource_local_to_scene = true
@@ -204,6 +197,14 @@ script = ExtResource("4_8hd6v")
 [sub_resource type="Resource" id="Resource_lodav"]
 resource_local_to_scene = true
 script = ExtResource("4_8hd6v")
+
+[sub_resource type="Resource" id="Resource_lieeb"]
+resource_local_to_scene = true
+script = ExtResource("4_8hd6v")
+
+[sub_resource type="Resource" id="Resource_vgs4h"]
+resource_local_to_scene = true
+script = ExtResource("4_8hd6v")
 walk_speed = 120.0
 run_speed = 200.0
 jump_force = 400.0
@@ -217,7 +218,7 @@ tile_map_data = PackedByteArray("AAADAQAAAAAQAAgAAAACAQAAAAAQAAgAAAABAQAAAAAQAAg
 tile_set = ExtResource("1_ua5ty")
 
 [node name="ForegroundLayer" type="TileMapLayer" parent="." unique_id=493269321]
-tile_map_data = PackedByteArray("AAC7/+P/AAALABEAAAC7/+T/AAALABIAAAC7/+X/AAALABMAAAC8/+P/AAAMABEAAAC8/+T/AAAMABIAAAC8/+X/AAAMABMAAAC9/+P/AAANABEAAAC9/+T/AAANABIAAAC9/+X/AAANABMAAAC7/wEAAAAHABAAAAC7/wIAAAAHABEAAAC8/wEAAAAIABAAAAC8/wIAAAAIABEAAAC//wEAAAAHABAAAAC//wIAAAAHABEAAADA/wEAAAAIABAAAADA/wIAAAAIABEAAADD/wEAAAAHABAAAADD/wIAAAAHABEAAADE/wEAAAAIABAAAADE/wIAAAAIABEAAADH/wEAAAAHABAAAADH/wIAAAAHABEAAADI/wEAAAAIABAAAADI/wIAAAAIABEAAAC///7/AAAOAAAAAAC/////AAAOAAEAAADA//7/AAAPAAAAAADA////AAAPAAEAAADF//v/AAAOAAAAAADF//z/AAAOAAEAAADG//v/AAAPAAAAAADG//z/AAAPAAEAAADK//f/AAAOAAAAAADK//j/AAAOAAEAAADL//f/AAAPAAAAAADL//j/AAAPAAEAAADT//f/AAAOAAAAAADT//j/AAAOAAEAAADU//f/AAAPAAAAAADU//j/AAAPAAEAAADN//j/AAANAAIAAADO//j/AAAOAAIAAADP//j/AAAPAAIAAADH//z/AAANAAIAAADI//z/AAAOAAIAAADJ//z/AAAPAAIAAADP/wEAAAANAAIAAADQ/wEAAAAOAAIAAADR/wEAAAAPAAIAAADL/wEAAAAQAAAAAADM/wEAAAARAAAAAADN/wEAAAASAAAAAADV/wsAAAAQAAAAAADW/wsAAAARAAAAAADX/wsAAAASAAAAAADf/wgAAAAQAAAAAADg/wgAAAARAAAAAADh/wgAAAASAAAAAADo/wsAAAAQAAAAAADp/wsAAAARAAAAAADq/wsAAAASAAAAAADv/wsAAAAQAAAAAADw/wsAAAARAAAAAADx/wsAAAASAAAAAADf////AAAQAAAAAADg////AAARAAAAAADh////AAAPAAIAAADw////AAAQAAAAAADx////AAARAAAAAADy////AAASAAAAAADh//3/AAAPAAAAAADh//7/AAAPAAEAAADq//3/AAAPAAAAAADq//7/AAAPAAEAAADq////AAAPAAIAAADb/+//AAAPAAAAAADb//D/AAAPAAEAAADb//H/AAAPAAIAAADl/+//AAAPAAAAAADl//D/AAAPAAEAAADl//H/AAAPAAIAAADn/+//AAAPAAAAAADn//D/AAAPAAEAAADn//H/AAAPAAIAAADm//H/AAANAAIAAADo/+//AAAPAAAAAADo//D/AAAPAAEAAADo//H/AAAPAAIAAADX/wMAAAAQAAEAAADY/wMAAAARAAEAAADZ/wMAAAASAAEAAADO/wMAAAAQAAEAAADP/wMAAAARAAEAAADQ/wMAAAASAAEAAADY//7/AAATAAAAAADY////AAATAAEAAADV//r/AAATAAAAAADV//v/AAATAAEAAADT//z/AAATAAAAAADT//3/AAATAAEAAADN//z/AAATAAAAAADN//3/AAATAAAAAADN//7/AAATAAEAAADD//n/AAATAAAAAADD//r/AAATAAAAAAC8//j/AAADAAAAAAC8//n/AAADAAAAAAC8//r/AAADAAAAAAC8//v/AAADAAAAAADA//j/AAADAAAAAADA//n/AAADAAAAAADA//r/AAADAAIAAADY//X/AAADAAAAAADY//b/AAADAAEAAADY//f/AAADAAIAAADe//j/AAADAAAAAADe//n/AAADAAEAAADe//r/AAADAAIAAADw//j/AAADAAAAAADw//n/AAADAAEAAADw//r/AAADAAIAAADc//H/AAANAAIAAADD//j/AAATAAAAAADD//v/AAATAAEAAADC/+//AAATAAAAAADC//D/AAATAAAAAADC//H/AAATAAEAAADF/+//AAATAAAAAADF//D/AAATAAAAAADF//H/AAATAAAAAADF//L/AAATAAEAAADB/+P/AAATAAAAAADB/+T/AAATAAAAAADB/+X/AAATAAAAAADB/+b/AAATAAAAAADB/+f/AAATAAEAAADE/+P/AAATAAAAAADE/+T/AAATAAAAAADE/+X/AAATAAAAAADE/+b/AAATAAEAAAC8/wgAAAALABEAAAC8/wkAAAALABIAAAC8/woAAAALABMAAAC9/wgAAAAMABEAAAC9/wkAAAAMABIAAAC9/woAAAAMABMAAAC+/wgAAAANABEAAAC+/wkAAAANABIAAAC+/woAAAANABMAAAAxAP7/AAALABEAAAAxAP//AAALABIAAAAxAAAAAAALABMAAAAyAP7/AAAMABEAAAAyAP//AAAMABIAAAAyAAAAAAAMABMAAAAzAP7/AAANABEAAAAzAP//AAANABIAAAAzAAAAAAANABMAAABDAOf/AAALABEAAABDAOj/AAALABIAAABDAOn/AAALABMAAABEAOf/AAAMABEAAABEAOj/AAAMABIAAABEAOn/AAAMABMAAABFAOf/AAANABEAAABFAOj/AAANABIAAABFAOn/AAANABMAAAAeAO//AAALABEAAAAeAPD/AAALABIAAAAeAPH/AAALABMAAAAfAO//AAAMABEAAAAfAPD/AAAMABIAAAAfAPH/AAAMABMAAAAgAO//AAANABEAAAAgAPD/AAANABIAAAAgAPH/AAANABMAAAAlAO//AAALABEAAAAlAPD/AAALABIAAAAlAPH/AAALABMAAAAmAO//AAAMABEAAAAmAPD/AAAMABIAAAAmAPH/AAAMABMAAAAnAO//AAANABEAAAAnAPD/AAANABIAAAAnAPH/AAANABMAAAAsAO//AAALABEAAAAsAPD/AAALABIAAAAsAPH/AAALABMAAAAtAO//AAAMABEAAAAtAPD/AAAMABIAAAAtAPH/AAAMABMAAAAuAO//AAANABEAAAAuAPD/AAANABIAAAAuAPH/AAANABMAAADF/+n/AAAQAAAAAADG/+n/AAARAAAAAADH/+f/AAAPAAAAAADH/+j/AAAPAAEAAADH/+n/AAAPAAIAAADg/+X/AAAQAAAAAADh/+X/AAARAAAAAADi/+P/AAAPAAAAAADi/+T/AAAPAAEAAADi/+X/AAAPAAIAAADt/+b/AAAQAAAAAADu/+b/AAARAAAAAADv/+T/AAAPAAAAAADv/+X/AAAPAAEAAADv/+b/AAAPAAIAAAD3/+n/AAAQAAAAAAD4/+n/AAARAAAAAAD5/+f/AAAPAAAAAAD5/+j/AAAPAAEAAAD5/+n/AAAPAAIAAAACAAoAAAAOAAAAAAACAAsAAAAOAAEAAAADAAoAAAAOAAAAAAADAAsAAAAOAAEAAAAFAAoAAAAQAAAAAAAGAAoAAAARAAAAAAAHAAoAAAASAAAAAAALAAgAAAAOAAAAAAALAAkAAAAOAAEAAAANAAgAAAAQAAAAAAAOAAgAAAARAAAAAAAPAAgAAAASAAAAAAD6//r/AAAOAAAAAAD6//v/AAAOAAEAAAD8//r/AAAQAAAAAAD9//r/AAARAAAAAAD+//r/AAASAAAAAAAVAPH/AAAOAAAAAAAVAPL/AAAOAAEAAAAXAPH/AAAQAAAAAAAYAPH/AAARAAAAAAAZAPH/AAASAAAAAAAuAPz/AAAOAAAAAAAuAP3/AAAOAAEAAAAwAPz/AAAQAAAAAAAxAPz/AAARAAAAAAAyAPz/AAASAAAAAAA1APX/AAAOAAAAAAA1APb/AAAOAAEAAAA3APX/AAAQAAAAAAA4APX/AAARAAAAAAA5APX/AAASAAAAAAApAP//AAANAAIAAAAqAP//AAAOAAIAAAArAP3/AAAPAAAAAAArAP7/AAAPAAEAAAArAP//AAAPAAIAAAA5AAcAAAANAAIAAAA6AAcAAAAOAAIAAAA7AAUAAAAPAAAAAAA7AAYAAAAPAAEAAAA7AAcAAAAPAAIAAAAyAAsAAAANAAIAAAAzAAsAAAAOAAIAAAA0AAkAAAAPAAAAAAA0AAoAAAAPAAEAAAA0AAsAAAAPAAIAAAA2AAsAAAAQAAAAAAA3AAsAAAARAAAAAAA4AAsAAAAQAAAAAAA5AAsAAAAQAAAAAAA6AAsAAAAQAAAAAAA7AAsAAAARAAAAAAA8AAsAAAASAAAAAAA2AAQAAAATAAAAAAA2AAUAAAATAAAAAAA2AAYAAAATAAEAAAAvAAQAAAATAAAAAAAvAAUAAAATAAAAAAAvAAYAAAATAAAAAAAvAAcAAAATAAEAAAAjAAUAAAATAAAAAAAjAAYAAAATAAAAAAAjAAcAAAATAAAAAAAjAAgAAAATAAEAAAAjAAEAAAATAAAAAAAjAAIAAAATAAEAAAAbAAMAAAATAAAAAAAbAAQAAAATAAAAAAAbAAUAAAATAAAAAAAbAAYAAAATAAAAAAAbAAcAAAATAAAAAAAbAAgAAAATAAAAAAAbAAkAAAATAAEAAAAdAAgAAAATAAAAAAAdAAkAAAATAAAAAAAdAAoAAAATAAEAAAAAAAUAAAAEAAEAAAAAAAYAAAAEAAIAAAABAAQAAAAFAAAAAAABAAUAAAAFAAEAAAABAAYAAAAFAAIAAAACAAUAAAAGAAEAAAACAAYAAAAGAAIAAADi//n/AAAEAAEAAADi//r/AAAEAAIAAADj//j/AAAFAAAAAADj//n/AAAFAAEAAADj//r/AAAFAAIAAADk//n/AAAGAAEAAADk//r/AAAGAAIAAADm//j/AAADAAAAAADm//n/AAADAAEAAADm//r/AAADAAAAAADm//v/AAADAAEAAADm//z/AAADAAIAAADs/+n/AAADAAEAAADs/+r/AAADAAAAAADs/+v/AAADAAEAAADs/+j/AAADAAAAAADs/+z/AAADAAIAAADi//H/AAACAAIAAADf/+z/AAACAAIAAAAgAAsAAAABAAAAAAAhAAsAAAABAAAAAAAiAAsAAAABAAAAAAAjAAsAAAABAAAAAAA=")
+tile_map_data = PackedByteArray("AAC7/+P/AAALABEAAAC7/+T/AAALABIAAAC7/+X/AAALABMAAAC8/+P/AAAMABEAAAC8/+T/AAAMABIAAAC8/+X/AAAMABMAAAC9/+P/AAANABEAAAC9/+T/AAANABIAAAC9/+X/AAANABMAAAC7/wEAAAAHABAAAAC7/wIAAAAHABEAAAC8/wEAAAAIABAAAAC8/wIAAAAIABEAAAC//wEAAAAHABAAAAC//wIAAAAHABEAAADA/wEAAAAIABAAAADA/wIAAAAIABEAAADD/wEAAAAHABAAAADD/wIAAAAHABEAAADE/wEAAAAIABAAAADE/wIAAAAIABEAAADH/wEAAAAHABAAAADH/wIAAAAHABEAAADI/wEAAAAIABAAAADI/wIAAAAIABEAAAC///7/AAAOAAAAAAC/////AAAOAAEAAADA//7/AAAPAAAAAADA////AAAPAAEAAADF//v/AAAOAAAAAADF//z/AAAOAAEAAADG//v/AAAPAAAAAADG//z/AAAPAAEAAADK//f/AAAOAAAAAADK//j/AAAOAAEAAADL//f/AAAPAAAAAADL//j/AAAPAAEAAADT//f/AAAOAAAAAADT//j/AAAOAAEAAADU//f/AAAPAAAAAADU//j/AAAPAAEAAADN//j/AAANAAIAAADO//j/AAAOAAIAAADP//j/AAAPAAIAAADH//z/AAANAAIAAADI//z/AAAOAAIAAADJ//z/AAAPAAIAAADP/wEAAAANAAIAAADQ/wEAAAAOAAIAAADR/wEAAAAPAAIAAADL/wEAAAAQAAAAAADM/wEAAAARAAAAAADN/wEAAAASAAAAAADV/wsAAAAQAAAAAADW/wsAAAARAAAAAADX/wsAAAASAAAAAADf/wgAAAAQAAAAAADg/wgAAAARAAAAAADh/wgAAAASAAAAAADo/wsAAAAQAAAAAADp/wsAAAARAAAAAADq/wsAAAASAAAAAADv/wsAAAAQAAAAAADw/wsAAAARAAAAAADx/wsAAAASAAAAAADf////AAAQAAAAAADg////AAARAAAAAADh////AAAPAAIAAADw////AAAQAAAAAADx////AAARAAAAAADy////AAASAAAAAADh//3/AAAPAAAAAADh//7/AAAPAAEAAADq//3/AAAPAAAAAADq//7/AAAPAAEAAADq////AAAPAAIAAADb/+//AAAPAAAAAADb//D/AAAPAAEAAADb//H/AAAPAAIAAADl/+//AAAPAAAAAADl//D/AAAPAAEAAADl//H/AAAPAAIAAADn/+//AAAPAAAAAADn//D/AAAPAAEAAADn//H/AAAPAAIAAADm//H/AAANAAIAAADo/+//AAAPAAAAAADo//D/AAAPAAEAAADo//H/AAAPAAIAAADX/wMAAAAQAAEAAADY/wMAAAARAAEAAADZ/wMAAAASAAEAAADO/wMAAAAQAAEAAADP/wMAAAARAAEAAADQ/wMAAAASAAEAAADY//7/AAATAAAAAADY////AAATAAEAAADV//r/AAATAAAAAADV//v/AAATAAEAAADT//z/AAATAAAAAADT//3/AAATAAEAAADN//z/AAATAAAAAADN//3/AAATAAAAAADN//7/AAATAAEAAADD//n/AAATAAAAAADD//r/AAATAAAAAAC8//j/AAADAAAAAAC8//n/AAADAAAAAAC8//r/AAADAAAAAAC8//v/AAADAAAAAADA//j/AAADAAAAAADA//n/AAADAAAAAADA//r/AAADAAIAAADY//X/AAADAAAAAADY//b/AAADAAEAAADY//f/AAADAAIAAADe//j/AAADAAAAAADe//n/AAADAAEAAADe//r/AAADAAIAAADw//j/AAADAAAAAADw//n/AAADAAEAAADw//r/AAADAAIAAADc//H/AAANAAIAAADD//j/AAATAAAAAADD//v/AAATAAEAAADC/+//AAATAAAAAADC//D/AAATAAAAAADC//H/AAATAAEAAADF/+//AAATAAAAAADF//D/AAATAAAAAADF//H/AAATAAAAAADF//L/AAATAAEAAADB/+P/AAATAAAAAADB/+T/AAATAAAAAADB/+X/AAATAAAAAADB/+b/AAATAAAAAADB/+f/AAATAAEAAADE/+P/AAATAAAAAADE/+T/AAATAAAAAADE/+X/AAATAAAAAADE/+b/AAATAAEAAAC8/wgAAAALABEAAAC8/wkAAAALABIAAAC8/woAAAALABMAAAC9/wgAAAAMABEAAAC9/wkAAAAMABIAAAC9/woAAAAMABMAAAC+/wgAAAANABEAAAC+/wkAAAANABIAAAC+/woAAAANABMAAAAxAP7/AAALABEAAAAxAP//AAALABIAAAAxAAAAAAALABMAAAAyAP7/AAAMABEAAAAyAP//AAAMABIAAAAyAAAAAAAMABMAAAAzAP7/AAANABEAAAAzAP//AAANABIAAAAzAAAAAAANABMAAABDAOf/AAALABEAAABDAOj/AAALABIAAABDAOn/AAALABMAAABEAOf/AAAMABEAAABEAOj/AAAMABIAAABEAOn/AAAMABMAAABFAOf/AAANABEAAABFAOj/AAANABIAAABFAOn/AAANABMAAAAeAO//AAALABEAAAAeAPD/AAALABIAAAAeAPH/AAALABMAAAAfAO//AAAMABEAAAAfAPD/AAAMABIAAAAfAPH/AAAMABMAAAAgAO//AAANABEAAAAgAPD/AAANABIAAAAgAPH/AAANABMAAAAlAO//AAALABEAAAAlAPD/AAALABIAAAAlAPH/AAALABMAAAAmAO//AAAMABEAAAAmAPD/AAAMABIAAAAmAPH/AAAMABMAAAAnAO//AAANABEAAAAnAPD/AAANABIAAAAnAPH/AAANABMAAAAsAO//AAALABEAAAAsAPD/AAALABIAAAAsAPH/AAALABMAAAAtAO//AAAMABEAAAAtAPD/AAAMABIAAAAtAPH/AAAMABMAAAAuAO//AAANABEAAAAuAPD/AAANABIAAAAuAPH/AAANABMAAADF/+n/AAAQAAAAAADG/+n/AAARAAAAAADH/+f/AAAPAAAAAADH/+j/AAAPAAEAAADH/+n/AAAPAAIAAADg/+X/AAAQAAAAAADh/+X/AAARAAAAAADi/+P/AAAPAAAAAADi/+T/AAAPAAEAAADi/+X/AAAPAAIAAADt/+b/AAAQAAAAAADu/+b/AAARAAAAAADv/+T/AAAPAAAAAADv/+X/AAAPAAEAAADv/+b/AAAPAAIAAAD3/+n/AAAQAAAAAAD4/+n/AAARAAAAAAD5/+f/AAAPAAAAAAD5/+j/AAAPAAEAAAD5/+n/AAAPAAIAAAACAAoAAAAOAAAAAAACAAsAAAAOAAEAAAADAAoAAAAOAAAAAAADAAsAAAAOAAEAAAAFAAoAAAAQAAAAAAAGAAoAAAARAAAAAAAHAAoAAAASAAAAAAALAAgAAAAOAAAAAAALAAkAAAAOAAEAAAANAAgAAAAQAAAAAAAOAAgAAAARAAAAAAAPAAgAAAASAAAAAAD6//r/AAAOAAAAAAD6//v/AAAOAAEAAAD8//r/AAAQAAAAAAD9//r/AAARAAAAAAD+//r/AAASAAAAAAAVAPH/AAAOAAAAAAAVAPL/AAAOAAEAAAAXAPH/AAAQAAAAAAAYAPH/AAARAAAAAAAZAPH/AAASAAAAAAAuAPz/AAAOAAAAAAAuAP3/AAAOAAEAAAAwAPz/AAAQAAAAAAAxAPz/AAARAAAAAAAyAPz/AAASAAAAAAA1APX/AAAOAAAAAAA1APb/AAAOAAEAAAA3APX/AAAQAAAAAAA4APX/AAARAAAAAAA5APX/AAASAAAAAAApAP//AAANAAIAAAAqAP//AAAOAAIAAAArAP3/AAAPAAAAAAArAP7/AAAPAAEAAAArAP//AAAPAAIAAAA5AAcAAAANAAIAAAA6AAcAAAAOAAIAAAA7AAUAAAAPAAAAAAA7AAYAAAAPAAEAAAA7AAcAAAAPAAIAAAAyAAsAAAANAAIAAAAzAAsAAAAOAAIAAAA0AAkAAAAPAAAAAAA0AAoAAAAPAAEAAAA0AAsAAAAPAAIAAAA2AAsAAAAQAAAAAAA3AAsAAAARAAAAAAA4AAsAAAAQAAAAAAA5AAsAAAAQAAAAAAA6AAsAAAAQAAAAAAA7AAsAAAARAAAAAAA8AAsAAAASAAAAAAA2AAQAAAATAAAAAAA2AAUAAAATAAAAAAA2AAYAAAATAAEAAAAvAAQAAAATAAAAAAAvAAUAAAATAAAAAAAvAAYAAAATAAAAAAAvAAcAAAATAAEAAAAjAAUAAAATAAAAAAAjAAYAAAATAAAAAAAjAAcAAAATAAAAAAAjAAgAAAATAAEAAAAjAAEAAAATAAAAAAAjAAIAAAATAAEAAAAbAAMAAAATAAAAAAAbAAQAAAATAAAAAAAbAAUAAAATAAAAAAAbAAYAAAATAAAAAAAbAAcAAAATAAAAAAAbAAgAAAATAAAAAAAbAAkAAAATAAEAAAAdAAgAAAATAAAAAAAdAAkAAAATAAAAAAAdAAoAAAATAAEAAAAAAAUAAAAEAAEAAAAAAAYAAAAEAAIAAAABAAQAAAAFAAAAAAABAAUAAAAFAAEAAAABAAYAAAAFAAIAAAACAAUAAAAGAAEAAAACAAYAAAAGAAIAAADi//n/AAAEAAEAAADi//r/AAAEAAIAAADj//j/AAAFAAAAAADj//n/AAAFAAEAAADj//r/AAAFAAIAAADk//n/AAAGAAEAAADk//r/AAAGAAIAAADm//j/AAADAAAAAADm//n/AAADAAEAAADm//r/AAADAAAAAADm//v/AAADAAEAAADm//z/AAADAAIAAADs/+n/AAADAAEAAADs/+r/AAADAAAAAADs/+v/AAADAAEAAADs/+j/AAADAAAAAADs/+z/AAADAAIAAAAgAAsAAAABAAAAAAAhAAsAAAABAAAAAAAiAAsAAAABAAAAAAAjAAsAAAABAAAAAAA=")
 tile_set = ExtResource("1_ua5ty")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=481603051]
@@ -230,200 +231,203 @@ zoom = Vector2(2, 2)
 
 [node name="Invader" parent="Enemies" unique_id=327016499 instance=ExtResource("3_pdpul")]
 position = Vector2(-798, 31)
-stats = SubResource("Resource_l53as")
+stats = SubResource("Resource_08mmt")
 
 [node name="Invader2" parent="Enemies" unique_id=1231583129 instance=ExtResource("3_pdpul")]
 position = Vector2(-680, 31)
-stats = SubResource("Resource_3sk1a")
+stats = SubResource("Resource_5ot28")
 
 [node name="Invader3" parent="Enemies" unique_id=1670377777 instance=ExtResource("3_pdpul")]
 position = Vector2(-748, 31)
-stats = SubResource("Resource_08mmt")
+stats = SubResource("Resource_aerfg")
 
 [node name="Invader4" parent="Enemies" unique_id=59411685 instance=ExtResource("3_pdpul")]
 position = Vector2(-851, -288)
-stats = SubResource("Resource_5ot28")
+stats = SubResource("Resource_nmsli")
 
 [node name="Invader5" parent="Enemies" unique_id=409917325 instance=ExtResource("3_pdpul")]
 position = Vector2(-792, -289)
-stats = SubResource("Resource_aerfg")
+stats = SubResource("Resource_betor")
 
 [node name="Invader6" parent="Enemies" unique_id=847894082 instance=ExtResource("3_pdpul")]
 position = Vector2(-639, -306)
-stats = SubResource("Resource_nmsli")
+stats = SubResource("Resource_vjtdm")
 
 [node name="Invader7" parent="Enemies" unique_id=779104403 instance=ExtResource("3_pdpul")]
 position = Vector2(-439, -305)
-stats = SubResource("Resource_betor")
+stats = SubResource("Resource_bgw3c")
 
 [node name="Invader8" parent="Enemies" unique_id=1607037775 instance=ExtResource("3_pdpul")]
 position = Vector2(-536, -225)
-stats = SubResource("Resource_vjtdm")
+stats = SubResource("Resource_lrvbd")
 
 [node name="Invader9" parent="Enemies" unique_id=427547250 instance=ExtResource("3_pdpul")]
 position = Vector2(-351, -226)
-stats = SubResource("Resource_bgw3c")
+stats = SubResource("Resource_oqlok")
 
 [node name="Invader10" parent="Enemies" unique_id=1696499367 instance=ExtResource("3_pdpul")]
 position = Vector2(-553, -1)
-stats = SubResource("Resource_lrvbd")
+stats = SubResource("Resource_7nvrk")
 
 [node name="Invader11" parent="Enemies" unique_id=993066022 instance=ExtResource("3_pdpul")]
 position = Vector2(-1054, -209)
-stats = SubResource("Resource_oqlok")
+stats = SubResource("Resource_jkxa6")
 
 [node name="Invader12" parent="Enemies" unique_id=518423447 instance=ExtResource("3_pdpul")]
 position = Vector2(-939, -353)
-stats = SubResource("Resource_7nvrk")
+stats = SubResource("Resource_w75he")
 
 [node name="Invader13" parent="Enemies" unique_id=1498840726 instance=ExtResource("3_pdpul")]
 position = Vector2(-1005, -353)
-stats = SubResource("Resource_jkxa6")
+stats = SubResource("Resource_udfhf")
 
 [node name="Invader14" parent="Enemies" unique_id=802362456 instance=ExtResource("3_pdpul")]
 position = Vector2(-746, -433)
-stats = SubResource("Resource_w75he")
+stats = SubResource("Resource_i6od7")
 
 [node name="Invader15" parent="Enemies" unique_id=1379481129 instance=ExtResource("3_pdpul")]
 position = Vector2(-608, -433)
-stats = SubResource("Resource_udfhf")
+stats = SubResource("Resource_ryfpa")
 
 [node name="Invader16" parent="Enemies" unique_id=924689727 instance=ExtResource("3_pdpul")]
 position = Vector2(-690, -433)
-stats = SubResource("Resource_i6od7")
+stats = SubResource("Resource_ntdhj")
 
 [node name="Invader17" parent="Enemies" unique_id=2038884834 instance=ExtResource("3_pdpul")]
 position = Vector2(-969, 95)
-stats = SubResource("Resource_ryfpa")
+stats = SubResource("Resource_0fu15")
 
 [node name="Invader18" parent="Enemies" unique_id=1016738679 instance=ExtResource("3_pdpul")]
 position = Vector2(-329, 191)
-stats = SubResource("Resource_ntdhj")
+stats = SubResource("Resource_4knja")
 
 [node name="Invader19" parent="Enemies" unique_id=1094855274 instance=ExtResource("3_pdpul")]
 position = Vector2(-624, 191)
-stats = SubResource("Resource_0fu15")
+stats = SubResource("Resource_voubc")
 
 [node name="Invader20" parent="Enemies" unique_id=1848220581 instance=ExtResource("3_pdpul")]
 position = Vector2(-845, 111)
-stats = SubResource("Resource_4knja")
+stats = SubResource("Resource_0x1rk")
 
 [node name="Invader21" parent="Enemies" unique_id=1786687231 instance=ExtResource("3_pdpul")]
 position = Vector2(-74, 31)
-stats = SubResource("Resource_voubc")
+stats = SubResource("Resource_pnpm1")
 
 [node name="Invader22" parent="Enemies" unique_id=1004558876 instance=ExtResource("3_pdpul")]
 position = Vector2(-276, 192)
-stats = SubResource("Resource_0x1rk")
+stats = SubResource("Resource_06ecp")
 
 [node name="Invader23" parent="Enemies" unique_id=119417334 instance=ExtResource("3_pdpul")]
 position = Vector2(155, 31)
-stats = SubResource("Resource_pnpm1")
+stats = SubResource("Resource_ohjdc")
 
 [node name="Invader24" parent="Enemies" unique_id=545764846 instance=ExtResource("3_pdpul")]
 position = Vector2(29, 31)
-stats = SubResource("Resource_06ecp")
+stats = SubResource("Resource_e5brb")
 
 [node name="Invader25" parent="Enemies" unique_id=939879048 instance=ExtResource("3_pdpul")]
 position = Vector2(27, 190)
-stats = SubResource("Resource_ohjdc")
+stats = SubResource("Resource_rf48r")
 
 [node name="Invader26" parent="Enemies" unique_id=985007466 instance=ExtResource("3_pdpul")]
 position = Vector2(356, -1)
-stats = SubResource("Resource_e5brb")
+stats = SubResource("Resource_toluw")
 
 [node name="Invader27" parent="Enemies" unique_id=910860427 instance=ExtResource("3_pdpul")]
 position = Vector2(614, -2)
-stats = SubResource("Resource_rf48r")
+stats = SubResource("Resource_dp1ib")
 
 [node name="Invader28" parent="Enemies" unique_id=2022022142 instance=ExtResource("3_pdpul")]
 position = Vector2(625, 111)
-stats = SubResource("Resource_toluw")
+stats = SubResource("Resource_5t0se")
 
 [node name="Invader29" parent="Enemies" unique_id=1822096185 instance=ExtResource("3_pdpul")]
 position = Vector2(620, 191)
-stats = SubResource("Resource_dp1ib")
+stats = SubResource("Resource_tqj1w")
 
 [node name="Invader30" parent="Enemies" unique_id=2067644002 instance=ExtResource("3_pdpul")]
 position = Vector2(839, 191)
-stats = SubResource("Resource_5t0se")
+stats = SubResource("Resource_gtrna")
 
 [node name="Invader31" parent="Enemies" unique_id=1837872071 instance=ExtResource("3_pdpul")]
 position = Vector2(723, 191)
-stats = SubResource("Resource_tqj1w")
+stats = SubResource("Resource_xapae")
 
 [node name="Invader32" parent="Enemies" unique_id=824136169 instance=ExtResource("3_pdpul")]
 position = Vector2(839, 191)
-stats = SubResource("Resource_gtrna")
+stats = SubResource("Resource_r0nt2")
 
 [node name="Invader33" parent="Enemies" unique_id=1119026755 instance=ExtResource("3_pdpul")]
 position = Vector2(1041, 127)
-stats = SubResource("Resource_xapae")
+stats = SubResource("Resource_xv8d5")
 
 [node name="Invader34" parent="Enemies" unique_id=1779915956 instance=ExtResource("3_pdpul")]
 position = Vector2(1032, 31)
-stats = SubResource("Resource_r0nt2")
+stats = SubResource("Resource_0wxk8")
 
 [node name="Invader35" parent="Enemies" unique_id=1152971358 instance=ExtResource("3_pdpul")]
 position = Vector2(963, 31)
-stats = SubResource("Resource_xv8d5")
+stats = SubResource("Resource_stsco")
 
 [node name="Invader36" parent="Enemies" unique_id=955084365 instance=ExtResource("3_pdpul")]
 position = Vector2(1004, -65)
-stats = SubResource("Resource_0wxk8")
+stats = SubResource("Resource_4cd1h")
 
 [node name="Invader37" parent="Enemies" unique_id=111112337 instance=ExtResource("3_pdpul")]
 position = Vector2(1060, -65)
-stats = SubResource("Resource_stsco")
+stats = SubResource("Resource_ai2ei")
 
 [node name="Invader38" parent="Enemies" unique_id=782608897 instance=ExtResource("3_pdpul")]
 position = Vector2(966, -161)
-stats = SubResource("Resource_4cd1h")
+stats = SubResource("Resource_ua8iw")
 
 [node name="Invader39" parent="Enemies" unique_id=832235446 instance=ExtResource("3_pdpul")]
 position = Vector2(1077, -162)
-stats = SubResource("Resource_ai2ei")
+stats = SubResource("Resource_vg3su")
 
 [node name="Invader40" parent="Enemies" unique_id=657110566 instance=ExtResource("3_pdpul")]
 position = Vector2(895, -275)
-stats = SubResource("Resource_ua8iw")
+stats = SubResource("Resource_yyq8c")
 
 [node name="Invader41" parent="Enemies" unique_id=106506493 instance=ExtResource("3_pdpul")]
 position = Vector2(1002, -273)
-stats = SubResource("Resource_vg3su")
+stats = SubResource("Resource_yik85")
 
 [node name="Invader42" parent="Enemies" unique_id=1559974198 instance=ExtResource("3_pdpul")]
 position = Vector2(741, -289)
-stats = SubResource("Resource_yyq8c")
+stats = SubResource("Resource_5vbbt")
 
 [node name="Invader43" parent="Enemies" unique_id=1354382811 instance=ExtResource("3_pdpul")]
 position = Vector2(603, -289)
-stats = SubResource("Resource_yik85")
+stats = SubResource("Resource_vsljp")
 
 [node name="Invader44" parent="Enemies" unique_id=913343726 instance=ExtResource("3_pdpul")]
 position = Vector2(454, -289)
-stats = SubResource("Resource_5vbbt")
+stats = SubResource("Resource_rx1pf")
 
 [node name="Invader45" parent="Enemies" unique_id=1920156419 instance=ExtResource("3_pdpul")]
 position = Vector2(184, -225)
-stats = SubResource("Resource_vsljp")
+stats = SubResource("Resource_nhjla")
 
 [node name="Invader46" parent="Enemies" unique_id=2100775549 instance=ExtResource("3_pdpul")]
 position = Vector2(414, -401)
-stats = SubResource("Resource_rx1pf")
+stats = SubResource("Resource_jpd8a")
 
 [node name="Invader47" parent="Enemies" unique_id=676001374 instance=ExtResource("3_pdpul")]
 position = Vector2(640, -401)
-stats = SubResource("Resource_nhjla")
+stats = SubResource("Resource_lodav")
 
 [node name="Invader48" parent="Enemies" unique_id=333647717 instance=ExtResource("3_pdpul")]
 position = Vector2(-276, -1)
-stats = SubResource("Resource_jpd8a")
+stats = SubResource("Resource_lieeb")
 
 [node name="Heart" type="Node2D" parent="." unique_id=591241966]
 
 [node name="Heart" parent="Heart" unique_id=2036300791 instance=ExtResource("6_gwceb")]
-position = Vector2(-414, -12)
+position = Vector2(-434, -11)
+
+[node name="MiniHeart" parent="Heart" unique_id=591315807 instance=ExtResource("6_3sk1a")]
+position = Vector2(-130, -38)
 
 [node name="Player" type="Node2D" parent="." unique_id=1116508935]
 
@@ -431,7 +435,7 @@ position = Vector2(-414, -12)
 position = Vector2(-1089, 0)
 rotation = 3.1415927
 scale = Vector2(1, -1)
-stats = SubResource("Resource_lodav")
+stats = SubResource("Resource_vgs4h")
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player/Player" unique_id=453597412]
 remote_path = NodePath("../../../Camera2D")
