@@ -2,19 +2,21 @@ extends Node
 
 signal score_changed(new_score)
 signal lives_changed(new_lives)
-	
+
 var coins := 0
 var lives := 3
 var max_lives := 5
 var continues := 2
 var score := 0
+var next_life_score := 5000
 
 func add_score(point : int):
-	score += point	
-	while score >= 500:
-		score -= 500
-		add_life()	
-		
+	score += point
+
+	if score >= next_life_score:
+		add_life()
+		next_life_score += 5000
+
 	score_changed.emit(score)
 
 func add_life():
@@ -36,7 +38,9 @@ func can_continue():
 
 func use_continue():
 	if continues > 0:
-		continues -= 1
-		lives = max_lives
+		continues -= 1		
+		lives = 3
 		lives_changed.emit(lives)
-		print("Continue used! Lives:", lives, " Continues:", continues)
+		score = 0
+		next_life_score = 5000
+		score_changed.emit(score)
