@@ -1,0 +1,104 @@
+[gd_scene format=3 uid="uid://k7qfmqs46roi"]
+
+[ext_resource type="FontFile" uid="uid://csvjd5q1ta86m" path="res://art/fonts/m5x7.ttf" id="1_grxgt"]
+[ext_resource type="Script" uid="uid://rc4fjep3hc24" path="res://ui/level_complete_ui.gd" id="1_oqr4f"]
+[ext_resource type="Resource" uid="uid://jex2cbbjwllf" path="res://state/combat_state.tres" id="2_udxi4"]
+
+[sub_resource type="Animation" id="Animation_5eixk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_j1fe5"]
+resource_name = "show"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vkikq"]
+_data = {
+&"RESET": SubResource("Animation_5eixk"),
+&"show": SubResource("Animation_j1fe5")
+}
+
+[sub_resource type="Theme" id="Theme_oqr4f"]
+default_font = ExtResource("1_grxgt")
+default_font_size = 150
+
+[sub_resource type="Theme" id="Theme_udxi4"]
+default_font = ExtResource("1_grxgt")
+default_font_size = 120
+
+[node name="LevelCompleteUI" type="Control" unique_id=1915508221 node_paths=PackedStringArray("visible_ui", "animation_player")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_oqr4f")
+visible_ui = NodePath("Panel")
+animation_player = NodePath("AnimationPlayer")
+combat_state = ExtResource("2_udxi4")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=131212386]
+libraries/ = SubResource("AnimationLibrary_vkikq")
+
+[node name="Panel" type="Panel" parent="." unique_id=755673313]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LevelCompleteLabel" type="Label" parent="Panel" unique_id=948998045]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -454.5
+offset_top = -120.5
+offset_right = 454.5
+offset_bottom = 120.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_oqr4f")
+text = "NIVEL COMPLETADO"
+
+[node name="NextLevelButton" type="Button" parent="Panel" unique_id=2048330922]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -225.5
+offset_top = -103.0
+offset_right = 225.5
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_udxi4")
+text = "NEXT LEVEL
+"

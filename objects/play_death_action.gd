@@ -10,6 +10,7 @@ func before_run(p_actor: Node, _p_blackboard: Blackboard) -> void:
 	actor.velocity = Vector2.ZERO
 	actor.set_physics_process(false)
 	actor.sprite.play(GlobalNames.animations.death)
+
 	if not actor.sprite.animation_finished.is_connected(_on_animation_finished):
 		actor.sprite.animation_finished.connect(_on_animation_finished)
 
@@ -17,4 +18,11 @@ func tick(_p_actor: Node, _blackboard: Blackboard) -> int:
 	return RUNNING 
 	
 func _on_animation_finished():
+
+	if actor.sprite.animation_finished.is_connected(_on_animation_finished):
+		actor.sprite.animation_finished.disconnect(_on_animation_finished)
+
+	var scene = get_tree().current_scene
+	scene.combat_state.report_death(actor)
+
 	actor.queue_free()

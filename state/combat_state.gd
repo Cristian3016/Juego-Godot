@@ -1,12 +1,13 @@
 class_name CombatState
 extends Resource
 
-@warning_ignore("unused_signal")
 signal health_changed(health : Health, new : int, amount : int)
 signal player_deaths_changed(count : int)
 signal enemies_died_changed(count  : int)
-signal game_over 
+signal game_over
+signal level_complete
 
+@export var total_enemies : int = 0
 
 @export var player_deaths : int = 0 :
 	set(value):
@@ -30,13 +31,22 @@ func report_death(p_node : Node):
 	var handled = false
 	
 	if types.has(GlobalObjectTypes.enemy):
+
+		if p_node.has_meta("death_reported"):
+			return
+		p_node.set_meta("death_reported", true)
+
 		enemies_died += 1
 		ArcadeManager.add_score(100)
+
+		if enemies_died >= total_enemies:
+			level_complete.emit()
+
 		handled = true
-		
-	if types.has(GlobalObjectTypes.player):
+
+	elif types.has(GlobalObjectTypes.player):
 		player_deaths += 1
-		handled = true	
+		handled = true
 		game_over.emit()
 		
 	if not handled:

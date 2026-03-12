@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cbcfc3ny6dr0c" path="res://objects/material/mini_heart.gd" id="1_p27th"]
 [ext_resource type="Texture2D" uid="uid://bjb2a70cv7o8a" path="res://art/kenny_1_bit_platformer/monochrome_tilemap_transparent_packed.png" id="1_tvrtm"]
+[ext_resource type="AudioStream" uid="uid://cwtf0w8mbsdxf" path="res://audio/sound/health/SoundHealth.ogg" id="3_p407t"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p27th"]
 atlas = ExtResource("1_tvrtm")
@@ -44,6 +45,7 @@ frame_progress = 0.88948643
 position = Vector2(0, -1)
 shape = SubResource("CapsuleShape2D_tvrtm")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=315106643]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=677493854]
+stream = ExtResource("3_p407t")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

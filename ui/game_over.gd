@@ -16,10 +16,8 @@ extends Control
 
 @onready var level_music = $"../../../LevelMusic"
 
-
 func _ready() -> void:
 	visible_ui.hide()
-
 
 func _on_game_over():
 

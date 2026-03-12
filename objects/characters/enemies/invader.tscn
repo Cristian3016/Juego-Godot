@@ -96,7 +96,7 @@ shader = ExtResource("16_lt0ww")
 shader_parameter/time_scale = 20.0
 shader_parameter/gb_ceil = 0.8
 
-[node name="Invader" type="CharacterBody2D" unique_id=59411685 node_paths=PackedStringArray("sprite", "health")]
+[node name="Invader" type="CharacterBody2D" unique_id=59411685 node_paths=PackedStringArray("sprite", "health") groups=["invader"]]
 collision_layer = 8
 script = ExtResource("1_2ud1i")
 stats = ExtResource("5_a6y7p")

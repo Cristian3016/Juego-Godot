@@ -42,7 +42,6 @@ func use_continue():
 		continues -= 1		
 		lives = 3
 		lives_changed.emit(lives)
-
 		score = 0
 		next_life_score = 5000
 		score_changed.emit(score)
