@@ -102,3 +102,5 @@ grow_vertical = 0
 theme = SubResource("Theme_udxi4")
 text = "NEXT LEVEL
 "
+
+[connection signal="pressed" from="Panel/NextLevelButton" to="." method="_on_next_level_button_pressed"]

@@ -18,3 +18,10 @@ func start_level_music():
 
 func _on_level_complete():
 	$CanvasLayer/UI/LevelCompleteUI.visible = true
+	
+func change_to_level2():
+	var level2 = preload("res://levels/level_2.tscn").instantiate()
+
+	var world = $World
+	world.get_node("Level1").queue_free()
+	world.add_child(level2)

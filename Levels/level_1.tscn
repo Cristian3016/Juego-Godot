@@ -42,7 +42,7 @@ tile_map_data = PackedByteArray("AAC7/+P/AAALABEAAAC7/+T/AAALABIAAAC7/+X/AAALABM
 tile_set = ExtResource("1_ua5ty")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=481603051]
-position = Vector2(-1089, 0)
+position = Vector2(-1076, 0)
 rotation = -3.1415925
 scale = Vector2(1, -1)
 zoom = Vector2(2, 2)
@@ -70,9 +70,10 @@ position = Vector2(-434, -11)
 position = Vector2(-130, -38)
 
 [node name="Player" type="Node2D" parent="." unique_id=1116508935]
+position = Vector2(-97, 192)
 
 [node name="Player" parent="Player" unique_id=349564007 instance=ExtResource("2_61w3m")]
-position = Vector2(-1089, 0)
+position = Vector2(-979, -192)
 rotation = 3.1415927
 scale = Vector2(1, -1)
 stats = SubResource("Resource_aerfg")
