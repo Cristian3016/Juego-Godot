@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dg5wy75ldxwoq" path="res://ui/game_stats.tscn" id="6_cbffv"]
 [ext_resource type="PackedScene" uid="uid://c11ese4uta4th" path="res://ui/level_start_ui.tscn.tscn" id="7_2ihbs"]
 [ext_resource type="PackedScene" uid="uid://dbryycbh23pfo" path="res://ui/game_over.tscn" id="7_fbudy"]
+[ext_resource type="PackedScene" uid="uid://wwewxuv8k04d" path="res://ui/level_2_starts_ui.tscn" id="8_3n40r"]
 [ext_resource type="PackedScene" uid="uid://k7qfmqs46roi" path="res://ui/level_complete_ui.tscn" id="10_1qy1k"]
 
 [sub_resource type="AudioStreamMP3" id="AudioStreamMP3_2ihbs"]
@@ -42,6 +43,9 @@ mouse_filter = 1
 theme = ExtResource("5_smepj")
 
 [node name="Level1StartsUI" parent="CanvasLayer/UI" unique_id=1730654281 instance=ExtResource("7_2ihbs")]
+layout_mode = 1
+
+[node name="Level2StartsUI" parent="CanvasLayer/UI" unique_id=1357351190 instance=ExtResource("8_3n40r")]
 layout_mode = 1
 
 [node name="GameStats" parent="CanvasLayer/UI" unique_id=1174606796 instance=ExtResource("6_cbffv")]

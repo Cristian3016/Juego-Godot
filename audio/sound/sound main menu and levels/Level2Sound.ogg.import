@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dolchrd184tku"
+path="res://.godot/imported/Level2Sound.ogg-5c9521ec9ec72a00c900d1eff8254c17.mp3str"
+
+[deps]
+
+source_file="res://audio/sound/sound main menu and levels/Level2Sound.ogg"
+dest_files=["res://.godot/imported/Level2Sound.ogg-5c9521ec9ec72a00c900d1eff8254c17.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
