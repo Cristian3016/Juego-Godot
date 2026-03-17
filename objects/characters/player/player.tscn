@@ -182,7 +182,7 @@ metadata/_custom_type_script = "uid://cv74jjdrwevpr"
 
 [node name="Hurtbox2D" type="Area2D" parent="." unique_id=1158063167 node_paths=PackedStringArray("health", "body", "hit_player")]
 collision_layer = 2
-collision_mask = 0
+collision_mask = 8
 script = ExtResource("24_ash3l")
 health = NodePath("../Health")
 body = NodePath("..")

@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="Fireable" format=3 uid="uid://ccbgm8ehpi6u8"]
 
 [ext_resource type="Texture2D" uid="uid://bjb2a70cv7o8a" path="res://art/kenny_1_bit_platformer/monochrome_tilemap_transparent_packed.png" id="1_0vyip"]
-[ext_resource type="PackedScene" uid="uid://dw7ts4s1usvlf" path="res://weapons/projectiles/basic/basic_projectile.tscn" id="2_oaxv2"]
 [ext_resource type="Script" uid="uid://dtu5ag2fq25e4" path="res://weapons/projectiles/fireable.gd" id="2_oxud6"]
+[ext_resource type="PackedScene" uid="uid://dw7ts4s1usvlf" path="res://weapons/projectiles/basic/player_basic_projectile.tscn" id="2_qxfq1"]
 [ext_resource type="Script" uid="uid://dr1qiex0pv45x" path="res://weapons/weapon_stats.gd" id="4_6avq1"]
 [ext_resource type="Script" uid="uid://c06xa0c5jmadj" path="res://weapons/knockback_stats.gd" id="4_dlvy7"]
 [ext_resource type="AudioStream" uid="uid://dlcxutf0ghcwx" path="res://audio/sound/projectile sound/SoundProjectileGun.ogg" id="6_qxfq1"]
@@ -25,5 +25,5 @@ sound = ExtResource("6_qxfq1")
 script = ExtResource("2_oxud6")
 display_name = &"Basic"
 icon = SubResource("AtlasTexture_hogpv")
-scene = ExtResource("2_oaxv2")
+scene = ExtResource("2_qxfq1")
 stats = SubResource("Resource_auyxd")

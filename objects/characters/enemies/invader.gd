@@ -15,21 +15,18 @@ func _physics_process(delta):
 		if player:
 			var dir = sign(player.global_position.x - global_position.x)
 			scale.x = dir
-			print("Mirando hacia:", dir)
 
 func _on_area_2d_body_entered(body) -> void:
 	if body.is_in_group("player"):
 		player = body
 		player_detected = true
 		$ShootTimer.start()
-		print("Player detectado")
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		player_detected = false
 		player = null
 		$ShootTimer.stop()
-		print("Player perdido")
 	
 func _on_shoot_timer_timeout() -> void:
 

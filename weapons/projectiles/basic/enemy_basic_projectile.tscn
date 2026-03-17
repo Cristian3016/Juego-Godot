@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://bld7qhq0gg6h6"]
+
+[ext_resource type="Script" uid="uid://ckntf7hu8kly7" path="res://weapons/projectiles/projectile.gd" id="1_n651h"]
+[ext_resource type="Texture2D" uid="uid://7yhnl4nvjp2w" path="res://monochrome_tilemap_transparent_packed.png" id="2_vj443"]
+[ext_resource type="Script" uid="uid://btcracfj60qyr" path="res://weapons/hitbox_2d.gd" id="3_sq5jf"]
+[ext_resource type="Resource" uid="uid://bslyjdnvau5og" path="res://weapons/projectiles/basic/weapon_stats_basic.tres" id="4_vj443"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dlm1a"]
+atlas = ExtResource("2_vj443")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qb2su"]
+atlas = ExtResource("2_vj443")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ummb"]
+atlas = ExtResource("2_vj443")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5dstr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dlm1a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qb2su")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ummb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j8mno"]
+radius = 3.2
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mvx20"]
+radius = 3.2
+
+[node name="EnemyBasicProjectile" type="RigidBody2D" unique_id=78935842 node_paths=PackedStringArray("hitbox")]
+collision_layer = 1024
+gravity_scale = 0.3
+script = ExtResource("1_n651h")
+hitbox = NodePath("Hitbox2D")
+metadata/_custom_type_script = "uid://ckntf7hu8kly7"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=960358569]
+scale = Vector2(1.125, 1.063)
+sprite_frames = SubResource("SpriteFrames_5dstr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=914920690]
+shape = SubResource("CircleShape2D_j8mno")
+
+[node name="Hitbox2D" type="Area2D" parent="." unique_id=2006672798]
+collision_layer = 1024
+collision_mask = 2
+script = ExtResource("3_sq5jf")
+weapon_stats = ExtResource("4_vj443")
+metadata/_custom_type_script = "uid://btcracfj60qyr"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox2D" unique_id=1339425590]
+shape = SubResource("CircleShape2D_mvx20")
