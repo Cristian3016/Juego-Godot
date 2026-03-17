@@ -52,7 +52,3 @@ func _apply_gravity(delta : float):
 func _on_is_alive_changed(p_is_alive : bool):
 	if not p_is_alive:
 		combat_state.report_death(self)
-		
-		
-		
-	

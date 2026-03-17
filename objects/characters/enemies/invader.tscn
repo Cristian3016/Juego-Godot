@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://deb2dhh6qqq30"]
 
-[ext_resource type="Script" uid="uid://c5pehudfy0muc" path="res://objects/characters/platformer_character_2d.gd" id="1_2ud1i"]
+[ext_resource type="Script" uid="uid://dugx5jigrpymb" path="res://objects/characters/enemies/invader.gd" id="1_6k6h0"]
 [ext_resource type="Script" uid="uid://c0kb6pot0hglm" path="res://objects/health.gd" id="2_2nu1q"]
+[ext_resource type="PackedScene" uid="uid://dw7ts4s1usvlf" path="res://weapons/projectiles/basic/basic_projectile.tscn" id="2_2tkcu"]
 [ext_resource type="Script" uid="uid://cgpvxwvk8u1eu" path="res://objects/characters/facing.gd" id="2_soqyn"]
 [ext_resource type="Texture2D" uid="uid://bjb2a70cv7o8a" path="res://art/kenny_1_bit_platformer/monochrome_tilemap_transparent_packed.png" id="3_wtn5y"]
 [ext_resource type="Resource" uid="uid://jex2cbbjwllf" path="res://state/combat_state.tres" id="4_dn80i"]
@@ -96,9 +97,13 @@ shader = ExtResource("16_lt0ww")
 shader_parameter/time_scale = 20.0
 shader_parameter/gb_ceil = 0.8
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_6k6h0"]
+radius = 200.0
+
 [node name="Invader" type="CharacterBody2D" unique_id=59411685 node_paths=PackedStringArray("sprite", "health") groups=["invader"]]
 collision_layer = 8
-script = ExtResource("1_2ud1i")
+script = ExtResource("1_6k6h0")
+projectile_scene = ExtResource("2_2tkcu")
 stats = ExtResource("5_a6y7p")
 sprite = NodePath("Facing/CharacterSprite2D")
 health = NodePath("Health")
@@ -134,7 +139,7 @@ shape = SubResource("CapsuleShape2D_6k6h0")
 stream = ExtResource("8_6k6h0")
 
 [node name="Hitbox2D" type="Area2D" parent="Facing" unique_id=784266630]
-collision_layer = 0
+collision_layer = 8
 collision_mask = 2
 monitorable = false
 script = ExtResource("7_wn0a1")
@@ -206,3 +211,21 @@ sprite = NodePath("../../../Facing/CharacterSprite2D")
 
 [node name="WanderDelayTimer" type="Timer" parent="InvaderBeehaveTree/SelectorComposite/WanderAction" unique_id=441853960]
 wait_time = 0.5
+
+[node name="Area2D" type="Area2D" parent="." unique_id=439841183]
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=317065434]
+position = Vector2(0, -5)
+shape = SubResource("CircleShape2D_6k6h0")
+
+[node name="ShootTimer" type="Timer" parent="." unique_id=404978130]
+wait_time = 1.5
+
+[node name="ShootPoint" type="Marker2D" parent="." unique_id=633564502]
+position = Vector2(20, -5)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]
