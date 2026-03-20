@@ -98,7 +98,7 @@ shader_parameter/time_scale = 20.0
 shader_parameter/gb_ceil = 0.8
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6k6h0"]
-radius = 200.0
+radius = 50.0
 
 [node name="Invader" type="CharacterBody2D" unique_id=59411685 node_paths=PackedStringArray("sprite", "health") groups=["invader"]]
 collision_layer = 8

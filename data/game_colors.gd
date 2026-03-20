@@ -1,7 +1,7 @@
 class_name GameColors
 extends Resource
 
-@export var positive_health : Color = Color.LAWN_GREEN
-@export var negative_health : Color = Color.FIREBRICK
-@export var extra_life      : Color = Color.YELLOW
-@export var coin_color     : Color = Color.ORANGE
+@export var positive_health : Color = Color.GREEN
+@export var negative_health : Color = Color.RED
+@export var extra_life      : Color = Color.CYAN
+@export var coin_color      : Color = Color.YELLOW

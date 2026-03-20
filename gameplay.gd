@@ -21,7 +21,6 @@ func start_level_music():
 func stop_level_music():
 	level_music.stop()
 	
-
 func _on_level_complete():
 	ui.get_node("LevelCompleteUI").visible = true
 

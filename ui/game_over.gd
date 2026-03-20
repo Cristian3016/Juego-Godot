@@ -21,8 +21,6 @@ func _ready() -> void:
 
 func _on_game_over():
 
-	ArcadeManager.lose_life()
-
 	visible_ui.show()
 	animation_player.play("show")
 

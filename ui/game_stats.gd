@@ -28,8 +28,11 @@ func _ready():
 	set_continues_label(ArcadeManager.continues)
 	set_score()
 
-	ArcadeManager.score_changed.connect(_on_score_changed)
-	ArcadeManager.lives_changed.connect(update_lives) # conexión que faltaba
+	if not ArcadeManager.score_changed.is_connected(_on_score_changed):
+		ArcadeManager.score_changed.connect(_on_score_changed)
+
+	if not ArcadeManager.lives_changed.is_connected(update_lives):
+		ArcadeManager.lives_changed.connect(update_lives)
 
 func set_enemies_slain_label(p_new_count : int):
 	enemies_slain_label.text = "Enemies Slain: %d" % p_new_count

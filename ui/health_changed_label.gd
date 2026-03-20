@@ -16,15 +16,19 @@ func set_health_text(p_health_change : int):
 	if p_health_change == 1:
 		text = "1UP!"
 		self.modulate = game_colors.extra_life	
-	elif p_health_change == 50:
-		text = "+50"
-		self.modulate = game_colors.coin_color	
+
 	elif p_health_change < 0:
 		text = str(p_health_change)
 		self.modulate = game_colors.negative_health	
+
 	else:
 		text = "+" + str(p_health_change)
 		self.modulate = game_colors.positive_health
+		
+func set_score_text(points: int):
+	print("USANDO SCORE TEXT")
+	text = "+" + str(points)
+	self.modulate = game_colors.coin_color
 		
 func _on_timeout():
 	queue_free()

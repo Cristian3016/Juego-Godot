@@ -30,14 +30,14 @@ func report_death(p_node : Node):
 	
 	var handled = false
 	
+	if p_node.has_meta("death_reported"):
+		return
+	p_node.set_meta("death_reported", true)
+	
 	if types.has(GlobalObjectTypes.enemy):
 
-		if p_node.has_meta("death_reported"):
-			return
-		p_node.set_meta("death_reported", true)
-
 		enemies_died += 1
-		ArcadeManager.add_score(100)
+		ArcadeManager.add_score(200)
 
 		if enemies_died >= total_enemies:
 			level_complete.emit()
@@ -46,8 +46,9 @@ func report_death(p_node : Node):
 
 	elif types.has(GlobalObjectTypes.player):
 		player_deaths += 1
-		handled = true
+		ArcadeManager.lose_life()
 		game_over.emit()
+		handled = true
 		
 	if not handled:
 		push_warning("Tried to report death on node %s but no matching type was found" % p_node.name)

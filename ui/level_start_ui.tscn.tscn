@@ -38,16 +38,18 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -160.0
-offset_top = -233.0
-offset_right = 178.0
-offset_bottom = -148.0
+offset_left = -332.0
+offset_top = -272.5
+offset_right = 358.0
+offset_bottom = -135.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_i0kxy")
 bbcode_enabled = true
 text = "[center][outline_size=8][outline_color=black][b][color=red]LEVEL 1[/color][/b]
-[color=white]Dead Sector Facility[/color]"
+[color=white]Dead Sector Facility 
+ACABA CON TODOS LOS ENEMIGOS[/color]
+"
 fit_content = true
 scroll_active = false
 
