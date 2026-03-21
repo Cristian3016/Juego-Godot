@@ -224,7 +224,7 @@ position = Vector2(0, -5)
 shape = SubResource("CircleShape2D_6k6h0")
 
 [node name="ShootTimer" type="Timer" parent="." unique_id=404978130]
-wait_time = 1.5
+wait_time = 0.4
 
 [node name="ShootPoint" type="Marker2D" parent="." unique_id=633564502]
 position = Vector2(0, -7)

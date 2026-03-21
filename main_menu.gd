@@ -4,6 +4,7 @@ extends Control
 @export var gameplay_scene : PackedScene
 
 func _on_start_game_button_pressed():
+	ArcadeManager.reset_game()
 	get_tree().change_scene_to_packed(gameplay_scene)
 
 func _on_exit_game_button_pressed() -> void:

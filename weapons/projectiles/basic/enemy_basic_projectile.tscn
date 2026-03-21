@@ -44,6 +44,7 @@ radius = 3.2
 collision_layer = 1024
 gravity_scale = 0.3
 script = ExtResource("1_n651h")
+initial_velocity = 400.0
 hitbox = NodePath("Hitbox2D")
 metadata/_custom_type_script = "uid://ckntf7hu8kly7"
 

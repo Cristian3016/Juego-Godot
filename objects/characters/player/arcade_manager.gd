@@ -55,3 +55,14 @@ func show_1up():
 	if player:
 		label.global_position = player.global_position + Vector2(0, -20)
 		get_tree().current_scene.add_child(label)
+		
+func reset_game():
+	lives = 3
+	continues = 2
+	score = 0
+	next_life_score = 5000
+	
+	lives_changed.emit()
+	score_changed.emit()
+	
+	

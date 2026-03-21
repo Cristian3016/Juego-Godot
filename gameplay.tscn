@@ -69,3 +69,5 @@ layout_mode = 1
 [node name="LevelMusic" type="AudioStreamPlayer" parent="." unique_id=1586684158]
 stream = SubResource("AudioStreamMP3_2ihbs")
 volume_db = -20.0
+
+[node name="RespawnPoint" type="Marker2D" parent="." unique_id=1748616813]

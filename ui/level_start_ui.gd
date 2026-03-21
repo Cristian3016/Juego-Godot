@@ -7,7 +7,7 @@ extends Control
 func _ready():
 	get_tree().paused = true
 	
-	label.text = "[center][outline_size=8][outline_color=black][color=#ff1a1a]LEVEL 1[/color][/outline_color][/outline_size]\nDead Sector Facility[/center]"
+	label.bbcode_text = "[center][outline_size=8][outline_color=black][color=#ff1a1a]LEVEL 1[/color][/outline_color][/outline_size]\nDead Sector Facility[/center]"
 	
 	intro_sfx.play()
 
