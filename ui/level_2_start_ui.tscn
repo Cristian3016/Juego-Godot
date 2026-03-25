@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://wwewxuv8k04d"]
 
 [ext_resource type="FontFile" uid="uid://csvjd5q1ta86m" path="res://art/fonts/m5x7.ttf" id="1_s1jci"]
-[ext_resource type="Script" uid="uid://n7ti3oj03a8x" path="res://ui/level_2_starts_ui.gd" id="1_xcfyu"]
+[ext_resource type="Script" uid="uid://n7ti3oj03a8x" path="res://ui/level_2_start_ui.gd" id="1_xcfyu"]
 
 [sub_resource type="Theme" id="Theme_xcfyu"]
 default_font = ExtResource("1_s1jci")

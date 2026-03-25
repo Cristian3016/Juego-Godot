@@ -1,3 +1,4 @@
+class_name Gameplay
 extends Node
 
 @export var combat_state : CombatState
@@ -6,14 +7,32 @@ extends Node
 @onready var ui = $CanvasLayer/UI
 @onready var world = $World
 
-func _ready() -> void:
-	new_game()
-	combat_state.total_enemies = get_tree().get_nodes_in_group("invader").size()
-	combat_state.level_complete.connect(_on_level_complete)
-	ui.get_node("Level2StartsUI").hide()
+const LEVEL_2 = preload("res://levels/level_2.tscn")
 
+func _ready() -> void:
+
+	if not combat_state:
+		push_error("combat_state no asignado")
+		return
+
+	if not ui:
+		push_error("UI no encontrada")
+		return
+
+	await get_tree().process_frame
+
+	combat_state.total_enemies = get_tree().get_nodes_in_group("invader").size()
+
+	if not combat_state.level_complete.is_connected(_on_level_complete):
+		combat_state.level_complete.connect(_on_level_complete)
+
+	var level2_ui = ui.get_node_or_null("Level2StartsUI")
+	if level2_ui:
+		level2_ui.hide()
+		
 func new_game():
 	combat_state.enemies_died = 0
+	combat_state.player_deaths = 0
 
 func start_level_music():
 	level_music.play()
@@ -22,16 +41,27 @@ func stop_level_music():
 	level_music.stop()
 	
 func _on_level_complete():
-	ui.get_node("LevelCompleteUI").visible = true
+	var level_complete = ui.get_node_or_null("LevelCompleteUI")
+	if level_complete:
+		level_complete.visible = true
 
 func change_level_music(path):
 	level_music.stop()
-	level_music.stream = load(path)
-	level_music.play()
+
+	var audio = load(path)
+	if audio:
+		level_music.stream = audio
+		level_music.play()
+	else:
+		push_error("No se pudo cargar audio: " + path)
 
 func change_to_level2():
 	stop_level_music()
-	ui.get_node("LevelCompleteUI").hide()
+
+	var level_complete = ui.get_node_or_null("LevelCompleteUI")
+	if level_complete:
+		level_complete.hide()
+
 	load_level2()
 	show_level2_ui()
 
@@ -46,14 +76,15 @@ func show_level2_ui():
 	if level2_ui:
 		level2_ui.show()
 
-		if level2_ui.has_node("IntroSFX"):
-			level2_ui.get_node("IntroSFX").play()
+		var sfx = level2_ui.get_node_or_null("IntroSFX")
+		if sfx:
+			sfx.play()
+
 func load_level2():
+	for child in world.get_children():
+		child.queue_free()
 
-	if world.has_node("Level1"):
-		world.get_node("Level1").queue_free()
-
-	var level2 = preload("res://levels/level_2.tscn").instantiate()
+	var level2 = LEVEL_2.instantiate()
 	world.add_child(level2)
 
 	change_level_music("res://audio/sound/sound main menu and levels/Level2Sound.ogg")

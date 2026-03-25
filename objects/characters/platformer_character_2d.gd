@@ -7,7 +7,7 @@ signal direction_changed(direction : Vector2)
 @export var sprite : CanvasItem
 @export var health : Health :
 	set(value):
-		if is_instance_valid(health):
+		if is_instance_valid(health) and health.is_alive_changed.is_connected(_on_is_alive_changed):
 			health.is_alive_changed.disconnect(_on_is_alive_changed)
 			
 		health = value
@@ -17,15 +17,19 @@ signal direction_changed(direction : Vector2)
 			
 @export var combat_state : CombatState
 
+var _direction : Vector2
+
 var direction : Vector2: 
 	set(value):
-		if direction == value:
+		if _direction == value:
 			return
-		direction = value
-		direction_changed.emit(direction)
+		_direction = value
+		direction_changed.emit(_direction)
+	get:
+		return _direction
 		
 func _ready() -> void:
-	if stats.types.is_empty():
+	if stats and stats.types.is_empty():
 		push_warning("No game object type assigned to %s stats." % name)
 
 func _physics_process(delta: float) -> void:
@@ -34,21 +38,23 @@ func _physics_process(delta: float) -> void:
 
 ## Intenta hacer que el personaje salte si está en el suelo
 func try_jump() -> bool:	 
-	if stats.can_ground_jump and is_on_floor():
+	if stats and stats.can_ground_jump and is_on_floor():
 		_jump()
 		return true
 	return false
 
 ## Aplica el salto al personaje
 func _jump():
-	velocity.y = -stats.jump_force  
+	if stats:
+		velocity.y = -stats.jump_force  
 
 ## Aplica la gravedad
+var gravity = ProjectSettings.get("physics/2d/default_gravity")
+
 func _apply_gravity(delta : float):
-	var gravity = ProjectSettings.get("physics/2d/default_gravity")
 	if not is_on_floor():
 		velocity.y += gravity * delta
 
 func _on_is_alive_changed(p_is_alive : bool):
-	if not p_is_alive:
+	if not p_is_alive and combat_state:
 		combat_state.report_death(self)

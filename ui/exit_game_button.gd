@@ -20,5 +20,12 @@ func _ready() -> void:
 func _on_pressed():
 	if audio_player:
 		audio_player.play()
+	var arcade = get_tree().get_first_node_in_group("arcade_manager")
+	if arcade:
+		arcade.reset_game()
+
+	var gameplay = get_tree().get_first_node_in_group("gameplay")
+	if gameplay:
+		gameplay.new_game()
 
 	get_tree().change_scene_to_file(menu_scene)

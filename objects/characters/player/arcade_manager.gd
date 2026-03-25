@@ -12,10 +12,13 @@ var continues := 2
 var score := 0
 var next_life_score := 5000
 
+func _ready():
+	add_to_group("arcade_manager")
+	
 func add_score(point : int):
 	score += point
 
-	if score >= next_life_score:
+	while score >= next_life_score:
 		add_life()
 		next_life_score += 5000
 
@@ -28,7 +31,7 @@ func add_life():
 		show_1up()
 
 func lose_life():
-	lives -= 1
+	lives = max(lives - 1, 0)
 	lives_changed.emit(lives)
 
 func can_restart():
@@ -62,7 +65,7 @@ func reset_game():
 	score = 0
 	next_life_score = 5000
 	
-	lives_changed.emit()
-	score_changed.emit()
+	lives_changed.emit(lives)
+	score_changed.emit(score)
 	
 	

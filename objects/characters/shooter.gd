@@ -21,6 +21,13 @@ func try_shoot() -> bool:
 	return false
 		
 func _shoot():
+	# 🔥 FIX: volver a obtener el parent por si fue eliminado al cambiar de nivel
+	projectiles_parent = get_tree().get_first_node_in_group(GlobalNames.gruops.projectiles_parent_group)
+
+	# 🔥 FIX: validar que siga siendo válido
+	if not is_instance_valid(projectiles_parent):
+		return
+
 	var projectile = fireable.scene.instantiate() as Projectile
 	projectiles_parent.add_child(projectile)
 	projectile.name = fireable.display_name
