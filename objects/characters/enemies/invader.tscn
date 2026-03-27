@@ -101,6 +101,7 @@ shader_parameter/gb_ceil = 0.8
 radius = 50.0
 
 [node name="Invader" type="CharacterBody2D" unique_id=59411685 node_paths=PackedStringArray("sprite", "health") groups=["invader"]]
+process_mode = 1
 collision_layer = 8
 collision_mask = 3
 script = ExtResource("1_6k6h0")

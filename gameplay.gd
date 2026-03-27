@@ -6,10 +6,12 @@ extends Node
 @onready var level_music = $LevelMusic
 @onready var ui = $CanvasLayer/UI
 @onready var world = $World
+@onready var pause_ui = $CanvasLayer/UI/PauseUI
 
 const LEVEL_2 = preload("res://levels/level_2.tscn")
 
 func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_ALWAYS
 
 	if not combat_state:
 		push_error("combat_state no asignado")
@@ -29,6 +31,26 @@ func _ready() -> void:
 	var level2_ui = ui.get_node_or_null("Level2StartsUI")
 	if level2_ui:
 		level2_ui.hide()
+		
+	pause_ui.hide_pause()
+	
+var is_game_started = false
+	
+func _unhandled_input(event: InputEvent) -> void:
+	if not is_game_started:
+		return
+		
+	if event.is_action_pressed("pause"):
+		toggle_pause()
+		
+func toggle_pause():
+	var paused = !get_tree().paused
+	get_tree().paused = paused
+
+	if paused:
+		pause_ui.show_pause()
+	else:
+		pause_ui.hide_pause()
 		
 func new_game():
 	combat_state.enemies_died = 0
@@ -67,6 +89,8 @@ func change_to_level2():
 
 func show_level2_ui():
 	get_tree().paused = true
+	
+	is_game_started = false
 
 	var level1_ui = ui.get_node_or_null("Level1StartsUI")
 	if level1_ui:

@@ -16,6 +16,9 @@ func _on_start_button_pressed():
 
 	get_tree().paused = false
 	
-	get_tree().get_first_node_in_group("gameplay").start_level_music()
+	var gameplay = get_tree().get_first_node_in_group("gameplay")
+	gameplay.is_game_started = true
+	gameplay.pause_ui.hide_pause()
+	gameplay.start_level_music()
 	
 	queue_free()
