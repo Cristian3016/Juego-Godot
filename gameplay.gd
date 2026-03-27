@@ -79,7 +79,7 @@ func change_level_music(path):
 
 func change_to_level2():
 	stop_level_music()
-
+	
 	var level_complete = ui.get_node_or_null("LevelCompleteUI")
 	if level_complete:
 		level_complete.hide()
@@ -110,5 +110,3 @@ func load_level2():
 
 	var level2 = LEVEL_2.instantiate()
 	world.add_child(level2)
-
-	change_level_music("res://audio/sound/sound main menu and levels/Level2Sound.ogg")
