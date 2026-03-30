@@ -11,7 +11,8 @@ extends Panel
 		if is_instance_valid(combat_state):
 			combat_state.enemies_died_changed.connect(_on_enemies_died_changed)
 			combat_state.player_deaths_changed.connect(_on_player_deaths_changed)
-
+			
+@export var health_label: Label
 @export var enemies_slain_label : Label
 @export var player_deaths_label : Label
 @export var lives_container : HBoxContainer
@@ -19,7 +20,10 @@ extends Panel
 @export var texture_2d : Texture2D
 @export var score_label : Label
 
+var player_health: Health
+
 func _ready():
+	player_health = get_tree().get_first_node_in_group("player_health")
 	set_enemies_slain_label(combat_state.enemies_died)
 	set_player_deaths_label(combat_state.player_deaths)
 
@@ -27,6 +31,11 @@ func _ready():
 
 	set_continues_label(ArcadeManager.continues)
 	set_score()
+
+	if player_health:
+		set_health(player_health.current_health)
+	if player_health and not player_health.health_changed.is_connected(_on_health_changed):
+		player_health.health_changed.connect(_on_health_changed)
 
 	if not ArcadeManager.score_changed.is_connected(_on_score_changed):
 		ArcadeManager.score_changed.connect(_on_score_changed)
@@ -65,3 +74,9 @@ func _on_enemies_died_changed(p_new_count):
 		
 func _on_player_deaths_changed(p_new_count):
 	set_player_deaths_label(p_new_count)
+
+func _on_health_changed(new_health:int, amount:int):
+	set_health(new_health)
+
+func set_health(p_health:int):
+	health_label.text = "HP: %d" % p_health

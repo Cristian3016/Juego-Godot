@@ -15,7 +15,7 @@ bg_color = Color(0, 0, 0, 0.627451)
 [sub_resource type="Theme" id="Theme_m1my8"]
 Label/colors/font_color = Color(0.96644264, 0.18174121, 0, 1)
 
-[node name="GameStats" type="Panel" unique_id=1174606796 node_paths=PackedStringArray("enemies_slain_label", "player_deaths_label", "lives_container", "continues_label", "score_label")]
+[node name="GameStats" type="Panel" unique_id=1174606796 node_paths=PackedStringArray("health_label", "enemies_slain_label", "player_deaths_label", "lives_container", "continues_label", "score_label")]
 self_modulate = Color(0.003921569, 0.003921569, 0.003921569, 0.019607844)
 anchors_preset = 9
 anchor_bottom = 1.0
@@ -26,6 +26,7 @@ theme = SubResource("Theme_b7p5t")
 theme_override_styles/panel = SubResource("StyleBoxFlat_v76e3")
 script = ExtResource("1_womsj")
 combat_state = ExtResource("2_m1my8")
+health_label = NodePath("MarginContainer/VBoxContainer/HealthLabel")
 enemies_slain_label = NodePath("MarginContainer/VBoxContainer/EnemiesSlainLabel")
 player_deaths_label = NodePath("MarginContainer/VBoxContainer/PlayerDeathsLabel")
 lives_container = NodePath("MarginContainer/VBoxContainer/LivesContainer")
@@ -68,3 +69,7 @@ size_flags_vertical = 3
 layout_mode = 2
 text = "UNSET
 "
+
+[node name="HealthLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1619805784]
+layout_mode = 2
+text = "UNSET"

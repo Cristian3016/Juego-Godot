@@ -59,7 +59,7 @@ sprite = NodePath("Facing/AnimatedSprite2D")
 health = NodePath("Health")
 combat_state = ExtResource("4_e08v7")
 
-[node name="Health" type="Node2D" parent="." unique_id=285824278]
+[node name="Health" type="Node2D" parent="." unique_id=285824278 groups=["player_health"]]
 script = ExtResource("3_pmh1o")
 stats = ExtResource("2_t5cke")
 combat_state = ExtResource("4_e08v7")

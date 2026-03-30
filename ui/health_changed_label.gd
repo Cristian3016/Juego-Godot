@@ -26,7 +26,6 @@ func set_health_text(p_health_change : int):
 		self.modulate = game_colors.positive_health
 		
 func set_score_text(points: int):
-	print("USANDO SCORE TEXT")
 	text = "+" + str(points)
 	self.modulate = game_colors.coin_color
 		
