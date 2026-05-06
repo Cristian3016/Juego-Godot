@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://b18c4p46qd8kx"]
+
+[ext_resource type="Script" uid="uid://dm4l3ph7pxk1i" path="res://objects/material/diamond.gd" id="1_esdv3"]
+[ext_resource type="Texture2D" uid="uid://7yhnl4nvjp2w" path="res://monochrome_tilemap_transparent_packed.png" id="2_1ut4b"]
+[ext_resource type="AudioStream" uid="uid://y2q25qwgx1x7" path="res://audio/sound/diamond/SoundDiamond.ogg" id="3_1ut4b"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_do3hg"]
+atlas = ExtResource("2_1ut4b")
+region = Rect2(32, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_augu8"]
+atlas = ExtResource("2_1ut4b")
+region = Rect2(32, 64, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6a4mt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_do3hg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_augu8")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_67s78"]
+
+[node name="Diamond" type="Area2D" unique_id=513240826]
+collision_layer = 2048
+collision_mask = 2
+script = ExtResource("1_esdv3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1230301676]
+sprite_frames = SubResource("SpriteFrames_6a4mt")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1458689602]
+shape = SubResource("CircleShape2D_67s78")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1475061681]
+stream = ExtResource("3_1ut4b")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

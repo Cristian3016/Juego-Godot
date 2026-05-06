@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://bxjhc8heojsse"]
+
+[ext_resource type="Texture2D" uid="uid://7yhnl4nvjp2w" path="res://monochrome_tilemap_transparent_packed.png" id="1_8oe23"]
+[ext_resource type="Script" uid="uid://c5bblick00f3g" path="res://objects/material/emerald.gd" id="1_72lc2"]
+[ext_resource type="AudioStream" uid="uid://b6fyfevw5r6pl" path="res://audio/sound/emerald/SoundEmerald.ogg" id="3_b7xxh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_72lc2"]
+atlas = ExtResource("1_8oe23")
+region = Rect2(32, 80, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b7xxh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_72lc2")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wbbq0"]
+radius = 4.0
+height = 12.0
+
+[node name="Emerald" type="Area2D" unique_id=324229081]
+collision_layer = 65536
+collision_mask = 2
+script = ExtResource("1_72lc2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=29435966]
+sprite_frames = SubResource("SpriteFrames_b7xxh")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=318407097]
+shape = SubResource("CapsuleShape2D_wbbq0")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=936282564]
+stream = ExtResource("3_b7xxh")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

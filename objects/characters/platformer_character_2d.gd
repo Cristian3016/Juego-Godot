@@ -18,6 +18,8 @@ signal direction_changed(direction : Vector2)
 @export var combat_state : CombatState
 
 var _direction : Vector2
+@export var max_jumps: int = 2
+var jump_count: int = 0
 
 var direction : Vector2: 
 	set(value):
@@ -34,13 +36,20 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	_apply_gravity(delta)
+	if is_on_floor():
+		jump_count = 0
 	move_and_slide()
 
 ## Intenta hacer que el personaje salte si está en el suelo
-func try_jump() -> bool:	 
-	if stats and stats.can_ground_jump and is_on_floor():
+func try_jump() -> bool:
+	if is_on_floor():
+		jump_count = 0
+
+	if stats and stats.can_ground_jump and jump_count < max_jumps:
 		_jump()
+		jump_count += 1
 		return true
+
 	return false
 
 ## Aplica el salto al personaje
