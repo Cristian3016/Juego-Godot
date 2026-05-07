@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://00dsuvkao2kl"]
+
+[ext_resource type="TileSet" uid="uid://dbv4wshlp23gt" path="res://levels/tile_sets/kenny_1_bit_platformer.tres" id="1_utwmi"]
+[ext_resource type="PackedScene" uid="uid://ctojfddxmstdw" path="res://objects/characters/player/player.tscn" id="2_dcwyd"]
+[ext_resource type="Script" uid="uid://b2w56uor8br3r" path="res://objects/characters/character_stats.gd" id="3_dh1xo"]
+[ext_resource type="Script" uid="uid://cv8u1t7tcm6td" path="res://data/game object types/game_object_type.gd" id="4_hjso6"]
+[ext_resource type="Resource" uid="uid://en8xwd3usndi" path="res://data/game object types/game_object_player.tres" id="5_b6vun"]
+
+[sub_resource type="Resource" id="Resource_yn40e"]
+resource_local_to_scene = true
+script = ExtResource("3_dh1xo")
+walk_speed = 120.0
+run_speed = 200.0
+jump_force = 400.0
+types = Array[ExtResource("4_hjso6")]([ExtResource("5_b6vun")])
+metadata/_custom_type_script = "uid://b2w56uor8br3r"
+
+[node name="level3final" type="Node2D" unique_id=1430821815]
+
+[node name="GroundLayer" type="TileMapLayer" parent="." unique_id=1375645522]
+tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 18, 0, 8, 0, 0, 0)
+tile_set = ExtResource("1_utwmi")
+
+[node name="ForegroundLayer" type="TileMapLayer" parent="." unique_id=1200125119]
+tile_set = ExtResource("1_utwmi")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1291103335]
+position = Vector2(8, -4)
+rotation = 3.1415927
+scale = Vector2(1, -1)
+zoom = Vector2(2, 2)
+
+[node name="Enemies" type="Node2D" parent="." unique_id=1487635021]
+
+[node name="Heart" type="Node2D" parent="." unique_id=1761486378]
+
+[node name="Mini Heart" type="Node2D" parent="." unique_id=1086235457]
+
+[node name="Coin" type="Node2D" parent="." unique_id=1701349521]
+
+[node name="Player" type="Node2D" parent="." unique_id=1465483025]
+
+[node name="Player" parent="Player" unique_id=295926166 instance=ExtResource("2_dcwyd")]
+position = Vector2(8, 0)
+stats = SubResource("Resource_yn40e")
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player/Player" unique_id=1317905639]
+position = Vector2(0, -4)
+remote_path = NodePath("../../../Camera2D")
+
+[node name="Diamond" type="Node2D" parent="." unique_id=1311282561]
+
+[node name="Emerald" type="Node2D" parent="." unique_id=595642290]
+
+[node name="Projectiles" type="Node2D" parent="." unique_id=1085563370 groups=["projectiles_parent"]]

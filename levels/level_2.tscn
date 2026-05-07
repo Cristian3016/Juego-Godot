@@ -5,11 +5,12 @@
 [ext_resource type="Script" uid="uid://b2w56uor8br3r" path="res://objects/characters/character_stats.gd" id="3_vm7no"]
 [ext_resource type="Script" uid="uid://cv8u1t7tcm6td" path="res://data/game object types/game_object_type.gd" id="4_hbb88"]
 [ext_resource type="Resource" uid="uid://dxkvllytmyeua" path="res://data/game object types/game_object_enemy.tres" id="5_5722l"]
-[ext_resource type="PackedScene" uid="uid://rltcr5m8ygq3" path="res://objects/material/heart.tscn" id="5_wcjpl"]
-[ext_resource type="PackedScene" uid="uid://ciil00nppwb7q" path="res://objects/material/mini_heart.tscn" id="6_5orea"]
+[ext_resource type="PackedScene" uid="uid://ciil00nppwb7q" path="res://objects/material/mini_heart.tscn" id="6_vm7no"]
 [ext_resource type="PackedScene" uid="uid://ctojfddxmstdw" path="res://objects/characters/player/player.tscn" id="7_0ourt"]
 [ext_resource type="Resource" uid="uid://en8xwd3usndi" path="res://data/game object types/game_object_player.tres" id="8_w200a"]
+[ext_resource type="PackedScene" uid="uid://b18c4p46qd8kx" path="res://objects/material/diamond.tscn" id="9_sd18g"]
 [ext_resource type="PackedScene" uid="uid://dnsdoy8r1re2w" path="res://objects/material/coin.tscn" id="9_uo0vl"]
+[ext_resource type="PackedScene" uid="uid://bxjhc8heojsse" path="res://objects/material/emerald.tscn" id="10_vm7no"]
 
 [sub_resource type="Resource" id="Resource_sd18g"]
 resource_local_to_scene = true
@@ -17,6 +18,131 @@ script = ExtResource("3_vm7no")
 types = Array[ExtResource("4_hbb88")]([ExtResource("5_5722l")])
 
 [sub_resource type="Resource" id="Resource_vm7no"]
+resource_local_to_scene = true
+script = ExtResource("3_vm7no")
+types = Array[ExtResource("4_hbb88")]([ExtResource("5_5722l")])
+
+[sub_resource type="Resource" id="Resource_hbb88"]
+resource_local_to_scene = true
+script = ExtResource("3_vm7no")
+types = Array[ExtResource("4_hbb88")]([ExtResource("5_5722l")])
+
+[sub_resource type="Resource" id="Resource_wcjpl"]
+resource_local_to_scene = true
+script = ExtResource("3_vm7no")
+types = Array[ExtResource("4_hbb88")]([ExtResource("5_5722l")])
+
+[sub_resource type="Resource" id="Resource_5orea"]
+resource_local_to_scene = true
+script = ExtResource("3_vm7no")
+types = Array[ExtResource("4_hbb88")]([ExtResource("5_5722l")])
+
+[sub_resource type="Resource" id="Resource_0ourt"]
+resource_local_to_scene = true
+script = ExtResource("3_vm7no")
+types = Array[ExtResource("4_hbb88")]([ExtResource("5_5722l")])
+
+[sub_resource type="Resource" id="Resource_w200a"]
+resource_local_to_scene = true
+script = ExtResource("3_vm7no")
+types = Array[ExtResource("4_hbb88")]([ExtResource("5_5722l")])
+
+[sub_resource type="Resource" id="Resource_uo0vl"]
+resource_local_to_scene = true
+script = ExtResource("3_vm7no")
+types = Array[ExtResource("4_hbb88")]([ExtResource("5_5722l")])
+
+[sub_resource type="Resource" id="Resource_k2aru"]
+resource_local_to_scene = true
+script = ExtResource("3_vm7no")
+types = Array[ExtResource("4_hbb88")]([ExtResource("5_5722l")])
+
+[sub_resource type="Resource" id="Resource_ndgrd"]
+resource_local_to_scene = true
+script = ExtResource("3_vm7no")
+types = Array[ExtResource("4_hbb88")]([ExtResource("5_5722l")])
+
+[sub_resource type="Resource" id="Resource_h351q"]
+resource_local_to_scene = true
+script = ExtResource("3_vm7no")
+types = Array[ExtResource("4_hbb88")]([ExtResource("5_5722l")])
+
+[sub_resource type="Resource" id="Resource_dpc8t"]
+resource_local_to_scene = true
+script = ExtResource("3_vm7no")
+types = Array[ExtResource("4_hbb88")]([ExtResource("5_5722l")])
+
+[sub_resource type="Resource" id="Resource_ngvhw"]
+resource_local_to_scene = true
+script = ExtResource("3_vm7no")
+types = Array[ExtResource("4_hbb88")]([ExtResource("5_5722l")])
+
+[sub_resource type="Resource" id="Resource_itbe0"]
+resource_local_to_scene = true
+script = ExtResource("3_vm7no")
+types = Array[ExtResource("4_hbb88")]([ExtResource("5_5722l")])
+
+[sub_resource type="Resource" id="Resource_xrja0"]
+resource_local_to_scene = true
+script = ExtResource("3_vm7no")
+types = Array[ExtResource("4_hbb88")]([ExtResource("5_5722l")])
+
+[sub_resource type="Resource" id="Resource_he6wg"]
+resource_local_to_scene = true
+script = ExtResource("3_vm7no")
+types = Array[ExtResource("4_hbb88")]([ExtResource("5_5722l")])
+
+[sub_resource type="Resource" id="Resource_jqt73"]
+resource_local_to_scene = true
+script = ExtResource("3_vm7no")
+types = Array[ExtResource("4_hbb88")]([ExtResource("5_5722l")])
+
+[sub_resource type="Resource" id="Resource_ubuva"]
+resource_local_to_scene = true
+script = ExtResource("3_vm7no")
+types = Array[ExtResource("4_hbb88")]([ExtResource("5_5722l")])
+
+[sub_resource type="Resource" id="Resource_4yoxl"]
+resource_local_to_scene = true
+script = ExtResource("3_vm7no")
+types = Array[ExtResource("4_hbb88")]([ExtResource("5_5722l")])
+
+[sub_resource type="Resource" id="Resource_6dcgf"]
+resource_local_to_scene = true
+script = ExtResource("3_vm7no")
+types = Array[ExtResource("4_hbb88")]([ExtResource("5_5722l")])
+
+[sub_resource type="Resource" id="Resource_0nm7o"]
+resource_local_to_scene = true
+script = ExtResource("3_vm7no")
+types = Array[ExtResource("4_hbb88")]([ExtResource("5_5722l")])
+
+[sub_resource type="Resource" id="Resource_00pa0"]
+resource_local_to_scene = true
+script = ExtResource("3_vm7no")
+types = Array[ExtResource("4_hbb88")]([ExtResource("5_5722l")])
+
+[sub_resource type="Resource" id="Resource_amxoe"]
+resource_local_to_scene = true
+script = ExtResource("3_vm7no")
+types = Array[ExtResource("4_hbb88")]([ExtResource("5_5722l")])
+
+[sub_resource type="Resource" id="Resource_cp3aq"]
+resource_local_to_scene = true
+script = ExtResource("3_vm7no")
+types = Array[ExtResource("4_hbb88")]([ExtResource("5_5722l")])
+
+[sub_resource type="Resource" id="Resource_wgvos"]
+resource_local_to_scene = true
+script = ExtResource("3_vm7no")
+types = Array[ExtResource("4_hbb88")]([ExtResource("5_5722l")])
+
+[sub_resource type="Resource" id="Resource_m4706"]
+resource_local_to_scene = true
+script = ExtResource("3_vm7no")
+types = Array[ExtResource("4_hbb88")]([ExtResource("5_5722l")])
+
+[sub_resource type="Resource" id="Resource_4xp61"]
 resource_local_to_scene = true
 script = ExtResource("3_vm7no")
 walk_speed = 120.0
@@ -44,32 +170,202 @@ zoom = Vector2(2, 2)
 [node name="Enemies" type="Node2D" parent="." unique_id=752230106]
 
 [node name="Invader" parent="Enemies" unique_id=59411685 instance=ExtResource("2_sd18g")]
-position = Vector2(-88, 607)
+position = Vector2(-235, 607)
 stats = SubResource("Resource_sd18g")
+
+[node name="Invader2" parent="Enemies" unique_id=1959874098 instance=ExtResource("2_sd18g")]
+position = Vector2(248, 640)
+stats = SubResource("Resource_vm7no")
+
+[node name="Invader3" parent="Enemies" unique_id=202054441 instance=ExtResource("2_sd18g")]
+position = Vector2(-286, 463)
+stats = SubResource("Resource_hbb88")
+
+[node name="Invader4" parent="Enemies" unique_id=668785405 instance=ExtResource("2_sd18g")]
+position = Vector2(66, 463)
+stats = SubResource("Resource_wcjpl")
+
+[node name="Invader5" parent="Enemies" unique_id=1706920240 instance=ExtResource("2_sd18g")]
+position = Vector2(248, 463)
+stats = SubResource("Resource_5orea")
+
+[node name="Invader6" parent="Enemies" unique_id=985171384 instance=ExtResource("2_sd18g")]
+position = Vector2(112, 367)
+stats = SubResource("Resource_0ourt")
+
+[node name="Invader7" parent="Enemies" unique_id=1344304924 instance=ExtResource("2_sd18g")]
+position = Vector2(-268, 366)
+stats = SubResource("Resource_w200a")
+
+[node name="Invader8" parent="Enemies" unique_id=491068670 instance=ExtResource("2_sd18g")]
+position = Vector2(-308, 47)
+stats = SubResource("Resource_uo0vl")
+
+[node name="Invader9" parent="Enemies" unique_id=251923371 instance=ExtResource("2_sd18g")]
+position = Vector2(-227, -113)
+stats = SubResource("Resource_k2aru")
+
+[node name="Invader10" parent="Enemies" unique_id=1574230417 instance=ExtResource("2_sd18g")]
+position = Vector2(-258, -274)
+stats = SubResource("Resource_ndgrd")
+
+[node name="Invader11" parent="Enemies" unique_id=1699858133 instance=ExtResource("2_sd18g")]
+position = Vector2(-246, -433)
+stats = SubResource("Resource_h351q")
+
+[node name="Invader12" parent="Enemies" unique_id=1426520094 instance=ExtResource("2_sd18g")]
+position = Vector2(136, -401)
+stats = SubResource("Resource_dpc8t")
+
+[node name="Invader13" parent="Enemies" unique_id=408363146 instance=ExtResource("2_sd18g")]
+position = Vector2(341, -401)
+stats = SubResource("Resource_ngvhw")
+
+[node name="Invader14" parent="Enemies" unique_id=428620542 instance=ExtResource("2_sd18g")]
+position = Vector2(325, -747)
+stats = SubResource("Resource_itbe0")
+
+[node name="Invader15" parent="Enemies" unique_id=352130396 instance=ExtResource("2_sd18g")]
+position = Vector2(-63, -689)
+stats = SubResource("Resource_xrja0")
+
+[node name="Invader16" parent="Enemies" unique_id=633202681 instance=ExtResource("2_sd18g")]
+position = Vector2(329, -658)
+stats = SubResource("Resource_he6wg")
+
+[node name="Invader17" parent="Enemies" unique_id=2012710385 instance=ExtResource("2_sd18g")]
+position = Vector2(-169, -689)
+stats = SubResource("Resource_jqt73")
+
+[node name="Invader25" parent="Enemies" unique_id=368443678 instance=ExtResource("2_sd18g")]
+position = Vector2(-230, -689)
+stats = SubResource("Resource_ubuva")
+
+[node name="Invader23" parent="Enemies" unique_id=1659318474 instance=ExtResource("2_sd18g")]
+position = Vector2(-291, -689)
+stats = SubResource("Resource_4yoxl")
+
+[node name="Invader24" parent="Enemies" unique_id=100678270 instance=ExtResource("2_sd18g")]
+position = Vector2(-325, -593)
+stats = SubResource("Resource_6dcgf")
+
+[node name="Invader26" parent="Enemies" unique_id=847230535 instance=ExtResource("2_sd18g")]
+position = Vector2(-201, -593)
+stats = SubResource("Resource_0nm7o")
+
+[node name="Invader18" parent="Enemies" unique_id=1726357618 instance=ExtResource("2_sd18g")]
+position = Vector2(306, -281)
+stats = SubResource("Resource_00pa0")
+
+[node name="Invader19" parent="Enemies" unique_id=1056221557 instance=ExtResource("2_sd18g")]
+position = Vector2(130, 32)
+stats = SubResource("Resource_amxoe")
+
+[node name="Invader20" parent="Enemies" unique_id=1299309788 instance=ExtResource("2_sd18g")]
+position = Vector2(359, 34)
+stats = SubResource("Resource_cp3aq")
+
+[node name="Invader21" parent="Enemies" unique_id=419940055 instance=ExtResource("2_sd18g")]
+position = Vector2(87, -120)
+stats = SubResource("Resource_wgvos")
+
+[node name="Invader22" parent="Enemies" unique_id=2007321608 instance=ExtResource("2_sd18g")]
+position = Vector2(354, -121)
+stats = SubResource("Resource_m4706")
 
 [node name="Heart" type="Node2D" parent="." unique_id=2017156995]
 
-[node name="Heart2D" parent="Heart" unique_id=540889441 instance=ExtResource("5_wcjpl")]
-position = Vector2(307, 545)
-
 [node name="Mini Heart" type="Node2D" parent="." unique_id=278608125]
 
-[node name="MiniHeart" parent="Mini Heart" unique_id=591315807 instance=ExtResource("6_5orea")]
-position = Vector2(-217, 540)
+[node name="MiniHeart" parent="Mini Heart" unique_id=591315807 instance=ExtResource("6_vm7no")]
+position = Vector2(425, 457)
+
+[node name="MiniHeart2" parent="Mini Heart" unique_id=627997979 instance=ExtResource("6_vm7no")]
+position = Vector2(53, -278)
+
+[node name="MiniHeart3" parent="Mini Heart" unique_id=215208477 instance=ExtResource("6_vm7no")]
+position = Vector2(255, -742)
 
 [node name="Coin" type="Node2D" parent="." unique_id=1404043495]
 
 [node name="Coin" parent="Coin" unique_id=1105687084 instance=ExtResource("9_uo0vl")]
-position = Vector2(-425, 602)
+position = Vector2(-23, 636)
+
+[node name="Coin2" parent="Coin" unique_id=550916975 instance=ExtResource("9_uo0vl")]
+position = Vector2(220, 637)
+
+[node name="Coin3" parent="Coin" unique_id=1997960409 instance=ExtResource("9_uo0vl")]
+position = Vector2(-333, 604)
+
+[node name="Coin4" parent="Coin" unique_id=887445912 instance=ExtResource("9_uo0vl")]
+position = Vector2(-91, 604)
+
+[node name="Coin5" parent="Coin" unique_id=980007180 instance=ExtResource("9_uo0vl")]
+position = Vector2(-25, 89)
+
+[node name="Coin6" parent="Coin" unique_id=105135738 instance=ExtResource("9_uo0vl")]
+position = Vector2(-409, 363)
+
+[node name="Coin7" parent="Coin" unique_id=147136073 instance=ExtResource("9_uo0vl")]
+position = Vector2(415, -506)
+
+[node name="Coin8" parent="Coin" unique_id=1044108960 instance=ExtResource("9_uo0vl")]
+position = Vector2(-264, -596)
+
+[node name="Coin9" parent="Coin" unique_id=413915994 instance=ExtResource("9_uo0vl")]
+position = Vector2(-119, -692)
+
+[node name="Coin10" parent="Coin" unique_id=1120183592 instance=ExtResource("9_uo0vl")]
+position = Vector2(-270, -692)
+
+[node name="Coin11" parent="Coin" unique_id=1021243010 instance=ExtResource("9_uo0vl")]
+position = Vector2(121, -629)
+
+[node name="Coin12" parent="Coin" unique_id=927182560 instance=ExtResource("9_uo0vl")]
+position = Vector2(-409, -438)
+
+[node name="Coin13" parent="Coin" unique_id=1855471218 instance=ExtResource("9_uo0vl")]
+position = Vector2(-102, -278)
+
+[node name="Coin14" parent="Coin" unique_id=893012879 instance=ExtResource("9_uo0vl")]
+position = Vector2(172, 298)
+
+[node name="Coin15" parent="Coin" unique_id=843266564 instance=ExtResource("9_uo0vl")]
+position = Vector2(334, 459)
+
+[node name="Coin16" parent="Coin" unique_id=377375483 instance=ExtResource("9_uo0vl")]
+position = Vector2(95, 460)
+
+[node name="Coin17" parent="Coin" unique_id=2124141147 instance=ExtResource("9_uo0vl")]
+position = Vector2(-376, 203)
+
+[node name="Coin18" parent="Coin" unique_id=1727909633 instance=ExtResource("9_uo0vl")]
+position = Vector2(-360, -135)
+
+[node name="Coin19" parent="Coin" unique_id=1827911853 instance=ExtResource("9_uo0vl")]
+position = Vector2(251, 216)
+
+[node name="Coin20" parent="Coin" unique_id=619852166 instance=ExtResource("9_uo0vl")]
+position = Vector2(359, -278)
 
 [node name="Player" type="Node2D" parent="." unique_id=2059582576]
 
 [node name="Player" parent="Player" unique_id=295926166 instance=ExtResource("7_0ourt")]
 position = Vector2(14, 641)
-stats = SubResource("Resource_vm7no")
+stats = SubResource("Resource_4xp61")
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player/Player" unique_id=1081201315]
 position = Vector2(0, -4)
 remote_path = NodePath("../../../Camera2D")
+
+[node name="Diamond" type="Node2D" parent="." unique_id=1929171614]
+
+[node name="Diamond" parent="Diamond" unique_id=513240826 instance=ExtResource("9_sd18g")]
+position = Vector2(-411, 459)
+
+[node name="Emerald" type="Node2D" parent="." unique_id=1341534487]
+
+[node name="Emerald" parent="Emerald" unique_id=324229081 instance=ExtResource("10_vm7no")]
+position = Vector2(371, -407)
 
 [node name="Projectiles" type="Node2D" parent="." unique_id=1721146522 groups=["projectiles_parent"]]
