@@ -1,28 +1,40 @@
+
+class_name ManagerArcade
 extends Node
 
 const HEALTH_LABEL_SCENE = preload("res://ui/health_changed_label.tscn")
 
 signal score_changed(new_score)
 signal lives_changed(new_lives)
+signal continue_used()
 
 var coins := 0
 var lives := 3
 var max_lives := 5
 var continues := 2
 var score := 0
-var next_life_score := 5000
+var next_life_score := 3000
+
+# Muertes acumuladas del jugador
+var total_player_deaths := 0
+
+# Avisar si se utilizó un CONTINUE
+var reset_deaths_on_continue := false
+
 
 func _ready():
 	add_to_group("arcade_manager")
-	
+
+
 func add_score(point : int):
 	score += point
 
 	while score >= next_life_score:
 		add_life()
-		next_life_score += 5000
+		next_life_score += 3000
 
 	score_changed.emit(score)
+
 
 func add_life():
 	if lives < max_lives:
@@ -30,24 +42,44 @@ func add_life():
 		lives_changed.emit(lives)
 		show_1up()
 
+
 func lose_life():
 	lives = max(lives - 1, 0)
 	lives_changed.emit(lives)
 
+
 func can_restart():
 	return lives > 0 or continues > 0
+
 
 func can_continue():
 	return continues > 0
 
+
 func use_continue():
 	if continues > 0:
-		continues -= 1		
+		continues -= 1
+
+		# Recuperar las vidas
 		lives = 3
 		lives_changed.emit(lives)
+
+		# Reiniciar puntuacion
 		score = 0
-		next_life_score = 5000
+		next_life_score = 3000
 		score_changed.emit(score)
+
+		# Reiniciar muertes acumuladas
+		total_player_deaths = 0
+
+		# Avisar que se utilizo un continue
+		reset_deaths_on_continue = true
+		continue_used.emit()
+
+		print("CONTINUE UTILIZADO")
+		print("Continues restantes: ", continues)
+		print("Player Deaths reiniciado: ", total_player_deaths)
+
 
 func show_1up():
 	var label = HEALTH_LABEL_SCENE.instantiate()
@@ -58,14 +90,19 @@ func show_1up():
 	if player:
 		label.global_position = player.global_position + Vector2(0, -20)
 		get_tree().current_scene.add_child(label)
-		
+
+
 func reset_game():
 	lives = 3
 	continues = 2
 	score = 0
-	next_life_score = 5000
-	
+	next_life_score = 3000
+
+	# Reiniciar muertes para una nueva partida
+	total_player_deaths = 0
+	reset_deaths_on_continue = false
+
 	lives_changed.emit(lives)
 	score_changed.emit(score)
-	
+
 	

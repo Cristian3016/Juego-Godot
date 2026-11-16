@@ -1,3 +1,4 @@
+class_name RestartButton 
 extends Button
 
 @export_file() var restart_scene : String
