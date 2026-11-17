@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bu7lexd5hdaa0" path="res://gameplay.tscn" id="2_glbon"]
 [ext_resource type="Texture2D" uid="uid://yyenik2q68td" path="res://art/picture/main menu/main image.png" id="2_jix8l"]
 [ext_resource type="FontFile" uid="uid://csvjd5q1ta86m" path="res://art/fonts/m5x7.ttf" id="3_glbon"]
-[ext_resource type="AudioStream" uid="uid://cnt6ua1bodgps" path="res://audio/sound/sound main menu and levels/MainMenu.ogg" id="5_glbon"]
+[ext_resource type="AudioStream" uid="uid://cnt6ua1bodgps" path="res://sound main menu and levels/MainMenu.ogg" id="5_glbon"]
 
 [sub_resource type="Theme" id="Theme_0dkrt"]
 default_font = ExtResource("3_glbon")

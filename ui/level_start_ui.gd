@@ -28,7 +28,7 @@ func _on_start_button_pressed():
 		gameplay.pause_ui.hide_pause()
 
 		# Música exclusiva del Level 1
-		gameplay.change_level_music("res://audio/sound/sound main menu and levels/Level1_Spaceship_Hangar.ogg")
+		gameplay.change_level_music("res://audio/music main menu and levels/Level1_Spaceship_Hangar.ogg")
 
 		print("Música del Level 1 iniciada")
 	else:

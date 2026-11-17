@@ -2,15 +2,13 @@
 class_name Level3FinalStartUI
 extends Control
 
-@export_file("*.ogg") var level3_music_path: String = ""
-
 
 func _ready():
 	hide()
 
 
 func _on_start_button_pressed():
-	# Detener el sonido de introducción
+	# Detener sonido de introducción
 	var sfx = get_node_or_null("IntroSFX")
 	if sfx:
 		sfx.stop()
@@ -28,8 +26,9 @@ func _on_start_button_pressed():
 		gameplay.is_game_started = true
 		gameplay.pause_ui.hide_pause()
 
-		# Reproducir música del Level 3
-		if not level3_music_path.is_empty():
-			gameplay.change_level_music(level3_music_path)
+		# Música exclusiva del Level 3 FINAL
+		gameplay.change_level_music("res://audio/music main menu and levels/Level3_Funk_Pump.ogg")
+
+		print("Música del Level 3 FINAL iniciada")
 	else:
 		push_warning("No se encontró Gameplay")

@@ -5,7 +5,7 @@
 [ext_resource type="FontFile" uid="uid://csvjd5q1ta86m" path="res://art/fonts/m5x7.ttf" id="3_55k1u"]
 [ext_resource type="Script" uid="uid://8v26qp2w1ut6" path="res://ui/restart_game_button.gd" id="3_j1fe5"]
 [ext_resource type="AudioStream" uid="uid://cgqlk6c33ko4l" path="res://audio/sound/buttons/ButtonConfirm.ogg" id="4_xjda6"]
-[ext_resource type="AudioStream" uid="uid://dbjpgvc383wkv" path="res://audio/sound/sound main menu and levels/DeathSound.ogg" id="5_akjlf"]
+[ext_resource type="AudioStream" uid="uid://dbjpgvc383wkv" path="res://sound main menu and levels/DeathSound.ogg" id="5_akjlf"]
 [ext_resource type="Script" uid="uid://duw7mtxpj4pde" path="res://ui/exit_game_button.gd" id="5_k8651"]
 
 [sub_resource type="Theme" id="Theme_5eixk"]
