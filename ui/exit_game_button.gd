@@ -4,7 +4,7 @@ extends Button
 	set(value):
 		if value == null:
 			return
-			
+
 		menu_scene = value
 
 @export var audio_player : AudioStreamPlayer

@@ -4,6 +4,7 @@ const HEALTH_LABEL_SCENE = preload("res://ui/health_changed_label.tscn")
 
 @export var points := 100
 
+
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 

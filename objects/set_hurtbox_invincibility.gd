@@ -4,11 +4,12 @@ extends ActionLeaf
 
 @export var hurtboxes  : Array[Hurtbox2D]
 @export var invincible : bool
-		
+
+
 func tick(_p_actor: Node, _p_blackboard: Blackboard) -> int:
 	for hurtbox in hurtboxes:
 		if hurtbox.invincible != invincible:
 			hurtbox.invincible = invincible
-			#print(hurtbox.invincible)
-	
+
+
 	return SUCCESS

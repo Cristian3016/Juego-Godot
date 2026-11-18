@@ -10,14 +10,16 @@ extends Control
 			combat_state.game_over.disconnect(_on_game_over)
 
 		combat_state = value
-		
+
 		if is_instance_valid(combat_state):
 			combat_state.game_over.connect(_on_game_over)
 
 @onready var level_music = $"../../../LevelMusic"
 
+
 func _ready() -> void:
 	visible_ui.hide()
+
 
 func _on_game_over():
 

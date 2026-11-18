@@ -1,9 +1,9 @@
 class_name PlayDeathAction
 extends ActionLeaf
 
-## Reproduce una animación de muerte y devuelve el éxito cuando termina.
 
-var actor : Node 
+var actor : Node
+
 
 func before_run(p_actor: Node, _p_blackboard: Blackboard) -> void:
 	if Engine.is_editor_hint():
@@ -23,9 +23,11 @@ func before_run(p_actor: Node, _p_blackboard: Blackboard) -> void:
 		if not actor.sprite.animation_finished.is_connected(_on_animation_finished):
 			actor.sprite.animation_finished.connect(_on_animation_finished)
 
+
 func tick(_p_actor: Node, _blackboard: Blackboard) -> int:
-	return RUNNING 
-	
+	return RUNNING
+
+
 func _on_animation_finished():
 	if not is_instance_valid(actor):
 		return

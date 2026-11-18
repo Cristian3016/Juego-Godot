@@ -5,8 +5,10 @@ const HEALTH_LABEL_SCENE = preload("res://ui/health_changed_label.tscn")
 
 @export var points: int = 500
 
+
 func _ready() -> void:
 	$AnimatedSprite2D.play("idle")
+
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):

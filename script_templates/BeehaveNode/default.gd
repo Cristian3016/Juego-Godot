@@ -1,5 +1,3 @@
-# meta-name: Default
-# meta-default: true
 extends _BASE_
 
 

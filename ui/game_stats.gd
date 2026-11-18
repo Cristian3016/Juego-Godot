@@ -32,7 +32,7 @@ var player_health : Health
 
 
 func _ready():
-	# Conectar salud del jugador
+
 	refresh_player_health()
 
 	if combat_state:
@@ -51,26 +51,23 @@ func _ready():
 		ArcadeManager.lives_changed.connect(update_lives)
 
 
-# NUEVO: actualizar salud cuando cambia el jugador
 func refresh_player_health():
-	# Desconectar jugador anterior
+
 	if is_instance_valid(player_health):
 		if player_health.health_changed.is_connected(_on_health_changed):
 			player_health.health_changed.disconnect(_on_health_changed)
 
-	# Buscar salud del nuevo jugador
+
 	player_health = get_tree().get_first_node_in_group("player_health") as Health
 
 	if player_health:
-		# Conectar nuevo jugador
+
 		if not player_health.health_changed.is_connected(_on_health_changed):
 			player_health.health_changed.connect(_on_health_changed)
 
-		# Actualizar HP del HUD
+
 		set_health(player_health.current_health)
 
-		print("HUD conectado al jugador")
-		print("HP actual: ", player_health.current_health)
 	else:
 		push_warning("No se encontro Player Health")
 

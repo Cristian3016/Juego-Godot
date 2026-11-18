@@ -15,6 +15,8 @@
 [ext_resource type="PackedScene" uid="uid://dmva5hhylsl2f" path="res://ui/pause_ui.tscn" id="12_45aep"]
 [ext_resource type="PackedScene" uid="uid://sqqyeajrxjwm" path="res://ui/level_3_final_starts_ui.tscn" id="13_tyrfw"]
 
+[sub_resource type="AudioStreamMP3" id="AudioStreamMP3_eod45"]
+
 [node name="Gameplay" type="Node" unique_id=487838948 groups=["gameplay"]]
 script = ExtResource("1_0m7cd")
 combat_state = ExtResource("2_xuee5")
@@ -75,3 +77,5 @@ layout_mode = 1
 layout_mode = 1
 
 [node name="LevelMusic" type="AudioStreamPlayer" parent="." unique_id=1586684158]
+stream = SubResource("AudioStreamMP3_eod45")
+parameters/looping = false

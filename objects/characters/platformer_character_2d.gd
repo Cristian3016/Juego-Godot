@@ -1,4 +1,3 @@
-
 class_name PlatformerCharacter2D
 extends CharacterBody2D
 
@@ -31,9 +30,11 @@ var direction : Vector2:
 	get:
 		return _direction
 
+
 func _ready() -> void:
 	if stats and stats.types.is_empty():
 		push_warning("No game object type assigned to %s stats." % name)
+
 
 func _physics_process(delta: float) -> void:
 	_apply_gravity(delta)
@@ -43,6 +44,7 @@ func _physics_process(delta: float) -> void:
 	if is_on_floor():
 		jump_count = 0
 
+
 func try_jump() -> bool:
 	if stats and stats.can_ground_jump and jump_count < max_jumps:
 		_jump()
@@ -51,15 +53,18 @@ func try_jump() -> bool:
 
 	return false
 
+
 func _jump():
 	if stats:
 		velocity.y = -stats.jump_force
 
 var gravity = ProjectSettings.get("physics/2d/default_gravity")
 
+
 func _apply_gravity(delta : float):
 	if not is_on_floor():
 		velocity.y += gravity * delta
+
 
 func _on_is_alive_changed(p_is_alive : bool):
 	if not p_is_alive and combat_state:

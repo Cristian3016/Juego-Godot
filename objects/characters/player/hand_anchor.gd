@@ -1,7 +1,6 @@
 class_name HandAnchor
 extends Node2D
 
-## Rotates the node to face the mouse cursor
 
 func _process(_delta: float) -> void:
 	var cursor_position = get_global_mouse_position()

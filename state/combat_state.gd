@@ -1,4 +1,3 @@
-
 class_name CombatState
 extends Resource
 
@@ -32,7 +31,7 @@ func report_death(p_node : Node):
 	if not is_instance_valid(p_node):
 		return
 
-	# Evitar contar dos veces la misma muerte
+
 	if p_node.has_meta("death_reported"):
 		return
 
@@ -44,28 +43,24 @@ func report_death(p_node : Node):
 
 		enemies_died += 1
 
-		# Puntos por enemigo
+
 		ArcadeManager.add_score(200)
 
-		print("Enemigos eliminados: ", enemies_died, "/", total_enemies)
 
 		if total_enemies > 0 and enemies_died == total_enemies:
-			print("LEVEL COMPLETE")
 			level_complete.emit()
 
 	elif types.has(GlobalObjectTypes.player):
 
-		# Guardar la muerte en ArcadeManager
+
 		ArcadeManager.total_player_deaths += 1
 
-		# Actualizar el contador de CombatState y el HUD
+
 		player_deaths = ArcadeManager.total_player_deaths
 
-		# Descontar una vida
+
 		ArcadeManager.lose_life()
 
-		print("Player Deaths: ", player_deaths)
-		print("Vidas restantes: ", ArcadeManager.lives)
 
 		game_over.emit()
 

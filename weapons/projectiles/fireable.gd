@@ -1,6 +1,6 @@
-class_name Fireable  
+class_name Fireable
 extends Resource
-## Object which cna be shot
+
 
 @export var display_name : StringName
 @export var icon : Texture2D

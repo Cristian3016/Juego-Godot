@@ -1,4 +1,3 @@
-
 class_name Gameplay
 extends Node
 
@@ -29,10 +28,10 @@ func _ready() -> void:
 		push_error("UI no encontrada")
 		return
 
-	# Reiniciar enemigos eliminados
+
 	combat_state.enemies_died = 0
 
-	# Conservar muertes del jugador
+
 	combat_state.player_deaths = ArcadeManager.total_player_deaths
 
 	if ArcadeManager.reset_deaths_on_continue:
@@ -40,7 +39,7 @@ func _ready() -> void:
 
 	await get_tree().process_frame
 
-	# Contar enemigos del Level 1
+
 	combat_state.total_enemies = get_tree().get_nodes_in_group("invader").size()
 
 	if not combat_state.level_complete.is_connected(_on_level_complete):
@@ -55,10 +54,6 @@ func _ready() -> void:
 		level3_ui.hide()
 
 	pause_ui.hide_pause()
-
-	print("LEVEL 1")
-	print("Enemigos totales: ", combat_state.total_enemies)
-	print("Player Deaths: ", combat_state.player_deaths)
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -84,8 +79,6 @@ func new_game():
 	combat_state.player_deaths = 0
 	combat_state.enemies_died = 0
 
-	print("Nueva partida: estadísticas reiniciadas")
-
 
 func start_level_music():
 	level_music.play()
@@ -105,51 +98,45 @@ func _on_level_complete():
 	if combat_state.enemies_died < combat_state.total_enemies:
 		return
 
-	print("LEVEL ", current_level, " COMPLETADO")
 
-	# LEVEL 3 FINAL - MISSION COMPLETE
 	if current_level == 3:
-		print("MISSION COMPLETE - DEAD SECTOR")
 
-		# Detener la música del nivel
+
 		stop_level_music()
 
-		# Buscar la pantalla final
+
 		var mission_ui = ui.get_node_or_null("MissionCompleteUI")
 
 		if mission_ui:
-			# Actualizar estadísticas reales
+
 			mission_ui.update_score()
 			mission_ui.update_lives()
 			mission_ui.update_deaths()
 
-			# NUEVO: mostrar enemigos eliminados
-			# de los tres niveles
+
 			mission_ui.update_enemies(
 				total_enemies_slain + combat_state.enemies_died
 			)
 
-			# Mostrar la pantalla de victoria
+
 			mission_ui.show()
 
-			# Desactivar controles y pausar el juego
+
 			is_game_started = false
 			get_tree().paused = true
 
-			print("MISSION COMPLETE UI MOSTRADA")
 		else:
 			push_error("No se encontró MissionCompleteUI")
 
 		return
 
-	# LEVEL 1 Y LEVEL 2
+
 	var level_complete = ui.get_node_or_null("LevelCompleteUI")
 	if level_complete:
 		level_complete.show()
 
 
 func change_level_music(path):
-	print("Buscando música: ", path)
 
 	if not ResourceLoader.exists(path):
 		push_error("La canción no existe: " + path)
@@ -165,13 +152,7 @@ func change_level_music(path):
 	level_music.stream = audio
 	level_music.play()
 
-	print("Música cargada correctamente")
-	print("Reproduciendo: ", level_music.playing)
-	print("Volumen: ", level_music.volume_db)
-	print("Bus de audio: ", level_music.bus)
 
-
-# El botón NEXT LEVEL utiliza esta función
 func change_to_next_level():
 	if changing_level:
 		return
@@ -258,14 +239,12 @@ func load_level_scene(level_scene: PackedScene, level_number: int):
 
 	if old_health:
 		saved_hp = old_health.current_health
-		print("HP guardado: ", saved_hp)
 	else:
 		push_warning("No se encontró Health del nivel anterior")
 
-	# NUEVO: acumular los enemigos del nivel terminado
+
 	total_enemies_slain += combat_state.enemies_died
 
-	print("Enemigos acumulados: ", total_enemies_slain)
 
 	combat_state.total_enemies = 0
 
@@ -276,13 +255,13 @@ func load_level_scene(level_scene: PackedScene, level_number: int):
 
 	combat_state.enemies_died = 0
 
-	# Crear el siguiente nivel
+
 	var new_level = level_scene.instantiate()
 	world.add_child(new_level)
 
 	await get_tree().process_frame
 
-	# Recuperar HP del jugador anterior
+
 	var new_health = get_tree().get_first_node_in_group("player_health") as Health
 
 	if new_health:
@@ -293,27 +272,19 @@ func load_level_scene(level_scene: PackedScene, level_number: int):
 				new_health.stats.max_health
 			)
 
-		print("HP restaurado: ", new_health.current_health)
 	else:
 		push_warning("No se encontró Health del nuevo nivel")
 
-	# Actualizar nivel actual
+
 	current_level = level_number
 
-	# Contar enemigos del nuevo nivel
+
 	combat_state.total_enemies = get_tree().get_nodes_in_group("invader").size()
 
-	# Reconectar HUD
+
 	refresh_level2_hud()
 
-	print("LEVEL ", current_level)
-	print("Enemigos totales: ", combat_state.total_enemies)
-	print("Enemigos eliminados: ", combat_state.enemies_died)
-	print("Player Deaths: ", combat_state.player_deaths)
-	print("Score: ", ArcadeManager.score)
 
-
-# Reconectar HUD con el nuevo jugador
 func refresh_level2_hud():
 	var game_stats = ui.get_node_or_null("GameStats")
 
@@ -323,12 +294,10 @@ func refresh_level2_hud():
 
 	if game_stats.has_method("refresh_player_health"):
 		game_stats.refresh_player_health()
-		print("HUD actualizado para LEVEL ", current_level)
 	else:
 		push_warning("GameStats no tiene refresh_player_health()")
 
 
-# ATAJOS TEMPORALES PARA PROBAR NIVELES
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey:
 		if not event.pressed or event.echo:
@@ -337,12 +306,10 @@ func _input(event: InputEvent) -> void:
 		if changing_level:
 			return
 
-		# F2: pasar del Level 1 al Level 2
+
 		if event.keycode == KEY_F2 and current_level == 1:
-			print("TEST: Cargando LEVEL 2")
 			change_to_next_level()
 
-		# F3: pasar del Level 2 al Level 3
+
 		elif event.keycode == KEY_F3 and current_level == 2:
-			print("TEST: Cargando LEVEL 3 FINAL")
 			change_to_next_level()

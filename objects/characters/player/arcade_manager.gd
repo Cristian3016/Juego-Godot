@@ -1,4 +1,3 @@
-
 class_name ManagerArcade
 extends Node
 
@@ -15,10 +14,10 @@ var continues := 2
 var score := 0
 var next_life_score := 3000
 
-# Muertes acumuladas del jugador
+
 var total_player_deaths := 0
 
-# Avisar si se utilizó un CONTINUE
+
 var reset_deaths_on_continue := false
 
 
@@ -60,25 +59,21 @@ func use_continue():
 	if continues > 0:
 		continues -= 1
 
-		# Recuperar las vidas
+
 		lives = 3
 		lives_changed.emit(lives)
 
-		# Reiniciar puntuacion
+
 		score = 0
 		next_life_score = 3000
 		score_changed.emit(score)
 
-		# Reiniciar muertes acumuladas
+
 		total_player_deaths = 0
 
-		# Avisar que se utilizo un continue
+
 		reset_deaths_on_continue = true
 		continue_used.emit()
-
-		print("CONTINUE UTILIZADO")
-		print("Continues restantes: ", continues)
-		print("Player Deaths reiniciado: ", total_player_deaths)
 
 
 func show_1up():
@@ -98,11 +93,9 @@ func reset_game():
 	score = 0
 	next_life_score = 3000
 
-	# Reiniciar muertes para una nueva partida
+
 	total_player_deaths = 0
 	reset_deaths_on_continue = false
 
 	lives_changed.emit(lives)
 	score_changed.emit(score)
-
-	

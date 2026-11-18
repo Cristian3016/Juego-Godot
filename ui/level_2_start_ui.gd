@@ -1,4 +1,3 @@
-
 class_name Level2StartUI
 extends Control
 

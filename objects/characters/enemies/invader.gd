@@ -5,16 +5,18 @@ extends PlatformerCharacter2D
 var player : Node2D = null
 var player_detected := false
 
+
 func _physics_process(delta):
 
 	super._physics_process(delta)
 
 	if player_detected:
 		velocity.x = 0
-		
+
 		if player:
 			var dir = sign(player.global_position.x - global_position.x)
 			scale.x = dir
+
 
 func _on_area_2d_body_entered(body) -> void:
 	if body.is_in_group("player"):
@@ -22,12 +24,14 @@ func _on_area_2d_body_entered(body) -> void:
 		player_detected = true
 		$ShootTimer.start()
 
+
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		player_detected = false
 		player = null
 		$ShootTimer.stop()
-	
+
+
 func _on_shoot_timer_timeout() -> void:
 
 	if player and projectile_scene:
