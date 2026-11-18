@@ -1,3 +1,4 @@
+
 class_name Gameplay
 extends Node
 
@@ -14,6 +15,7 @@ const LEVEL_3 = preload("res://levels/level_3_final.tscn")
 var is_game_started = false
 var changing_level = false
 var current_level = 1
+var total_enemies_slain := 0
 
 
 func _ready() -> void:
@@ -105,17 +107,45 @@ func _on_level_complete():
 
 	print("LEVEL ", current_level, " COMPLETADO")
 
-	# Level 3 es el último nivel
+	# LEVEL 3 FINAL - MISSION COMPLETE
 	if current_level == 3:
 		print("MISSION COMPLETE - DEAD SECTOR")
-		print("FINAL SCORE: ", ArcadeManager.score)
-		print("PLAYER DEATHS: ", combat_state.player_deaths)
+
+		# Detener la música del nivel
+		stop_level_music()
+
+		# Buscar la pantalla final
+		var mission_ui = ui.get_node_or_null("MissionCompleteUI")
+
+		if mission_ui:
+			# Actualizar estadísticas reales
+			mission_ui.update_score()
+			mission_ui.update_lives()
+			mission_ui.update_deaths()
+
+			# NUEVO: mostrar enemigos eliminados
+			# de los tres niveles
+			mission_ui.update_enemies(
+				total_enemies_slain + combat_state.enemies_died
+			)
+
+			# Mostrar la pantalla de victoria
+			mission_ui.show()
+
+			# Desactivar controles y pausar el juego
+			is_game_started = false
+			get_tree().paused = true
+
+			print("MISSION COMPLETE UI MOSTRADA")
+		else:
+			push_error("No se encontró MissionCompleteUI")
+
 		return
 
+	# LEVEL 1 Y LEVEL 2
 	var level_complete = ui.get_node_or_null("LevelCompleteUI")
 	if level_complete:
 		level_complete.show()
-
 
 
 func change_level_music(path):
@@ -139,7 +169,6 @@ func change_level_music(path):
 	print("Reproduciendo: ", level_music.playing)
 	print("Volumen: ", level_music.volume_db)
 	print("Bus de audio: ", level_music.bus)
-
 
 
 # El botón NEXT LEVEL utiliza esta función
@@ -170,12 +199,10 @@ func change_to_next_level():
 	changing_level = false
 
 
-# Compatibilidad con el botón que ya tenías
 func change_to_level2():
 	await change_to_next_level()
 
 
-# Nueva función para Level 3
 func change_to_level3():
 	if current_level == 2:
 		await change_to_next_level()
@@ -198,7 +225,6 @@ func show_level2_ui():
 			sfx.play()
 
 
-# NUEVO: presentación de Level 3
 func show_level3_ui():
 	get_tree().paused = true
 	is_game_started = false
@@ -222,16 +248,12 @@ func load_level2():
 	await load_level_scene(LEVEL_2, 2)
 
 
-# NUEVO: cargar Level 3
 func load_level3():
 	await load_level_scene(LEVEL_3, 3)
 
 
-# Carga niveles conservando la salud del jugador
 func load_level_scene(level_scene: PackedScene, level_number: int):
 	var saved_hp := -1
-
-	# Guardar HP del jugador anterior
 	var old_health = get_tree().get_first_node_in_group("player_health") as Health
 
 	if old_health:
@@ -240,16 +262,18 @@ func load_level_scene(level_scene: PackedScene, level_number: int):
 	else:
 		push_warning("No se encontró Health del nivel anterior")
 
-	# Desactivar contador durante el cambio
+	# NUEVO: acumular los enemigos del nivel terminado
+	total_enemies_slain += combat_state.enemies_died
+
+	print("Enemigos acumulados: ", total_enemies_slain)
+
 	combat_state.total_enemies = 0
 
-	# Eliminar el nivel anterior
 	for child in world.get_children():
 		child.queue_free()
 
 	await get_tree().process_frame
 
-	# Reiniciar enemigos eliminados
 	combat_state.enemies_died = 0
 
 	# Crear el siguiente nivel
@@ -302,6 +326,7 @@ func refresh_level2_hud():
 		print("HUD actualizado para LEVEL ", current_level)
 	else:
 		push_warning("GameStats no tiene refresh_player_health()")
+
 
 # ATAJOS TEMPORALES PARA PROBAR NIVELES
 func _input(event: InputEvent) -> void:

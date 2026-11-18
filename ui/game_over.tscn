@@ -5,8 +5,8 @@
 [ext_resource type="FontFile" uid="uid://csvjd5q1ta86m" path="res://art/fonts/m5x7.ttf" id="3_55k1u"]
 [ext_resource type="Script" uid="uid://8v26qp2w1ut6" path="res://ui/restart_game_button.gd" id="3_j1fe5"]
 [ext_resource type="AudioStream" uid="uid://cgqlk6c33ko4l" path="res://audio/sound/buttons/ButtonConfirm.ogg" id="4_xjda6"]
-[ext_resource type="AudioStream" uid="uid://dbjpgvc383wkv" path="res://sound main menu and levels/DeathSound.ogg" id="5_akjlf"]
 [ext_resource type="Script" uid="uid://duw7mtxpj4pde" path="res://ui/exit_game_button.gd" id="5_k8651"]
+[ext_resource type="AudioStream" uid="uid://b8ec7cumksx4x" path="res://audio/music main menu and levels/DeathSound1.ogg" id="7_55k1u"]
 
 [sub_resource type="Theme" id="Theme_5eixk"]
 default_font_size = 96
@@ -138,5 +138,4 @@ menu_scene = "uid://cj2l2yey0rckg"
 audio_player = NodePath("../RestartGameButton/ConfirmationSound")
 
 [node name="GameOverSound" type="AudioStreamPlayer" parent="." unique_id=1046115115]
-stream = ExtResource("5_akjlf")
-volume_db = -8.0
+stream = ExtResource("7_55k1u")

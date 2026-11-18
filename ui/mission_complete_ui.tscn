@@ -1,0 +1,106 @@
+[gd_scene format=3 uid="uid://b0di8f5am43t5"]
+
+[ext_resource type="Script" uid="uid://b60p171tu772" path="res://ui/mission_complete_ui.gd" id="1_1s8m0"]
+[ext_resource type="Theme" uid="uid://4r4e3ams87xn" path="res://ui/ui_theme.tres" id="1_ae7d5"]
+
+[node name="MissionCompleteUI" type="Control" unique_id=856388396]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1s8m0")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=629351720]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0627451, 0.07450981, 0.11372549, 1)
+
+[node name="MissionTitleLabel" type="RichTextLabel" parent="." unique_id=1765730651]
+layout_mode = 0
+offset_left = 402.0
+offset_top = 201.0
+offset_right = 1302.0
+offset_bottom = 321.0
+theme = ExtResource("1_ae7d5")
+theme_override_font_sizes/normal_font_size = 128
+bbcode_enabled = true
+text = "[center][outline_size=8][outline_color=black][color=#ff1a1a]MISSION COMPLETE[/color][/outline_color][/outline_size][/center]"
+
+[node name="ScoreLabel" type="Label" parent="." unique_id=432373615]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -234.0
+offset_top = -48.0
+offset_right = 366.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "FINAL SCORE: 000000"
+
+[node name="LivesLabel" type="Label" parent="." unique_id=1066201683]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 566.0
+offset_top = 392.0
+offset_right = 1166.0
+offset_bottom = 442.0
+theme_override_font_sizes/font_size = 32
+text = "LIVES LEFT: 0"
+
+[node name="DeathsLabel" type="Label" parent="." unique_id=230739523]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -234.0
+offset_top = 32.0
+offset_right = 366.0
+offset_bottom = 82.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "PLAYER DEATHS: 0"
+
+[node name="EnemiesLabel" type="Label" parent="." unique_id=365952146]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -234.0
+offset_top = 72.0
+offset_right = 366.0
+offset_bottom = 122.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "ENEMIES SLAIN: 0"
+
+[node name="MainMenuButton" type="Button" parent="." unique_id=1459681661]
+layout_mode = 0
+offset_left = 657.0
+offset_top = 591.0
+offset_right = 956.0
+offset_bottom = 638.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 0.101960786, 0.101960786, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.6, 0, 0, 1)
+theme_override_font_sizes/font_size = 28
+text = "BACK TO MAIN MENU
+"
+
+[connection signal="pressed" from="MainMenuButton" to="." method="_on_main_menu_button_pressed"]
